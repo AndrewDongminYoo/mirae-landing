@@ -1,22 +1,26 @@
-import { About } from "@/components/landing/about";
-import { Benefits } from "@/components/landing/benefits";
+import { CTA } from "@/components/landing/cta";
+import { FeatureRecord } from "@/components/landing/feature-record";
+import { FeatureSettings } from "@/components/landing/feature-settings";
+import { FeatureVoice } from "@/components/landing/feature-voice";
+import { FinalCTA } from "@/components/landing/final-cta";
 import { Footer } from "@/components/landing/footer";
 import { Header } from "@/components/landing/header";
 import { Hero } from "@/components/landing/hero";
-import { HowItWorks } from "@/components/landing/how-it-works";
-import { Screenshots } from "@/components/landing/screenshots";
-import { Support } from "@/components/landing/support";
+import { PainPoints } from "@/components/landing/pain-points";
+import { Problem } from "@/components/landing/problem";
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-background">
       <Header />
       <Hero />
-      <Benefits />
-      <HowItWorks />
-      <Screenshots />
-      <About />
-      <Support />
+      <Problem />
+      <PainPoints />
+      <FeatureVoice />
+      <FeatureRecord />
+      <FeatureSettings />
+      <CTA />
+      <FinalCTA />
       <Footer />
     </main>
   );
