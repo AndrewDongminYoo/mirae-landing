@@ -1,11 +1,8 @@
-import React from "react";
-import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
-const _geist = Geist({ subsets: ["latin"] });
-const _geistMono = Geist_Mono({ subsets: ["latin"] });
+import { Analytics } from "@vercel/analytics/next";
+import type { Metadata, Viewport } from "next";
+import React from "react";
 
 export const metadata: Metadata = {
   title: "donminzzi lab | Mirae - 어제의 나에게서 온 아침 메시지",

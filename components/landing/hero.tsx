@@ -1,7 +1,8 @@
+import { Apple, ChevronDown, Play } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+
 import { Button } from "@/components/ui/button";
-import { Apple, Play, ChevronDown } from "lucide-react";
 
 export function Hero() {
   return (
@@ -15,8 +16,8 @@ export function Hero() {
         className="pointer-events-none absolute inset-0 -z-10 opacity-30"
         aria-hidden="true"
       >
-        <div className="absolute right-0 top-0 h-[500px] w-[500px] -translate-y-1/4 translate-x-1/4 rounded-full bg-accent/20 blur-3xl" />
-        <div className="absolute bottom-0 left-0 h-[400px] w-[400px] translate-y-1/4 -translate-x-1/4 rounded-full bg-accent-blue/20 blur-3xl" />
+        <div className="absolute right-0 top-0 h-125 w-125 -translate-y-1/4 translate-x-1/4 rounded-full bg-accent/20 blur-3xl" />
+        <div className="absolute bottom-0 left-0 h-100 w-100 translate-y-1/4 -translate-x-1/4 rounded-full bg-accent-blue/20 blur-3xl" />
       </div>
 
       <div className="mx-auto max-w-6xl">
@@ -87,9 +88,9 @@ export function Hero() {
           <div className="relative flex items-center justify-center">
             <div className="flex gap-4 sm:gap-6">
               {/* Main Screenshot - Alarm Wake Screen */}
-              <div className="relative aspect-[9/19] w-40 sm:w-48 lg:w-56">
-                <div className="absolute inset-0 rounded-[2rem] bg-foreground/5 shadow-xl shadow-foreground/5" />
-                <div className="relative h-full w-full overflow-hidden rounded-[2rem] border border-border/50 bg-card">
+              <div className="relative aspect-9/19 w-40 sm:w-48 lg:w-56">
+                <div className="absolute inset-0 rounded-4xl bg-foreground/5 shadow-xl shadow-foreground/5" />
+                <div className="relative h-full w-full overflow-hidden rounded-4xl border border-border/50 bg-card">
                   <Image
                     src="/images/mirae-alarm-wake.png"
                     alt="Mirae 앱 알람 화면 - 어제의 당신이 남긴 메시지입니다"
@@ -102,9 +103,9 @@ export function Hero() {
 
               {/* Secondary Screenshots (hidden on very small screens) */}
               <div className="hidden flex-col gap-4 sm:flex sm:gap-6">
-                <div className="relative aspect-[9/19] w-32 sm:w-36 lg:w-44">
-                  <div className="absolute inset-0 rounded-[1.5rem] bg-foreground/5 shadow-lg shadow-foreground/5" />
-                  <div className="relative h-full w-full overflow-hidden rounded-[1.5rem] border border-border/50 bg-card">
+                <div className="relative aspect-9/19 w-32 sm:w-36 lg:w-44">
+                  <div className="absolute inset-0 rounded-3xl bg-foreground/5 shadow-lg shadow-foreground/5" />
+                  <div className="relative h-full w-full overflow-hidden rounded-3xl border border-border/50 bg-card">
                     <Image
                       src="/images/mirae-voice-record.png"
                       alt="Mirae 앱 음성 메시지 녹음 화면"
@@ -113,9 +114,9 @@ export function Hero() {
                     />
                   </div>
                 </div>
-                <div className="relative aspect-[9/19] w-32 sm:w-36 lg:w-44">
-                  <div className="absolute inset-0 rounded-[1.5rem] bg-foreground/5 shadow-lg shadow-foreground/5" />
-                  <div className="relative h-full w-full overflow-hidden rounded-[1.5rem] border border-border/50 bg-card">
+                <div className="relative aspect-9/19 w-32 sm:w-36 lg:w-44">
+                  <div className="absolute inset-0 rounded-3xl bg-foreground/5 shadow-lg shadow-foreground/5" />
+                  <div className="relative h-full w-full overflow-hidden rounded-3xl border border-border/50 bg-card">
                     <Image
                       src="/images/mirae-time-picker.png"
                       alt="Mirae 앱 알람 추가 화면"

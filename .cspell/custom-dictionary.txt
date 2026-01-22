@@ -1,2 +1,6 @@
 # Custom Dictionary Words
+cmdk
 donminzzi
+Embla
+nums
+vaul

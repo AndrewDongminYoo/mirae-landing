@@ -1,6 +1,7 @@
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
 import { Mail, Shield } from "lucide-react";
+import Link from "next/link";
+
+import { Button } from "@/components/ui/button";
 
 const policyLinks = [
   { label: "개인정보처리방침", href: "/privacy" },

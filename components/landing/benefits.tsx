@@ -1,4 +1,4 @@
-import { Heart, Sunrise, PlayCircle } from "lucide-react";
+import { Heart, PlayCircle, Sunrise } from "lucide-react";
 
 const benefits = [
   {

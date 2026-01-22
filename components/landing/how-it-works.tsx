@@ -1,4 +1,4 @@
-import { Mic, Settings, Bell } from "lucide-react";
+import { Bell, Mic, Settings } from "lucide-react";
 
 const steps = [
   {
