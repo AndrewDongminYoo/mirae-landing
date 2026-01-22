@@ -52,7 +52,7 @@ export function Screenshots() {
           </p>
         </div>
 
-        <div className="mt-12 grid gap-6 grid-cols-2 sm:grid-cols-3 lg:grid-cols-6">
+        <div className="mt-12 grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-6">
           {screenshots.map((screenshot) => (
             <figure key={screenshot.src} className="group">
               <div className="relative aspect-[9/19] overflow-hidden rounded-2xl border border-border/50 bg-card shadow-sm transition-all group-hover:shadow-md">

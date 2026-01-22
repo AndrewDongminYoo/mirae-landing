@@ -17,7 +17,7 @@ export function Support() {
     >
       <div className="mx-auto max-w-6xl">
         <div className="text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.4em] text-muted-foreground">
+          <p className="text-xs font-semibold tracking-[0.4em] text-muted-foreground uppercase">
             Support & Policies
           </p>
           <h2
@@ -27,8 +27,8 @@ export function Support() {
             문의 / 지원
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground">
-            Mirae나 donminzzi lab에 대한 문의는 언제든 환영합니다. 감각적이고
-            든든한 지원을 약속드립니다.
+            Mirae나 donminzzi lab에 대한 문의는 언제든 환영합니다. 감각적이고 든든한 지원을
+            약속드립니다.
           </p>
         </div>
 
@@ -37,12 +37,9 @@ export function Support() {
             <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-accent/20">
               <Mail className="h-6 w-6 text-accent" aria-hidden="true" />
             </div>
-            <h3 className="mt-4 text-lg font-semibold text-foreground">
-              문의 / 지원
-            </h3>
+            <h3 className="mt-4 text-lg font-semibold text-foreground">문의 / 지원</h3>
             <p className="mt-2 text-sm text-muted-foreground">
-              채용, 협업, 앱 문의 모두 환영합니다. 답장은 영업일 기준 24시간
-              내에 드립니다.
+              채용, 협업, 앱 문의 모두 환영합니다. 답장은 영업일 기준 24시간 내에 드립니다.
             </p>
             <Button
               asChild
@@ -58,20 +55,18 @@ export function Support() {
           >
             <div className="inline-flex items-center gap-3">
               <Shield className="h-5 w-5 text-accent-blue" aria-hidden="true" />
-              <h3 className="text-lg font-semibold text-foreground">
-                정책 자료
-              </h3>
+              <h3 className="text-lg font-semibold text-foreground">정책 자료</h3>
             </div>
             <p className="mt-2 text-sm text-muted-foreground">
-              정책은 언제든지 여기서 확인하세요. 링크는 실제 정책 문서가
-              준비되는 즉시 업데이트됩니다.
+              정책은 언제든지 여기서 확인하세요. 링크는 실제 정책 문서가 준비되는 즉시
+              업데이트됩니다.
             </p>
             <ul className="mt-6 space-y-3 text-sm">
               {policyLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="inline-flex items-center justify-between w-full rounded-xl border border-border/50 bg-background px-4 py-3 text-foreground transition hover:border-accent hover:text-accent"
+                    className="inline-flex w-full items-center justify-between rounded-xl border border-border/50 bg-background px-4 py-3 text-foreground transition hover:border-accent hover:text-accent"
                   >
                     <span>{link.label}</span>
                     <span aria-hidden="true">↗</span>

@@ -11,15 +11,13 @@ const benefits = [
   {
     icon: Sunrise,
     title: "아침 루틴을 더 부드럽게",
-    description:
-      "갑작스러운 알람 소리 대신, 익숙한 목소리로 하루를 천천히 시작할 수 있어요.",
+    description: "갑작스러운 알람 소리 대신, 익숙한 목소리로 하루를 천천히 시작할 수 있어요.",
     accentClass: "bg-accent-blue/20 text-accent-blue",
   },
   {
     icon: PlayCircle,
     title: "기록 → 저장 → 알람으로 재생",
-    description:
-      "간단한 3단계로 나만의 음성 알람을 만들고, 원하는 시간에 재생하세요.",
+    description: "간단한 3단계로 나만의 음성 알람을 만들고, 원하는 시간에 재생하세요.",
     accentClass: "bg-secondary text-foreground",
   },
 ];
@@ -56,9 +54,7 @@ export function Benefits() {
                 <benefit.icon className="h-6 w-6" aria-hidden="true" />
               </div>
 
-              <h3 className="mt-4 text-lg font-semibold text-foreground">
-                {benefit.title}
-              </h3>
+              <h3 className="mt-4 text-lg font-semibold text-foreground">{benefit.title}</h3>
 
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                 {benefit.description}

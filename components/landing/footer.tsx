@@ -25,8 +25,8 @@ export function Footer() {
               donminzzi lab
             </Link>
             <p className="mt-3 max-w-md text-sm leading-relaxed text-muted-foreground">
-              모바일 앱에 집중하는 1인 인디 프로덕트 스튜디오입니다. 일상에
-              도움이 되는 앱을 만듭니다.
+              모바일 앱에 집중하는 1인 인디 프로덕트 스튜디오입니다. 일상에 도움이 되는 앱을
+              만듭니다.
             </p>
 
             {/* Links */}
@@ -48,9 +48,7 @@ export function Footer() {
 
           {/* Business Info */}
           <div>
-            <h3 className="text-sm font-semibold text-foreground">
-              사업자 정보
-            </h3>
+            <h3 className="text-sm font-semibold text-foreground">사업자 정보</h3>
             <dl className="mt-4 space-y-2 text-sm text-muted-foreground">
               <div className="flex gap-2">
                 <dt className="shrink-0">상호명</dt>
@@ -81,10 +79,7 @@ export function Footer() {
               <div className="flex gap-2">
                 <dt className="shrink-0">이메일</dt>
                 <dd>
-                  <Link
-                    href="mailto:donminzzi@gmail.com"
-                    className="hover:text-foreground"
-                  >
+                  <Link href="mailto:donminzzi@gmail.com" className="hover:text-foreground">
                     donminzzi@gmail.com
                   </Link>
                 </dd>

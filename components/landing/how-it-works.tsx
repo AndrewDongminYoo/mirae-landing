@@ -23,10 +23,7 @@ const steps = [
 
 export function HowItWorks() {
   return (
-    <section
-      className="px-4 py-16 sm:px-6 sm:py-24 lg:px-8"
-      aria-labelledby="how-it-works-heading"
-    >
+    <section className="px-4 py-16 sm:px-6 sm:py-24 lg:px-8" aria-labelledby="how-it-works-heading">
       <div className="mx-auto max-w-6xl">
         <div className="text-center">
           <h2
@@ -46,24 +43,19 @@ export function HowItWorks() {
               {/* Connector line (hidden on mobile, shown on larger screens) */}
               {index < steps.length - 1 && (
                 <div
-                  className="absolute left-1/2 top-8 hidden h-0.5 w-full bg-border sm:block"
+                  className="absolute top-8 left-1/2 hidden h-0.5 w-full bg-border sm:block"
                   aria-hidden="true"
                 />
               )}
 
               <div className="relative mx-auto flex h-16 w-16 items-center justify-center rounded-2xl border border-border bg-card shadow-sm">
-                <item.icon
-                  className="h-7 w-7 text-foreground"
-                  aria-hidden="true"
-                />
-                <span className="absolute -right-1 -top-1 flex h-6 w-6 items-center justify-center rounded-full bg-accent text-xs font-bold text-accent-foreground">
+                <item.icon className="h-7 w-7 text-foreground" aria-hidden="true" />
+                <span className="absolute -top-1 -right-1 flex h-6 w-6 items-center justify-center rounded-full bg-accent text-xs font-bold text-accent-foreground">
                   {item.step}
                 </span>
               </div>
 
-              <h3 className="mt-6 text-base font-semibold text-foreground">
-                {item.title}
-              </h3>
+              <h3 className="mt-6 text-base font-semibold text-foreground">{item.title}</h3>
 
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                 {item.description}

@@ -9,15 +9,7 @@ export const metadata: Metadata = {
   description:
     "시끄러운 알람 대신, 내가 남긴 따뜻한 음성 메시지로 하루를 시작하세요. donminzzi lab이 만든 첫 번째 앱, Mirae.",
   generator: "Next.js",
-  keywords: [
-    "Mirae",
-    "미래",
-    "알람",
-    "음성메시지",
-    "아침",
-    "donminzzi lab",
-    "모바일앱",
-  ],
+  keywords: ["Mirae", "미래", "알람", "음성메시지", "아침", "donminzzi lab", "모바일앱"],
   authors: [{ name: "donminzzi lab", url: "https://donminzzi.com" }],
   icons: {
     icon: [

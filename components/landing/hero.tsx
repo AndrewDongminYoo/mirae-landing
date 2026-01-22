@@ -12,12 +12,9 @@ export function Hero() {
       aria-labelledby="hero-heading"
     >
       {/* Subtle background decoration */}
-      <div
-        className="pointer-events-none absolute inset-0 -z-10 opacity-30"
-        aria-hidden="true"
-      >
-        <div className="absolute right-0 top-0 h-125 w-125 -translate-y-1/4 translate-x-1/4 rounded-full bg-accent/20 blur-3xl" />
-        <div className="absolute bottom-0 left-0 h-100 w-100 translate-y-1/4 -translate-x-1/4 rounded-full bg-accent-blue/20 blur-3xl" />
+      <div className="pointer-events-none absolute inset-0 -z-10 opacity-30" aria-hidden="true">
+        <div className="absolute top-0 right-0 h-125 w-125 translate-x-1/4 -translate-y-1/4 rounded-full bg-accent/20 blur-3xl" />
+        <div className="absolute bottom-0 left-0 h-100 w-100 -translate-x-1/4 translate-y-1/4 rounded-full bg-accent-blue/20 blur-3xl" />
       </div>
 
       <div className="mx-auto max-w-6xl">
@@ -26,16 +23,15 @@ export function Hero() {
           <div className="text-center lg:text-left">
             <h1
               id="hero-heading"
-              className="text-pretty text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl"
+              className="text-3xl font-bold tracking-tight text-pretty text-foreground sm:text-4xl lg:text-5xl"
             >
               어제의 나에게서 온
               <br />
               아침 메시지, <span className="text-accent">Mirae</span>
             </h1>
 
-            <p className="mx-auto mt-6 max-w-xl text-pretty text-lg leading-relaxed text-muted-foreground lg:mx-0">
-              시끄러운 알람 대신, 내가 남긴 따뜻한 음성 메시지로 하루를
-              시작하세요.
+            <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-pretty text-muted-foreground lg:mx-0">
+              시끄러운 알람 대신, 내가 남긴 따뜻한 음성 메시지로 하루를 시작하세요.
             </p>
 
             {/* CTA Buttons */}
@@ -45,11 +41,7 @@ export function Hero() {
                 size="lg"
                 className="h-12 w-full gap-2 rounded-xl bg-foreground px-6 text-background hover:bg-foreground/90 sm:w-auto"
               >
-                <Link
-                  href="https://apps.apple.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+                <Link href="https://apps.apple.com" target="_blank" rel="noopener noreferrer">
                   <Apple className="h-5 w-5" />
                   App Store
                 </Link>
@@ -59,13 +51,9 @@ export function Hero() {
                 asChild
                 variant="outline"
                 size="lg"
-                className="h-12 w-full gap-2 rounded-xl border-border px-6 sm:w-auto bg-transparent"
+                className="h-12 w-full gap-2 rounded-xl border-border bg-transparent px-6 sm:w-auto"
               >
-                <Link
-                  href="https://play.google.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+                <Link href="https://play.google.com" target="_blank" rel="noopener noreferrer">
                   <Play className="h-5 w-5" />
                   Google Play
                 </Link>
