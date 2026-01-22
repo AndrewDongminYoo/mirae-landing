@@ -13,6 +13,7 @@ lint:
   disabled:
     - trivy
   enabled:
+    - oxipng@7.0.0
     - checkov@3.2.497
     - git-diff-check
     - markdownlint@0.47.0
