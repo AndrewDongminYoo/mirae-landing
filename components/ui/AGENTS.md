@@ -28,7 +28,7 @@
 
 - Use the `cn` helper from `lib/utils.ts`; never merge classes manually with `+` or template strings in these files.
 - Define variant props with `class-variance-authority`, export `VariantProps`, and let callers pass `size`, `variant`, etc.
-- Always forward refs (`React.forwardRef`) so Radix/Next focus management stays intact.
+- Always forward refs (`forwardRef`) so Radix/Next focus management stays intact.
 - Keep focus styles, `data-[state]`, and `aria` props aligned across comparable primitives to avoid visual glitches.
 - Reuse the provided `ToastViewport`, `ToastProvider`, and `toast` helper instead of creating new toast implementations.
 - Keep UI primitives stateless and purely presentational; push behavior into hooks or the consuming component.
