@@ -5,9 +5,9 @@ import type { Metadata, Viewport } from "next";
 import React from "react";
 
 export const metadata: Metadata = {
-  title: "donminzzi lab | Mirae - 어제의 나에게서 온 아침 메시지",
+  title: "Mirae - 어제의 나에게서 온 아침 메시지",
   description:
-    " 미래의 자신에게 남기는 긍정적인 메시지와 함께 아침을 맞이하게 해주는 알람앱. 시끄러운 알람 대신, 내가 남긴 따뜻한 음성 메시지로 하루를 시작하세요. donminzzi lab이 만든 첫 번째 앱, Mirae.",
+    "미래의 자신에게 남기는 긍정적인 메시지와 함께 아침을 맞이하게 해주는 알람앱. 시끄러운 알람 대신, 내가 남긴 따뜻한 음성 메시지로 하루를 시작하세요.",
   generator: "Next.js",
   keywords: ["Mirae", "미래", "알람", "음성메시지", "아침", "donminzzi lab", "모바일앱"],
   authors: [{ name: "donminzzi lab", url: "https://donminzzi.kr" }],
@@ -34,17 +34,29 @@ export const metadata: Metadata = {
     apple: "/apple-icon.png",
   },
   openGraph: {
-    title: "donminzzi lab | Mirae",
-    description: "어제의 나에게서 온 아침 메시지",
+    title: "Mirae - 어제의 나에게서 온 아침 메시지",
+    description: "미래의 자신에게 남기는 긍정적인 메시지와 함께 아침을 맞이하게 해주는 알람앱",
     type: "website",
     locale: "ko_KR",
+  },
+  appleWebApp: {
+    title: "Mirae",
+    statusBarStyle: "black",
+    capable: true,
   },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#FFFBFE",
   width: "device-width",
   initialScale: 1,
+  maximumScale: 5,
+  userScalable: false,
+  viewportFit: "cover",
+  colorScheme: "light",
+  themeColor: [
+    { media: "(prefers-color-scheme: dark)", color: "#fffbfe" },
+    { media: "(prefers-color-scheme: light)", color: "#1c1b1f" },
+  ],
 };
 
 export default function RootLayout({
