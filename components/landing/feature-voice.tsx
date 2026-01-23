@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 export function FeatureVoice() {
   return (
     <section
-      className="relative overflow-hidden bg-gradient-to-b from-accent/10 via-accent/5 to-background px-4 py-20 sm:px-6 sm:py-28 lg:px-8 lg:py-32"
+      className="relative overflow-hidden bg-linear-to-b from-accent/10 via-accent/5 to-background px-4 py-20 sm:px-6 sm:py-28 lg:px-8 lg:py-32"
       aria-labelledby="feature-voice-heading"
     >
       <div className="mx-auto max-w-6xl">
@@ -67,9 +67,9 @@ export function FeatureVoice() {
           <div className="order-1 flex justify-center lg:order-2">
             <div className="relative flex items-end gap-4">
               {/* Background Phone */}
-              <div className="relative aspect-[9/19] w-32 translate-y-8 sm:w-40 md:w-44">
-                <div className="absolute inset-0 rounded-[1.5rem] bg-foreground/5 shadow-lg" />
-                <div className="relative h-full w-full overflow-hidden rounded-[1.5rem] border border-border/50 bg-card">
+              <div className="relative aspect-9/19 w-32 translate-y-8 sm:w-40 md:w-44">
+                <div className="absolute inset-0 rounded-3xl bg-foreground/5 shadow-lg" />
+                <div className="relative h-full w-full overflow-hidden rounded-3xl border border-border/50 bg-card">
                   <Image
                     src="/images/mirae-time-picker.png"
                     alt="Mirae 앱 알람 시간 설정"
@@ -80,9 +80,9 @@ export function FeatureVoice() {
               </div>
 
               {/* Main Phone */}
-              <div className="relative aspect-[9/19] w-40 sm:w-52 md:w-56">
-                <div className="absolute inset-0 rounded-[2rem] bg-foreground/5 shadow-2xl" />
-                <div className="relative h-full w-full overflow-hidden rounded-[2rem] border border-border/50 bg-card">
+              <div className="relative aspect-9/19 w-40 sm:w-52 md:w-56">
+                <div className="absolute inset-0 rounded-4xl bg-foreground/5 shadow-2xl" />
+                <div className="relative h-full w-full overflow-hidden rounded-4xl border border-border/50 bg-card">
                   <Image
                     src="/images/mirae-alarm-wake.png"
                     alt="Mirae 앱 알람 화면 - 어제의 당신이 남긴 메시지"

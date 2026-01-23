@@ -3,15 +3,15 @@ import { AlarmClock, Frown, Volume2 } from "lucide-react";
 const painPoints = [
   {
     icon: AlarmClock,
-    label: "반복되는 알람 소리에 지침",
+    label: "확실히 깨지 못하는 애매한 알람",
   },
   {
     icon: Frown,
-    label: "아침부터 불쾌한 기분",
+    label: "좋아하던 노래도 싫어하게 되는 마법",
   },
   {
     icon: Volume2,
-    label: "의미 없이 울리는 소리",
+    label: "의미없는 알람 소리에 지치는 마음",
   },
 ];
 
@@ -53,7 +53,7 @@ export function PainPoints() {
         <div className="mt-10 text-center">
           <div className="inline-flex items-center rounded-full bg-accent px-6 py-3 sm:px-8">
             <span className="text-sm font-semibold text-accent-foreground sm:text-base">
-              기상에 대한 동기 부족
+              기분좋게 일어나고 싶다면, Mirae가 도와드릴게요!
             </span>
           </div>
         </div>
