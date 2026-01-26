@@ -4,9 +4,9 @@ import { PolicyLayout } from "@/components/policy/policy-layout";
 import { PolicySection } from "@/components/policy/policy-section";
 
 export const metadata = {
-  title: "개인정보처리방침 | Mirae",
+  title: "개인정보처리방침 | 온음(WarmWake)",
   description:
-    "Mirae(돈민찌랩)가 수집, 처리, 보관하는 개인정보 항목과 이용자 권리, 안전조치, 제3자 제공 현황, 변경 고지 방식을 안내합니다.",
+    "온음(돈민찌랩)이 수집, 처리, 보관하는 개인정보 항목과 이용자 권리, 안전조치, 제3자 제공 현황, 변경 고지 방식을 안내합니다.",
 };
 
 const autoCollection = [
@@ -76,13 +76,13 @@ export default function PrivacyPage() {
   return (
     <PolicyLayout
       title="개인정보처리방침"
-      description="Mirae(돈민찌랩)는 로컬 중심 알람 환경을 지향하며, 수집되는 정보와 처리 목적, 제3자 전달 현황, 이용자 권리와 안전 조치 등을 투명하게 안내합니다."
+      description="온음(돈민찌랩)은 로컬 중심 알람 환경을 지향하며, 수집되는 정보와 처리 목적, 제3자 전달 현황, 이용자 권리와 안전 조치 등을 투명하게 안내합니다."
       highlight="개인정보는 기본적으로 로컬에만 저장되며, 외부 전송은 품질 개선/오류 대응을 위한 최소한의 범위로 제한됩니다."
       updatedAt="2026-01-22"
     >
       <PolicySection id="collection" heading="1. 수집하는 정보">
         <p>
-          Mirae는 회원가입 없이 이용 가능한 로컬 중심 알람 앱입니다. 따라서 알람 설정·음성 메시지 등
+          온음은 회원가입 없이 이용 가능한 로컬 중심 알람 앱입니다. 따라서 알람 설정·음성 메시지 등
           콘텐츠를 서버에 저장하지 않습니다. 다만 앱 품질 개선과 오류 대응을 위해 일부 정보가
           자동으로 생성되어 수집·전송될 수 있습니다.
         </p>
@@ -126,7 +126,7 @@ export default function PrivacyPage() {
 
       <PolicySection id="third-parties" heading="3. 제3자 제공 및 처리위탁(외부 서비스)">
         <p>
-          Mirae는 개인정보를 원칙적으로 제3자에게 제공하지 않습니다. 다만 앱 운영을 위해 아래와 같은
+          온음은 개인정보를 원칙적으로 제3자에게 제공하지 않습니다. 다만 앱 운영을 위해 아래와 같은
           처리위탁 서비스를 이용하며, 일부 정보가 이 과정에서 전송될 수 있습니다.
         </p>
         <div className="overflow-x-auto">
@@ -162,7 +162,7 @@ export default function PrivacyPage() {
       <PolicySection id="overseas" heading="4. 개인정보의 국외 이전">
         <p>
           외부 서비스 제공사의 서버는 국외에 위치할 수 있으므로 정보가 이전될 수 있으며, 그
-          항목·목적·보유기간은 각 제공사 정책을 따릅니다. Mirae는 최소한의 범위로 전송되도록
+          항목·목적·보유기간은 각 제공사 정책을 따릅니다. 온음은 최소한의 범위로 전송되도록
           구성합니다.
         </p>
       </PolicySection>

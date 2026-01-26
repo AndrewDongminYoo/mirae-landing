@@ -1,10 +1,10 @@
-# Mirae Web project guidelines
+# 온음(WarmWake) Web project guidelines
 
 ## Project overview
 
-- `mirae-web` is a Next.js 16 (App Router) + TypeScript landing page for Mirae/donminzzi lab that leans into a warm, minimal “warm morning” mood with sticky navigation, hero, benefits, how-it-works flow, screenshot gallery, about/support cards, and footer that references the brand details and policy placeholders.
+- `warmwake-web` is a Next.js 16 (App Router) + TypeScript landing page for 온음(WarmWake)/donminzzi lab that leans into a warm, minimal “warm morning” mood with sticky navigation, hero, benefits, how-it-works flow, screenshot gallery, about/support cards, and footer that references the brand details and policy placeholders.
 - `app/page.tsx` renders the Header → Hero → Benefits → HowItWorks → Screenshots → About → Support → Footer stack, while `components/landing/*` holds the individual section components and `components/ui/button.tsx` provides CVA-driven CTA/button variants.
-- Global layout (`app/layout.tsx`) wires up `<html lang="ko">`, Geist/Geist Mono fonts, Open Graph/kewords metadata, analytics, and `viewport.themeColor = #FFFBFE`, and `public/images/mirae-*.png` supplies the hero/screenshot visuals.
+- Global layout (`app/layout.tsx`) wires up `<html lang="ko">`, Geist/Geist Mono fonts, Open Graph/keywords metadata, analytics, and `viewport.themeColor = #FFFBFE`, and `public/images/warmwake-*.png` supplies the hero/screenshot visuals.
 - Styling relies on Tailwind CSS 4 with `@theme inline` vars defined in `app/globals.css`, shared color/radius/shadow tokens, plus `tw-animate-css` for subtle motion and `next-themes` toggling the light/dark palettes.
 
 ## Style conventions

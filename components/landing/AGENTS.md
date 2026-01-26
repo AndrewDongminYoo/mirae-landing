@@ -17,12 +17,12 @@
 ## Where to look
 
 - `Hero.tsx` for the top banner, `Button`/`Link` combos, `Apple` + `Play` buttons, and the priority mockup.
-- `FeatureVoice.tsx`, `FeatureRecord.tsx`, `FeatureSettings.tsx` for the three gradient sections that reuse `public/images/mirae-*.png` assets.
+- `FeatureVoice.tsx`, `FeatureRecord.tsx`, `FeatureSettings.tsx` for the three gradient sections that reuse `public/images/warmwake-*.png` assets.
 - `CTA.tsx` and `FinalCTA.tsx` for the text-to-CTA transitions and the final dark panel with decorative circles.
 - `Header.tsx` for the sticky navigation, App Store CTA, and the `Button variant="ghost"` mobile toggle.
 - `Footer.tsx` for the footer nav, conditional year, and the collapsible business info `<details>`.
 - `Problem.tsx` + `PainPoints.tsx` for the softer messaging before features and the icon/CTA pill layout.
-- `public/images` owns the mockups (`mirae-time-picker.png`, `mirae-alarm-wake.png`, `mirae-voice-record.png`, `mirae-settings.png`, `mirae-theme-light.png`, `mirae-alarm-sounds.png`).
+- `public/images` owns the mockups (`warmwake-time-picker.png`, `warmwake-alarm-wake.png`, `warmwake-voice-record.png`, `warmwake-settings.png`, `warmwake-theme-light.png`, `warmwake-alarm-sounds.png`).
 
 ## Conventions
 

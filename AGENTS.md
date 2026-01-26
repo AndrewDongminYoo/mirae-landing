@@ -1,6 +1,6 @@
 ## Overview
 
-- Mirae is a Next 16 App Router marketing site, built with pnpm + Tailwind 4.
+- 온음(WarmWake) is a Next 16 App Router marketing site, built with pnpm + Tailwind 4.
 - Landing sections are server components that lean on a shared design system and two legal pages.
 
 ## Structure tree
@@ -18,7 +18,7 @@
 - `app/privacy` and `app/terms` render policy copy through `components/policy/policy-layout.tsx` and `policy-section.tsx`.
 - `components/ui/` defines the CVA-driven primitives, toast system, and reusable icon/button patterns.
 - `styles/globals.css` wires Tailwind 4, `tw-animate-css`, the oklch tokens, and `@theme inline` alias.
-- `public/images/` stores the `mirae-*.png` mockups used by `Hero` and the feature sections.
+- `public/images/` stores the `warmwake-*.png` mockups used by `Hero` and the feature sections.
 
 ## Code map
 

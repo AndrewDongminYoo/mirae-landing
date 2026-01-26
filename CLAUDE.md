@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Mirae Web is a Next.js 16 marketing site for the Mirae alarm app. It uses the App Router with React 19, Tailwind CSS v4, and Radix UI primitives. The site includes a landing page with feature showcases and legal (privacy/terms) pages.
+온음(WarmWake) Web is a Next.js 16 marketing site for the 온음 alarm app. It uses the App Router with React 19, Tailwind CSS v4, and Radix UI primitives. The site includes a landing page with feature showcases and legal (privacy/terms) pages.
 
 ## Commands
 

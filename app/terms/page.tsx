@@ -4,9 +4,9 @@ import { PolicyLayout } from "@/components/policy/policy-layout";
 import { PolicySection } from "@/components/policy/policy-section";
 
 export const metadata = {
-  title: "이용약관 | Mirae",
+  title: "이용약관 | 온음(WarmWake)",
   description:
-    "donminzzi lab이 제공하는 Mirae 서비스 이용자와 운영자의 권리·의무, 책임, 콘텐츠 처리 기준, 분쟁 해결 방식을 정리한 이용약관.",
+    "donminzzi lab이 제공하는 온음(WarmWake) 서비스 이용자와 운영자의 권리·의무, 책임, 콘텐츠 처리 기준, 분쟁 해결 방식을 정리한 이용약관.",
 };
 
 const userObligations = [
@@ -26,13 +26,13 @@ export default function TermsPage() {
   return (
     <PolicyLayout
       title="이용약관"
-      description="본 약관은 Mirae 서비스 이용과 관련한 운영자(돈민찌랩)와 이용자 간의 권리·의무, 책임 범위 및 분쟁 해결 원칙을 정의합니다."
+      description="본 약관은 온음(WarmWake) 서비스 이용과 관련한 운영자(돈민찌랩)와 이용자 간의 권리·의무, 책임 범위 및 분쟁 해결 원칙을 정의합니다."
       highlight="서비스 이용에 앞서 약관을 충분히 숙지하시고, 변경 시 공지 이전에 검토해 주세요."
       updatedAt="2026-01-22"
     >
       <PolicySection id="purpose" heading="1. 목적">
         <p>
-          본 약관은 운영자와 이용자가 Mirae 서비스를 이용함에 있어 필요한 권리·의무 및 책임사항을
+          본 약관은 운영자와 이용자가 온음 서비스를 이용함에 있어 필요한 권리·의무 및 책임사항을
           규정합니다.
         </p>
       </PolicySection>

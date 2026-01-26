@@ -1,8 +1,11 @@
 # Custom Dictionary Words
+AAID
 cmdk
 donminzzi
 Embla
+IDFA
 nums
 oklch
 subcopy
 vaul
+warmwake
