@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 export function Hero() {
   return (
     <section
-      id="mirae"
+      id="warmwake"
       className="relative overflow-hidden bg-background px-4 pt-20 pb-8 sm:px-6 sm:pt-28 sm:pb-16 lg:px-8 lg:pt-32 lg:pb-24"
       aria-labelledby="hero-heading"
     >
@@ -18,7 +18,7 @@ export function Hero() {
 
       <div className="mx-auto max-w-5xl text-center">
         {/* Logo / App Name */}
-        <p className="text-sm font-semibold tracking-widest text-accent uppercase">Mirae</p>
+        <p className="text-sm font-semibold tracking-widest text-accent uppercase">WarmWake</p>
 
         {/* Main Headline */}
         <h1
@@ -67,8 +67,8 @@ export function Hero() {
             <div className="absolute inset-0 rounded-[1.25rem] bg-foreground/5 shadow-lg sm:rounded-3xl" />
             <div className="relative h-full w-full overflow-hidden rounded-[1.25rem] border border-border/50 bg-card sm:rounded-3xl">
               <Image
-                src="/images/mirae-time-picker.png"
-                alt="Mirae 앱 알람 시간 설정 화면"
+                src="/images/warmwake-time-picker.png"
+                alt="온음 앱 알람 시간 설정 화면"
                 fill
                 className="object-cover"
               />
@@ -80,8 +80,8 @@ export function Hero() {
             <div className="absolute inset-0 rounded-[1.75rem] bg-foreground/5 shadow-2xl sm:rounded-4xl" />
             <div className="relative h-full w-full overflow-hidden rounded-[1.75rem] border border-border/50 bg-card sm:rounded-4xl">
               <Image
-                src="/images/mirae-alarm-wake.png"
-                alt="Mirae 앱 알람 화면 - 어제의 당신이 남긴 메시지입니다"
+                src="/images/warmwake-alarm-wake.png"
+                alt="온음 앱 알람 화면 - 어제의 당신이 남긴 메시지입니다"
                 fill
                 className="object-cover"
                 priority
@@ -94,8 +94,8 @@ export function Hero() {
             <div className="absolute inset-0 rounded-[1.25rem] bg-foreground/5 shadow-lg sm:rounded-3xl" />
             <div className="relative h-full w-full overflow-hidden rounded-[1.25rem] border border-border/50 bg-card sm:rounded-3xl">
               <Image
-                src="/images/mirae-voice-record.png"
-                alt="Mirae 앱 음성 메시지 녹음 화면"
+                src="/images/warmwake-voice-record.png"
+                alt="온음 앱 음성 메시지 녹음 화면"
                 fill
                 className="object-cover"
               />

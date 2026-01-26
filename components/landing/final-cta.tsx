@@ -26,7 +26,7 @@ export function FinalCTA() {
               id="final-cta-heading"
               className="mt-3 text-2xl font-bold tracking-tight text-balance text-background sm:text-3xl md:text-4xl"
             >
-              Mirae와 함께
+              온음과 함께
               <br />
               <span className="text-accent">기분 좋은 아침</span>을 시작해보세요
             </h2>
@@ -64,8 +64,8 @@ export function FinalCTA() {
               <div className="absolute inset-0 rounded-[2.5rem] bg-background/10 shadow-2xl" />
               <div className="relative h-full w-full overflow-hidden rounded-[2.5rem] border border-background/20 bg-card">
                 <Image
-                  src="/images/mirae-alarm-wake.png"
-                  alt="Mirae 앱 알람 화면"
+                  src="/images/warmwake-alarm-wake.png"
+                  alt="온음 앱 알람 화면"
                   fill
                   className="object-cover"
                 />

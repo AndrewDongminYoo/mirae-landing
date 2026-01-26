@@ -16,7 +16,7 @@ export function Header() {
           href="/"
           className="text-base font-semibold tracking-tight text-foreground transition-colors hover:text-foreground/80 sm:text-lg"
         >
-          Mirae
+          온음
         </Link>
 
         {/* Desktop CTA */}

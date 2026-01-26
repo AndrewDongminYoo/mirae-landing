@@ -17,7 +17,7 @@ export function FeatureVoice() {
             {/* Logo */}
             <div className="inline-flex items-center gap-2">
               <span className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
-                Mirae
+                온음
               </span>
             </div>
 
@@ -71,8 +71,8 @@ export function FeatureVoice() {
                 <div className="absolute inset-0 rounded-3xl bg-foreground/5 shadow-lg" />
                 <div className="relative h-full w-full overflow-hidden rounded-3xl border border-border/50 bg-card">
                   <Image
-                    src="/images/mirae-time-picker.png"
-                    alt="Mirae 앱 알람 시간 설정"
+                    src="/images/warmwake-time-picker.png"
+                    alt="온음 앱 알람 시간 설정"
                     fill
                     className="object-cover"
                   />
@@ -84,8 +84,8 @@ export function FeatureVoice() {
                 <div className="absolute inset-0 rounded-4xl bg-foreground/5 shadow-2xl" />
                 <div className="relative h-full w-full overflow-hidden rounded-4xl border border-border/50 bg-card">
                   <Image
-                    src="/images/mirae-alarm-wake.png"
-                    alt="Mirae 앱 알람 화면 - 어제의 당신이 남긴 메시지"
+                    src="/images/warmwake-alarm-wake.png"
+                    alt="온음 앱 알람 화면 - 어제의 당신이 남긴 메시지"
                     fill
                     className="object-cover"
                   />

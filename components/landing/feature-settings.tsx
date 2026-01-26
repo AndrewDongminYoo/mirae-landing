@@ -48,8 +48,8 @@ export function FeatureSettings() {
                 <div className="absolute inset-0 rounded-3xl bg-foreground/5 shadow-lg" />
                 <div className="relative h-full w-full overflow-hidden rounded-3xl border border-border/50 bg-card">
                   <Image
-                    src="/images/mirae-theme-light.png"
-                    alt="Mirae 앱 테마 선택 화면"
+                    src="/images/warmwake-theme-light.png"
+                    alt="온음 앱 테마 선택 화면"
                     fill
                     className="object-cover"
                   />
@@ -61,8 +61,8 @@ export function FeatureSettings() {
                 <div className="absolute inset-0 rounded-4xl bg-foreground/5 shadow-2xl" />
                 <div className="relative h-full w-full overflow-hidden rounded-4xl border border-border/50 bg-card">
                   <Image
-                    src="/images/mirae-settings.png"
-                    alt="Mirae 앱 설정 화면"
+                    src="/images/warmwake-settings.png"
+                    alt="온음 앱 설정 화면"
                     fill
                     className="object-cover"
                   />

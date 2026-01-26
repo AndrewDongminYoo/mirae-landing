@@ -5,11 +5,11 @@ import type { Metadata, Viewport } from "next";
 import React from "react";
 
 export const metadata: Metadata = {
-  title: "Mirae - 어제의 나에게서 온 아침 메시지",
+  title: "온음(WarmWake) - 어제의 나에게서 온 아침 메시지",
   description:
     "미래의 자신에게 남기는 긍정적인 메시지와 함께 아침을 맞이하게 해주는 알람앱. 시끄러운 알람 대신, 내가 남긴 따뜻한 음성 메시지로 하루를 시작하세요.",
   generator: "Next.js",
-  keywords: ["Mirae", "미래", "알람", "음성메시지", "아침", "donminzzi lab", "모바일앱"],
+  keywords: ["온음", "WarmWake", "알람", "음성메시지", "아침", "donminzzi lab", "모바일앱"],
   authors: [{ name: "donminzzi lab", url: "https://donminzzi.kr" }],
   icons: {
     icon: [
@@ -34,13 +34,13 @@ export const metadata: Metadata = {
     apple: "/apple-icon.png",
   },
   openGraph: {
-    title: "Mirae - 어제의 나에게서 온 아침 메시지",
+    title: "온음(WarmWake) - 어제의 나에게서 온 아침 메시지",
     description: "미래의 자신에게 남기는 긍정적인 메시지와 함께 아침을 맞이하게 해주는 알람앱",
     type: "website",
     locale: "ko_KR",
   },
   appleWebApp: {
-    title: "Mirae",
+    title: "온음",
     statusBarStyle: "black",
     capable: true,
   },

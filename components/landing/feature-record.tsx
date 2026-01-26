@@ -16,8 +16,8 @@ export function FeatureRecord() {
                 <div className="absolute inset-0 rounded-3xl bg-foreground/5 shadow-lg" />
                 <div className="relative h-full w-full overflow-hidden rounded-3xl border border-border/50 bg-card">
                   <Image
-                    src="/images/mirae-alarm-sounds.png"
-                    alt="Mirae 앱 알람 소리 선택"
+                    src="/images/warmwake-alarm-sounds.png"
+                    alt="온음 앱 알람 소리 선택"
                     fill
                     className="object-cover"
                   />
@@ -29,8 +29,8 @@ export function FeatureRecord() {
                 <div className="absolute inset-0 rounded-4xl bg-foreground/5 shadow-2xl" />
                 <div className="relative h-full w-full overflow-hidden rounded-4xl border border-border/50 bg-card">
                   <Image
-                    src="/images/mirae-voice-record.png"
-                    alt="Mirae 앱 음성 메시지 녹음 화면"
+                    src="/images/warmwake-voice-record.png"
+                    alt="온음 앱 음성 메시지 녹음 화면"
                     fill
                     className="object-cover"
                   />

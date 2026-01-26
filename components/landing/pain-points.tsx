@@ -53,7 +53,7 @@ export function PainPoints() {
         <div className="mt-10 text-center">
           <div className="inline-flex items-center rounded-full bg-accent px-6 py-3 sm:px-8">
             <span className="text-sm font-semibold text-accent-foreground sm:text-base">
-              기분좋게 일어나고 싶다면, Mirae가 도와드릴게요!
+              기분좋게 일어나고 싶다면, 온음이 도와드릴게요!
             </span>
           </div>
         </div>
