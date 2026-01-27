@@ -5,10 +5,17 @@ import nextTs from "eslint-config-next/typescript";
 import prettier from "eslint-config-prettier";
 import pluginJest from "eslint-plugin-jest";
 import perfectionist from "eslint-plugin-perfectionist";
+import reactHooks from "eslint-plugin-react-hooks";
 import importSort from "eslint-plugin-simple-import-sort";
 import globals from "globals";
 import tseslint from "typescript-eslint";
 
+/**
+ * Flat ESLint config for a Next.js 16 + TypeScript + Tailwind stack.
+ * - Uses type-aware rules (`project` set to tsconfig.json).
+ * - Enforces Next.js Core Web Vitals rules.
+ * - Adds React Hooks safety and import/JSX sorting.
+ */
 const eslintConfig = [
   {
     ignores: [".next/"],
@@ -19,16 +26,49 @@ const eslintConfig = [
   ...tseslint.configs.recommended,
   prettier,
   {
-    files: ["**/*.{js,mjs,cjs,jsx,ts,tsx}"],
+    files: ["**/*.{ts,tsx}"],
+    languageOptions: {
+      parser: tseslint.parser,
+    },
     plugins: {
-      "simple-import-sort": importSort,
+      "@typescript-eslint": tseslint.plugin,
+    },
+    rules: {
+      // Specifiers written only as `type` are now required to include `type` + auto-correction
+      "@typescript-eslint/consistent-type-imports": [
+        "error",
+        {
+          prefer: "type-imports",
+          fixStyle: "inline-type-imports",
+        },
+      ],
+
+      // (Optional) Prevents mistakes from incorrectly using side-effect imports via type imports
+      "@typescript-eslint/no-import-type-side-effects": "error",
+
+      "@typescript-eslint/no-unused-vars": [
+        "error",
+        {
+          args: "all",
+          argsIgnorePattern: "^_",
+          caughtErrors: "all",
+          caughtErrorsIgnorePattern: "^_",
+          destructuredArrayIgnorePattern: "^_",
+          varsIgnorePattern: "^_",
+          ignoreRestSiblings: true,
+        },
+      ],
+    },
+  },
+  {
+    files: ["**/*.{jsx,tsx}"],
+    languageOptions: {
+      parser: tseslint.parser,
+    },
+    plugins: {
       perfectionist,
     },
     rules: {
-      ...nextPlugin.configs.recommended.rules,
-      ...nextPlugin.configs["core-web-vitals"].rules,
-      "simple-import-sort/imports": "error",
-      "simple-import-sort/exports": "error",
       "perfectionist/sort-jsx-props": [
         "error",
         {
@@ -36,6 +76,21 @@ const eslintConfig = [
           order: "asc",
         },
       ],
+    },
+  },
+  {
+    files: ["**/*.{js,mjs,cjs,jsx,ts,tsx}"],
+    plugins: {
+      "react-hooks": reactHooks,
+      "simple-import-sort": importSort,
+    },
+    rules: {
+      ...nextPlugin.configs.recommended.rules,
+      ...nextPlugin.configs["core-web-vitals"].rules,
+      "react-hooks/rules-of-hooks": "error",
+      "react-hooks/exhaustive-deps": "warn",
+      "simple-import-sort/imports": "error",
+      "simple-import-sort/exports": "error",
     },
     languageOptions: {
       globals: {
