@@ -43,8 +43,8 @@ export function PolicyLayout({
             <p className="mt-6 text-sm text-muted-foreground">
               추가 문의는{" "}
               <Link
-                href="mailto:donminzzi@gmail.com"
                 className="font-semibold text-foreground transition-colors hover:text-foreground/80"
+                href="mailto:donminzzi@gmail.com"
               >
                 donminzzi@gmail.com
               </Link>

@@ -75,12 +75,12 @@ const thirdPartyPartners = [
 export default function PrivacyPage() {
   return (
     <PolicyLayout
-      title="개인정보처리방침"
       description="온음(돈민찌랩)은 로컬 중심 알람 환경을 지향하며, 수집되는 정보와 처리 목적, 제3자 전달 현황, 이용자 권리와 안전 조치 등을 투명하게 안내합니다."
       highlight="개인정보는 기본적으로 로컬에만 저장되며, 외부 전송은 품질 개선/오류 대응을 위한 최소한의 범위로 제한됩니다."
+      title="개인정보처리방침"
       updatedAt="2026-01-22"
     >
-      <PolicySection id="collection" heading="1. 수집하는 정보">
+      <PolicySection heading="1. 수집하는 정보" id="collection">
         <p>
           온음은 회원가입 없이 이용 가능한 로컬 중심 알람 앱입니다. 따라서 알람 설정·음성 메시지 등
           콘텐츠를 서버에 저장하지 않습니다. 다만 앱 품질 개선과 오류 대응을 위해 일부 정보가
@@ -116,7 +116,7 @@ export default function PrivacyPage() {
         </div>
       </PolicySection>
 
-      <PolicySection id="purposes" heading="2. 정보의 이용 목적">
+      <PolicySection heading="2. 정보의 이용 목적" id="purposes">
         <ul className="list-decimal space-y-2 pl-5">
           <li>서비스 제공 및 기능 동작(공지성 푸시 포함)</li>
           <li>품질 개선 및 통계 분석(사용성 개선, 기능 우선순위 결정 등)</li>
@@ -124,7 +124,7 @@ export default function PrivacyPage() {
         </ul>
       </PolicySection>
 
-      <PolicySection id="third-parties" heading="3. 제3자 제공 및 처리위탁(외부 서비스)">
+      <PolicySection heading="3. 제3자 제공 및 처리위탁(외부 서비스)" id="third-parties">
         <p>
           온음은 개인정보를 원칙적으로 제3자에게 제공하지 않습니다. 다만 앱 운영을 위해 아래와 같은
           처리위탁 서비스를 이용하며, 일부 정보가 이 과정에서 전송될 수 있습니다.
@@ -142,7 +142,7 @@ export default function PrivacyPage() {
             </thead>
             <tbody>
               {thirdPartyPartners.map((partner) => (
-                <tr key={partner.provider} className="border-t border-border/50">
+                <tr className="border-t border-border/50" key={partner.provider}>
                   <td className="px-3 py-2 font-semibold text-foreground">{partner.category}</td>
                   <td className="px-3 py-2 text-muted-foreground">{partner.provider}</td>
                   <td className="px-3 py-2 text-muted-foreground">{partner.purpose}</td>
@@ -159,7 +159,7 @@ export default function PrivacyPage() {
         </p>
       </PolicySection>
 
-      <PolicySection id="overseas" heading="4. 개인정보의 국외 이전">
+      <PolicySection heading="4. 개인정보의 국외 이전" id="overseas">
         <p>
           외부 서비스 제공사의 서버는 국외에 위치할 수 있으므로 정보가 이전될 수 있으며, 그
           항목·목적·보유기간은 각 제공사 정책을 따릅니다. 온음은 최소한의 범위로 전송되도록
@@ -167,7 +167,7 @@ export default function PrivacyPage() {
         </p>
       </PolicySection>
 
-      <PolicySection id="retention" heading="5. 보유 및 이용 기간">
+      <PolicySection heading="5. 보유 및 이용 기간" id="retention">
         <ul className="list-disc space-y-2 pl-5">
           <li>분석·오류·크래시·푸시 관련 로그: 제공사 정책에 따라 보관 후 삭제</li>
           <li>
@@ -177,14 +177,14 @@ export default function PrivacyPage() {
         </ul>
       </PolicySection>
 
-      <PolicySection id="deletion" heading="6. 파기 절차 및 방법">
+      <PolicySection heading="6. 파기 절차 및 방법" id="deletion">
         <ul className="list-disc space-y-2 pl-5">
           <li>전자적 파일 형태의 정보는 복구 불가능한 방식으로 삭제합니다.</li>
           <li>처리위탁사 시스템에 저장된 정보는 제공사 정책 및 계약에 따라 삭제합니다.</li>
         </ul>
       </PolicySection>
 
-      <PolicySection id="rights" heading="7. 이용자의 권리">
+      <PolicySection heading="7. 이용자의 권리" id="rights">
         <p>
           이용자는 열람·정정·삭제·처리정지 등을 요청할 수 있으며, 설정 기능으로 분석/오류 수집을
           제한할 수 있습니다.
@@ -193,7 +193,7 @@ export default function PrivacyPage() {
         <p className="font-semibold text-foreground">문의처: donminzzi@gmail.com</p>
       </PolicySection>
 
-      <PolicySection id="security" heading="8. 안전성 확보 조치">
+      <PolicySection heading="8. 안전성 확보 조치" id="security">
         <ul className="list-disc space-y-2 pl-5">
           <li>전송 구간 암호화(HTTPS 등)를 적용합니다.</li>
           <li>접근 권한을 최소화합니다.</li>
@@ -201,7 +201,7 @@ export default function PrivacyPage() {
         </ul>
       </PolicySection>
 
-      <PolicySection id="changes" heading="9. 방침 변경">
+      <PolicySection heading="9. 방침 변경" id="changes">
         <p>
           법령 및 서비스 변경에 따라 방침을 개정할 수 있으며, 중요한 변경 시 공지 또는 웹사이트에서
           안내합니다.

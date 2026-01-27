@@ -18,14 +18,14 @@ const painPoints = [
 export function PainPoints() {
   return (
     <section
-      className="bg-foreground px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24"
       aria-labelledby="pain-points-heading"
+      className="bg-foreground px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24"
     >
       <div className="mx-auto max-w-4xl">
         <div className="text-center">
           <h2
-            id="pain-points-heading"
             className="text-xl font-bold tracking-tight text-balance text-background sm:text-2xl md:text-3xl"
+            id="pain-points-heading"
           >
             매번 반복되고 지겨운 알람,
             <br />
@@ -36,12 +36,12 @@ export function PainPoints() {
         <div className="mt-12 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
           {painPoints.map((point) => (
             <div
-              key={point.label}
               className="flex items-center gap-2.5 rounded-full border border-background/20 bg-background/10 px-4 py-2.5 sm:px-5 sm:py-3"
+              key={point.label}
             >
               <point.icon
-                className="h-4 w-4 shrink-0 text-accent sm:h-5 sm:w-5"
                 aria-hidden="true"
+                className="h-4 w-4 shrink-0 text-accent sm:h-5 sm:w-5"
               />
               <span className="text-sm font-medium text-background sm:text-base">
                 {point.label}

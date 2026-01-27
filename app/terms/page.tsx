@@ -25,19 +25,19 @@ const liabilityLimits = [
 export default function TermsPage() {
   return (
     <PolicyLayout
-      title="이용약관"
       description="본 약관은 온음(WarmWake) 서비스 이용과 관련한 운영자(돈민찌랩)와 이용자 간의 권리·의무, 책임 범위 및 분쟁 해결 원칙을 정의합니다."
       highlight="서비스 이용에 앞서 약관을 충분히 숙지하시고, 변경 시 공지 이전에 검토해 주세요."
+      title="이용약관"
       updatedAt="2026-01-22"
     >
-      <PolicySection id="purpose" heading="1. 목적">
+      <PolicySection heading="1. 목적" id="purpose">
         <p>
           본 약관은 운영자와 이용자가 온음 서비스를 이용함에 있어 필요한 권리·의무 및 책임사항을
           규정합니다.
         </p>
       </PolicySection>
 
-      <PolicySection id="definition" heading="2. 정의">
+      <PolicySection heading="2. 정의" id="definition">
         <ul className="list-disc space-y-2 pl-5">
           <li>
             “서비스”는 이용자가 알람 설정과 음성 메시지를 활용해 기상할 수 있는 모바일 애플리케이션
@@ -48,7 +48,7 @@ export default function TermsPage() {
         </ul>
       </PolicySection>
 
-      <PolicySection id="effect" heading="3. 약관의 효력 및 변경">
+      <PolicySection heading="3. 약관의 효력 및 변경" id="effect">
         <p>약관은 서비스 내 또는 운영자가 제공하는 웹페이지에 게시한 시점부터 효력이 발생합니다.</p>
         <p>
           운영자는 관련 법령을 위반하지 않는 범위에서 약관을 변경할 수 있으며, 중요한 변경은 시행일
@@ -60,7 +60,7 @@ export default function TermsPage() {
         </p>
       </PolicySection>
 
-      <PolicySection id="service" heading="4. 서비스 제공">
+      <PolicySection heading="4. 서비스 제공" id="service">
         <ul className="list-disc space-y-2 pl-5">
           <li>알람 설정 및 실행</li>
           <li>선택적 음성 메시지 녹음/재생</li>
@@ -69,7 +69,7 @@ export default function TermsPage() {
         <p>기본적으로 계정 없이 이용 가능하며, 이용자 콘텐츠는 기기에 로컬 저장됩니다.</p>
       </PolicySection>
 
-      <PolicySection id="limitation" heading="5. 서비스 이용 제한 및 중단">
+      <PolicySection heading="5. 서비스 이용 제한 및 중단" id="limitation">
         <p>
           운영자는 정기 점검·교체, 고장, 통신 장애, 보안 이슈 등으로 인해 서비스 제공을 일시 중단할
           수 있습니다.
@@ -77,7 +77,7 @@ export default function TermsPage() {
         <p>불가피한 경우 사후 공지할 수 있습니다.</p>
       </PolicySection>
 
-      <PolicySection id="user-obligations" heading="6. 이용자의 의무">
+      <PolicySection heading="6. 이용자의 의무" id="user-obligations">
         <ul className="list-disc space-y-2 pl-5">
           {userObligations.map((item) => (
             <li key={item}>{item}</li>
@@ -85,7 +85,7 @@ export default function TermsPage() {
         </ul>
       </PolicySection>
 
-      <PolicySection id="contents" heading="7. 콘텐츠 및 데이터">
+      <PolicySection heading="7. 콘텐츠 및 데이터" id="contents">
         <p>
           이용자가 생성한 콘텐츠(예: 음성 녹음)는 원칙적으로 이용자 기기에 저장되며, 운영자는 서버에
           저장/보관하지 않습니다.
@@ -97,22 +97,22 @@ export default function TermsPage() {
         <p>OS 기능(백업/동기화 등)을 통한 간접 백업은 해당 OS 제공자의 정책을 따릅니다.</p>
       </PolicySection>
 
-      <PolicySection id="ip" heading="8. 지식재산권">
+      <PolicySection heading="8. 지식재산권" id="ip">
         <p>서비스 및 앱에 대한 저작권과 지식재산권은 운영자 또는 정당한 권리자에게 귀속합니다.</p>
         <p>운영자의 사전 허락 없이 복제·배포·가공하는 것을 금지합니다.</p>
       </PolicySection>
 
-      <PolicySection id="privacy" heading="9. 개인정보 보호">
+      <PolicySection heading="9. 개인정보 보호" id="privacy">
         <p>
           개인정보 처리와 관련된 사항은 별도의{" "}
-          <Link href="/privacy" className="font-semibold text-foreground underline">
+          <Link className="font-semibold text-foreground underline" href="/privacy">
             개인정보처리방침
           </Link>{" "}
           을 참고해 주시기 바랍니다.
         </p>
       </PolicySection>
 
-      <PolicySection id="liability" heading="10. 면책 및 책임 제한">
+      <PolicySection heading="10. 면책 및 책임 제한" id="liability">
         <ul className="list-disc space-y-2 pl-5">
           {liabilityLimits.map((item) => (
             <li key={item}>{item}</li>
@@ -120,14 +120,14 @@ export default function TermsPage() {
         </ul>
       </PolicySection>
 
-      <PolicySection id="law" heading="11. 준거법 및 관할">
+      <PolicySection heading="11. 준거법 및 관할" id="law">
         <p>
           본 약관은 대한민국 법령을 준거법으로 하며, 분쟁 발생 시 민사소송법 등 관련 법령에 따른
           관할 법원에 제기합니다.
         </p>
       </PolicySection>
 
-      <PolicySection id="inquiry" heading="12. 문의">
+      <PolicySection heading="12. 문의" id="inquiry">
         <p>서비스 및 약관 관련 문의는 아래 연락처로 부탁드립니다.</p>
         <p className="font-semibold text-foreground">문의처: donminzzi@gmail.com</p>
       </PolicySection>

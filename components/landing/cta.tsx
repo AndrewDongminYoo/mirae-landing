@@ -1,15 +1,15 @@
 export function CTA() {
   return (
     <section
-      className="bg-background px-4 py-20 sm:px-6 sm:py-28 lg:px-8 lg:py-32"
       aria-labelledby="cta-heading"
+      className="bg-background px-4 py-20 sm:px-6 sm:py-28 lg:px-8 lg:py-32"
     >
       <div className="mx-auto max-w-3xl text-center">
         <p className="text-sm font-medium text-muted-foreground">오늘의 메시지</p>
 
         <h2
-          id="cta-heading"
           className="mt-3 text-2xl font-bold tracking-tight text-balance text-foreground sm:text-3xl md:text-4xl"
+          id="cta-heading"
         >
           오늘 하루를 <span className="text-accent">어떤 마음가짐으로</span>
           <br />

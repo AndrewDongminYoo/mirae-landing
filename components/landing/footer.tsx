@@ -10,7 +10,7 @@ export function Footer() {
         <div className="flex flex-col gap-8 sm:flex-row sm:items-start sm:justify-between">
           {/* Logo & Copyright */}
           <div>
-            <Link href="/" className="text-base font-semibold tracking-tight text-foreground">
+            <Link className="text-base font-semibold tracking-tight text-foreground" href="/">
               donminzzi lab
             </Link>
             <p className="mt-2 text-xs text-muted-foreground">
@@ -23,24 +23,24 @@ export function Footer() {
             <ul className="flex flex-wrap items-center gap-x-6 gap-y-2">
               <li>
                 <Link
-                  href="/privacy"
                   className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                  href="/privacy"
                 >
                   개인정보처리방침
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/terms"
                   className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                  href="/terms"
                 >
                   이용약관
                 </Link>
               </li>
               <li>
                 <Link
-                  href="mailto:donminzzi@gmail.com"
                   className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                  href="mailto:donminzzi@gmail.com"
                 >
                   문의하기
                 </Link>

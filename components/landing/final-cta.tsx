@@ -7,11 +7,11 @@ import { Button } from "@/components/ui/button";
 export function FinalCTA() {
   return (
     <section
-      className="relative overflow-hidden bg-foreground px-4 py-20 sm:px-6 sm:py-28 lg:px-8 lg:py-32"
       aria-labelledby="final-cta-heading"
+      className="relative overflow-hidden bg-foreground px-4 py-20 sm:px-6 sm:py-28 lg:px-8 lg:py-32"
     >
       {/* Decorative elements */}
-      <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
         <div className="absolute -top-20 -right-20 h-64 w-64 rounded-full bg-accent/20 blur-3xl" />
         <div className="absolute -bottom-20 -left-20 h-64 w-64 rounded-full bg-accent-blue/20 blur-3xl" />
       </div>
@@ -23,8 +23,8 @@ export function FinalCTA() {
             <p className="text-sm font-medium text-background/70">내가 나에게 전하는 기상 알람</p>
 
             <h2
-              id="final-cta-heading"
               className="mt-3 text-2xl font-bold tracking-tight text-balance text-background sm:text-3xl md:text-4xl"
+              id="final-cta-heading"
             >
               온음과 함께
               <br />
@@ -35,10 +35,10 @@ export function FinalCTA() {
             <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row lg:justify-start">
               <Button
                 asChild
-                size="lg"
                 className="h-12 w-full max-w-xs gap-2.5 rounded-xl bg-background px-6 text-foreground hover:bg-background/90 sm:w-auto"
+                size="lg"
               >
-                <Link href="https://apps.apple.com" target="_blank" rel="noopener noreferrer">
+                <Link href="https://apps.apple.com" rel="noopener noreferrer" target="_blank">
                   <Apple className="h-5 w-5" />
                   App Store
                 </Link>
@@ -46,11 +46,11 @@ export function FinalCTA() {
 
               <Button
                 asChild
-                variant="outline"
-                size="lg"
                 className="h-12 w-full max-w-xs gap-2.5 rounded-xl border-background/30 bg-transparent px-6 text-background hover:bg-background/10 sm:w-auto"
+                size="lg"
+                variant="outline"
               >
-                <Link href="https://play.google.com" target="_blank" rel="noopener noreferrer">
+                <Link href="https://play.google.com" rel="noopener noreferrer" target="_blank">
                   <Play className="h-5 w-5" />
                   Google Play
                 </Link>
@@ -64,10 +64,10 @@ export function FinalCTA() {
               <div className="absolute inset-0 rounded-[2.5rem] bg-background/10 shadow-2xl" />
               <div className="relative h-full w-full overflow-hidden rounded-[2.5rem] border border-background/20 bg-card">
                 <Image
-                  src="/images/warmwake-alarm-wake.png"
                   alt="온음 앱 알람 화면"
-                  fill
                   className="object-cover"
+                  fill
+                  src="/images/warmwake-alarm-wake.png"
                 />
               </div>
             </div>

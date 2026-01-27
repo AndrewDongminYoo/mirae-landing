@@ -7,12 +7,12 @@ import { Button } from "@/components/ui/button";
 export function Hero() {
   return (
     <section
-      id="warmwake"
-      className="relative overflow-hidden bg-background px-4 pt-20 pb-8 sm:px-6 sm:pt-28 sm:pb-16 lg:px-8 lg:pt-32 lg:pb-24"
       aria-labelledby="hero-heading"
+      className="relative overflow-hidden bg-background px-4 pt-20 pb-8 sm:px-6 sm:pt-28 sm:pb-16 lg:px-8 lg:pt-32 lg:pb-24"
+      id="warmwake"
     >
       {/* Subtle gradient background */}
-      <div className="pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute inset-x-0 top-0 h-150 bg-linear-to-b from-accent/5 via-accent/3 to-transparent" />
       </div>
 
@@ -22,8 +22,8 @@ export function Hero() {
 
         {/* Main Headline */}
         <h1
-          id="hero-heading"
           className="mt-4 text-3xl font-bold tracking-tight text-balance text-foreground sm:text-4xl md:text-5xl lg:text-6xl"
+          id="hero-heading"
         >
           어제의 나에게서 온
           <br />
@@ -38,10 +38,10 @@ export function Hero() {
         <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
           <Button
             asChild
-            size="lg"
             className="h-12 w-full max-w-xs gap-2.5 rounded-xl bg-foreground px-6 text-background hover:bg-foreground/90 sm:w-auto"
+            size="lg"
           >
-            <Link href="https://apps.apple.com" target="_blank" rel="noopener noreferrer">
+            <Link href="https://apps.apple.com" rel="noopener noreferrer" target="_blank">
               <Apple className="h-5 w-5" />
               App Store
             </Link>
@@ -49,11 +49,11 @@ export function Hero() {
 
           <Button
             asChild
-            variant="outline"
-            size="lg"
             className="h-12 w-full max-w-xs gap-2.5 rounded-xl border-border bg-transparent px-6 sm:w-auto"
+            size="lg"
+            variant="outline"
           >
-            <Link href="https://play.google.com" target="_blank" rel="noopener noreferrer">
+            <Link href="https://play.google.com" rel="noopener noreferrer" target="_blank">
               <Play className="h-5 w-5" />
               Google Play
             </Link>
@@ -67,10 +67,10 @@ export function Hero() {
             <div className="absolute inset-0 rounded-[1.25rem] bg-foreground/5 shadow-lg sm:rounded-3xl" />
             <div className="relative h-full w-full overflow-hidden rounded-[1.25rem] border border-border/50 bg-card sm:rounded-3xl">
               <Image
-                src="/images/warmwake-time-picker.png"
                 alt="온음 앱 알람 시간 설정 화면"
-                fill
                 className="object-cover"
+                fill
+                src="/images/warmwake-time-picker.png"
               />
             </div>
           </div>
@@ -80,11 +80,11 @@ export function Hero() {
             <div className="absolute inset-0 rounded-[1.75rem] bg-foreground/5 shadow-2xl sm:rounded-4xl" />
             <div className="relative h-full w-full overflow-hidden rounded-[1.75rem] border border-border/50 bg-card sm:rounded-4xl">
               <Image
-                src="/images/warmwake-alarm-wake.png"
                 alt="온음 앱 알람 화면 - 어제의 당신이 남긴 메시지입니다"
-                fill
                 className="object-cover"
+                fill
                 priority
+                src="/images/warmwake-alarm-wake.png"
               />
             </div>
           </div>
@@ -94,10 +94,10 @@ export function Hero() {
             <div className="absolute inset-0 rounded-[1.25rem] bg-foreground/5 shadow-lg sm:rounded-3xl" />
             <div className="relative h-full w-full overflow-hidden rounded-[1.25rem] border border-border/50 bg-card sm:rounded-3xl">
               <Image
-                src="/images/warmwake-voice-record.png"
                 alt="온음 앱 음성 메시지 녹음 화면"
-                fill
                 className="object-cover"
+                fill
+                src="/images/warmwake-voice-record.png"
               />
             </div>
           </div>

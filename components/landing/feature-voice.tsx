@@ -7,8 +7,8 @@ import { Button } from "@/components/ui/button";
 export function FeatureVoice() {
   return (
     <section
-      className="relative overflow-hidden bg-linear-to-b from-accent/10 via-accent/5 to-background px-4 py-20 sm:px-6 sm:py-28 lg:px-8 lg:py-32"
       aria-labelledby="feature-voice-heading"
+      className="relative overflow-hidden bg-linear-to-b from-accent/10 via-accent/5 to-background px-4 py-20 sm:px-6 sm:py-28 lg:px-8 lg:py-32"
     >
       <div className="mx-auto max-w-6xl">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
@@ -24,8 +24,8 @@ export function FeatureVoice() {
             <p className="mt-4 text-sm font-medium text-accent sm:text-base">음성 메시지 알람</p>
 
             <h2
-              id="feature-voice-heading"
               className="mt-2 text-2xl leading-tight font-bold tracking-tight text-balance text-foreground sm:text-3xl md:text-4xl"
+              id="feature-voice-heading"
             >
               나에게서 온 따뜻한 응원으로
               <br />
@@ -41,21 +41,21 @@ export function FeatureVoice() {
             <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row lg:justify-start">
               <Button
                 asChild
-                size="lg"
                 className="h-11 gap-2 rounded-xl bg-foreground px-5 text-background hover:bg-foreground/90"
+                size="lg"
               >
-                <Link href="https://apps.apple.com" target="_blank" rel="noopener noreferrer">
+                <Link href="https://apps.apple.com" rel="noopener noreferrer" target="_blank">
                   <Apple className="h-4 w-4" />
                   App Store
                 </Link>
               </Button>
               <Button
                 asChild
-                variant="outline"
-                size="lg"
                 className="h-11 gap-2 rounded-xl border-border bg-transparent px-5"
+                size="lg"
+                variant="outline"
               >
-                <Link href="https://play.google.com" target="_blank" rel="noopener noreferrer">
+                <Link href="https://play.google.com" rel="noopener noreferrer" target="_blank">
                   <Play className="h-4 w-4" />
                   Google Play
                 </Link>
@@ -71,10 +71,10 @@ export function FeatureVoice() {
                 <div className="absolute inset-0 rounded-3xl bg-foreground/5 shadow-lg" />
                 <div className="relative h-full w-full overflow-hidden rounded-3xl border border-border/50 bg-card">
                   <Image
-                    src="/images/warmwake-time-picker.png"
                     alt="온음 앱 알람 시간 설정"
-                    fill
                     className="object-cover"
+                    fill
+                    src="/images/warmwake-time-picker.png"
                   />
                 </div>
               </div>
@@ -84,10 +84,10 @@ export function FeatureVoice() {
                 <div className="absolute inset-0 rounded-4xl bg-foreground/5 shadow-2xl" />
                 <div className="relative h-full w-full overflow-hidden rounded-4xl border border-border/50 bg-card">
                   <Image
-                    src="/images/warmwake-alarm-wake.png"
                     alt="온음 앱 알람 화면 - 어제의 당신이 남긴 메시지"
-                    fill
                     className="object-cover"
+                    fill
+                    src="/images/warmwake-alarm-wake.png"
                   />
                 </div>
               </div>

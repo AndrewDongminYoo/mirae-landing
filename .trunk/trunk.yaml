@@ -22,7 +22,7 @@ lint:
     - trivy
   enabled:
     - eslint@9.39.2
-    - oxipng@10.0.0
+    - oxipng@10.1.0
     - checkov@3.2.499
     - git-diff-check
     - markdownlint@0.47.0

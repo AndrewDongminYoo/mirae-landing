@@ -4,6 +4,7 @@ import nextVitals from "eslint-config-next/core-web-vitals";
 import nextTs from "eslint-config-next/typescript";
 import prettier from "eslint-config-prettier";
 import pluginJest from "eslint-plugin-jest";
+import perfectionist from "eslint-plugin-perfectionist";
 import importSort from "eslint-plugin-simple-import-sort";
 import globals from "globals";
 import tseslint from "typescript-eslint";
@@ -12,22 +13,29 @@ const eslintConfig = [
   {
     ignores: [".next/"],
   },
-  ...nextVitals,
   ...nextTs,
+  ...nextVitals,
   js.configs.recommended,
   ...tseslint.configs.recommended,
   prettier,
   {
     files: ["**/*.{js,mjs,cjs,jsx,ts,tsx}"],
     plugins: {
-      "@next": nextPlugin,
       "simple-import-sort": importSort,
+      perfectionist,
     },
     rules: {
       ...nextPlugin.configs.recommended.rules,
       ...nextPlugin.configs["core-web-vitals"].rules,
       "simple-import-sort/imports": "error",
       "simple-import-sort/exports": "error",
+      "perfectionist/sort-jsx-props": [
+        "error",
+        {
+          type: "natural",
+          order: "asc",
+        },
+      ],
     },
     languageOptions: {
       globals: {

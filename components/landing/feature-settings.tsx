@@ -3,8 +3,8 @@ import Image from "next/image";
 export function FeatureSettings() {
   return (
     <section
-      className="relative overflow-hidden bg-muted/30 px-4 py-20 sm:px-6 sm:py-28 lg:px-8 lg:py-32"
       aria-labelledby="feature-settings-heading"
+      className="relative overflow-hidden bg-muted/30 px-4 py-20 sm:px-6 sm:py-28 lg:px-8 lg:py-32"
     >
       <div className="mx-auto max-w-6xl">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
@@ -13,8 +13,8 @@ export function FeatureSettings() {
             <p className="text-sm font-medium text-muted-foreground sm:text-base">세부 설정</p>
 
             <h2
-              id="feature-settings-heading"
               className="mt-2 text-2xl leading-tight font-bold tracking-tight text-balance text-foreground sm:text-3xl md:text-4xl"
+              id="feature-settings-heading"
             >
               나에게 맞는 설정으로
               <br />
@@ -48,10 +48,10 @@ export function FeatureSettings() {
                 <div className="absolute inset-0 rounded-3xl bg-foreground/5 shadow-lg" />
                 <div className="relative h-full w-full overflow-hidden rounded-3xl border border-border/50 bg-card">
                   <Image
-                    src="/images/warmwake-theme-light.png"
                     alt="온음 앱 테마 선택 화면"
-                    fill
                     className="object-cover"
+                    fill
+                    src="/images/warmwake-theme-light.png"
                   />
                 </div>
               </div>
@@ -61,10 +61,10 @@ export function FeatureSettings() {
                 <div className="absolute inset-0 rounded-4xl bg-foreground/5 shadow-2xl" />
                 <div className="relative h-full w-full overflow-hidden rounded-4xl border border-border/50 bg-card">
                   <Image
-                    src="/images/warmwake-settings.png"
                     alt="온음 앱 설정 화면"
-                    fill
                     className="object-cover"
+                    fill
+                    src="/images/warmwake-settings.png"
                   />
                 </div>
               </div>

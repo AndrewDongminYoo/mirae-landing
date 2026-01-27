@@ -3,8 +3,8 @@ import Image from "next/image";
 export function FeatureRecord() {
   return (
     <section
-      className="relative overflow-hidden bg-linear-to-b from-accent-blue/10 via-accent-blue/5 to-background px-4 py-20 sm:px-6 sm:py-28 lg:px-8 lg:py-32"
       aria-labelledby="feature-record-heading"
+      className="relative overflow-hidden bg-linear-to-b from-accent-blue/10 via-accent-blue/5 to-background px-4 py-20 sm:px-6 sm:py-28 lg:px-8 lg:py-32"
     >
       <div className="mx-auto max-w-6xl">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
@@ -16,10 +16,10 @@ export function FeatureRecord() {
                 <div className="absolute inset-0 rounded-3xl bg-foreground/5 shadow-lg" />
                 <div className="relative h-full w-full overflow-hidden rounded-3xl border border-border/50 bg-card">
                   <Image
-                    src="/images/warmwake-alarm-sounds.png"
                     alt="온음 앱 알람 소리 선택"
-                    fill
                     className="object-cover"
+                    fill
+                    src="/images/warmwake-alarm-sounds.png"
                   />
                 </div>
               </div>
@@ -29,10 +29,10 @@ export function FeatureRecord() {
                 <div className="absolute inset-0 rounded-4xl bg-foreground/5 shadow-2xl" />
                 <div className="relative h-full w-full overflow-hidden rounded-4xl border border-border/50 bg-card">
                   <Image
-                    src="/images/warmwake-voice-record.png"
                     alt="온음 앱 음성 메시지 녹음 화면"
-                    fill
                     className="object-cover"
+                    fill
+                    src="/images/warmwake-voice-record.png"
                   />
                 </div>
               </div>
@@ -44,8 +44,8 @@ export function FeatureRecord() {
             <p className="text-sm font-medium text-accent-blue sm:text-base">간편한 녹음</p>
 
             <h2
-              id="feature-record-heading"
               className="mt-2 text-2xl leading-tight font-bold tracking-tight text-balance text-foreground sm:text-3xl md:text-4xl"
+              id="feature-record-heading"
             >
               내일 아침의 나에게
               <br />
