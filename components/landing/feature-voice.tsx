@@ -44,7 +44,11 @@ export function FeatureVoice() {
                 className="h-11 gap-2 rounded-xl bg-foreground px-5 text-background hover:bg-foreground/90"
                 size="lg"
               >
-                <Link href="https://apps.apple.com" rel="noopener noreferrer" target="_blank">
+                <Link
+                  href="https://apps.apple.com/app/id6758120543"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
                   <Apple className="h-4 w-4" />
                   App Store
                 </Link>

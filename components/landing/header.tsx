@@ -26,7 +26,11 @@ export function Header() {
             className="h-9 gap-2 rounded-lg bg-foreground px-4 text-background hover:bg-foreground/90"
             size="sm"
           >
-            <Link href="https://apps.apple.com" rel="noopener noreferrer" target="_blank">
+            <Link
+              href="https://apps.apple.com/app/id6758120543"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
               <Apple className="h-4 w-4" />
               Download
             </Link>
@@ -55,7 +59,7 @@ export function Header() {
               className="h-11 gap-2 rounded-xl bg-foreground text-background hover:bg-foreground/90"
             >
               <Link
-                href="https://apps.apple.com"
+                href="https://apps.apple.com/app/id6758120543"
                 onClick={() => setMobileMenuOpen(false)}
                 rel="noopener noreferrer"
                 target="_blank"

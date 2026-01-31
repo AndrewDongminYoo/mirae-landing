@@ -41,7 +41,11 @@ export function Hero() {
             className="h-12 w-full max-w-xs gap-2.5 rounded-xl bg-foreground px-6 text-background hover:bg-foreground/90 sm:w-auto"
             size="lg"
           >
-            <Link href="https://apps.apple.com" rel="noopener noreferrer" target="_blank">
+            <Link
+              href="https://apps.apple.com/app/id6758120543"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
               <Apple className="h-5 w-5" />
               App Store
             </Link>
