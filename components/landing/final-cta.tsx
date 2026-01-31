@@ -54,7 +54,11 @@ export function FinalCTA() {
                 size="lg"
                 variant="outline"
               >
-                <Link href="https://play.google.com" rel="noopener noreferrer" target="_blank">
+                <Link
+                  href="https://play.google.com/store/apps/details?id=kr.mirae.app"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
                   <Play className="h-5 w-5" />
                   Google Play
                 </Link>

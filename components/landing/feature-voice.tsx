@@ -59,7 +59,11 @@ export function FeatureVoice() {
                 size="lg"
                 variant="outline"
               >
-                <Link href="https://play.google.com" rel="noopener noreferrer" target="_blank">
+                <Link
+                  href="https://play.google.com/store/apps/details?id=kr.mirae.app"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
                   <Play className="h-4 w-4" />
                   Google Play
                 </Link>
