@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 
-function Input({ className, type, ...props }: React.ComponentProps<"input">) {
+function Input({ className, type, ...props }: React.ComponentPropsWithoutRef<"input">) {
   return (
     <input
       className={cn(

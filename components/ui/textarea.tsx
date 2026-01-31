@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 
-function Textarea({ className, ...props }: React.ComponentProps<"textarea">) {
+function Textarea({ className, ...props }: React.ComponentPropsWithoutRef<"textarea">) {
   return (
     <textarea
       className={cn(
