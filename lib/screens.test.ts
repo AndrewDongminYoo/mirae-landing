@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
 
-import { getScreenPath } from "./screens.js";
+import { getScreenPath } from "./screens";
 
 describe("getScreenPath", () => {
   it("returns the ko path by default", () => {
