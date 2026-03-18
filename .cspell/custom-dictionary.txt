@@ -6,12 +6,15 @@ cmdk
 donminzzi
 elif
 Embla
+fabs
+Fabs
 IDFA
 lintignore
 nullglob
 nums
 oklch
 pipefail
+Pretendard
 rehype
 shopt
 subcopy
