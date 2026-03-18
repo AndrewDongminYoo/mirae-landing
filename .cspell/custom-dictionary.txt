@@ -7,6 +7,7 @@ donminzzi
 elif
 Embla
 IDFA
+lintignore
 nullglob
 nums
 oklch
