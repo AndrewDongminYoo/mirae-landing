@@ -104,6 +104,15 @@ const eslintConfig = [
     ...pluginJest.configs["flat/recommended"],
   },
   {
+    files: ["scripts/**/*.test.ts"],
+    rules: {
+      // Disable all jest/* rules — scripts use node:test, not jest
+      ...Object.fromEntries(
+        Object.keys(pluginJest.rules ?? {}).map((rule) => [`jest/${rule}`, "off"])
+      ),
+    },
+  },
+  {
     files: ["jest.config.js"],
     rules: {
       "@typescript-eslint/no-require-imports": "off",
