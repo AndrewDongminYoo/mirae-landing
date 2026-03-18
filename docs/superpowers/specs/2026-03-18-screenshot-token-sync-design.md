@@ -133,10 +133,10 @@ All log functions prefix with the script name: `[import_screenshots]`, `[import_
 Adding a new locale requires updating this map. Unknown locale directories in the source
 are not auto-discovered and are silently ignored.
 
-**PNG count invariant:** exactly 8 PNG files are required per locale. This matches the
-App Store Connect iphone65 slot count and is kept in lockstep with
-`scripts/screenshots/sync_metadata.sh` in mirae. If the Flutter repo adds a 9th screen, this
-count must be updated in both repos simultaneously.
+**PNG count invariant:** between 5 and 10 PNG files (inclusive) are required per locale.
+This accommodates different screen counts across app versions while guarding against
+obviously incomplete or over-quota imports. If the count falls outside this range,
+the script exits non-zero.
 
 **Behaviour:**
 
@@ -247,15 +247,15 @@ export const TOKEN_MAP: Record<string, Record<string, string>> = {
 
 ## 6. Error Handling
 
-| Condition                          | Behaviour                                              |
-| ---------------------------------- | ------------------------------------------------------ |
-| `MIRAE_APP_DIR` not set            | `log_error` + exit 1 with setup instructions           |
-| `MIRAE_APP_DIR` dir does not exist | `log_error` + exit 1 with path                         |
-| Source locale directory missing    | `log_error` + exit 1 with path                         |
-| PNG count ≠ 8                      | `log_error` + exit 1, report actual count and expected |
-| Token dot-path not found in JSON   | `log_warn` + skip variable, continue                   |
-| CSS variable not found in block    | `log_warn` + skip variable, continue                   |
-| `tokens-studio.json` not parseable | `log_error` + exit 1                                   |
+| Condition                          | Behaviour                                                 |
+| ---------------------------------- | --------------------------------------------------------- |
+| `MIRAE_APP_DIR` not set            | `log_error` + exit 1 with setup instructions              |
+| `MIRAE_APP_DIR` dir does not exist | `log_error` + exit 1 with path                            |
+| Source locale directory missing    | `log_error` + exit 1 with path                            |
+| PNG count < 5 or > 10              | `log_error` + exit 1, report actual count and valid range |
+| Token dot-path not found in JSON   | `log_warn` + skip variable, continue                      |
+| CSS variable not found in block    | `log_warn` + skip variable, continue                      |
+| `tokens-studio.json` not parseable | `log_error` + exit 1                                      |
 
 ---
 

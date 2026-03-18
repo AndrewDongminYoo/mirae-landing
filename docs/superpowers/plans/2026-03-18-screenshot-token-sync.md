@@ -165,6 +165,8 @@ Copies 8 PNG files per locale from `$MIRAE_APP_DIR/fastlane/screenshots/ios/{loc
 
 Uses parallel arrays (not associative arrays) so locale processing order is deterministic — `ko` always before `en-US`.
 
+PNG count: between 5 and 10 inclusive (not a hard fixed number). This accommodates different screen counts across app versions.
+
 **Files:**
 
 - Create: `scripts/import_screenshots.sh`
@@ -187,7 +189,8 @@ source "$(dirname "$0")/lib/common.sh"
 DRY_RUN=0
 [[ "${1:-}" == "--dry-run" ]] && DRY_RUN=1
 
-EXPECTED_COUNT=8
+MIN_COUNT=5
+MAX_COUNT=10
 
 # Parallel arrays: index N of LOCALES_SRC maps to index N of LOCALES_TGT.
 # Order is fixed (no associative array), so ko is always processed before en-US.
@@ -214,8 +217,8 @@ copy_locale() {
   shopt -u nullglob
 
   local actual=${#files[@]}
-  if [[ ${actual} -ne ${EXPECTED_COUNT} ]]; then
-    log_error "Expected ${EXPECTED_COUNT} PNG files in ${src_dir}, found ${actual}"
+  if [[ ${actual} -lt ${MIN_COUNT} || ${actual} -gt ${MAX_COUNT} ]]; then
+    log_error "Expected between ${MIN_COUNT} and ${MAX_COUNT} PNG files in ${src_dir}, found ${actual}"
     exit 1
   fi
 
@@ -269,9 +272,9 @@ bash scripts/import_screenshots.sh 2>&1
 
 Expected: exits 1 with `[import_screenshots] [ERROR] MIRAE_APP_DIR is not set.`
 
-- [ ] **Step 4: Test — wrong PNG count (ko has 1 file, en-US has 8)**
+- [ ] **Step 4: Test — wrong PNG count (ko has 1 file = below MIN, en-US has 8 files = valid)**
 
-Since LOCALES_SRC processes `ko` first, wrong count on `ko` is detected before `en-US`:
+Since LOCALES_SRC processes `ko` first, out-of-range count on `ko` is detected first:
 
 ```bash
 mkdir -p /tmp/mirae_fixture/fastlane/screenshots/ios/ko
@@ -283,18 +286,23 @@ done
 MIRAE_APP_DIR=/tmp/mirae_fixture bash scripts/import_screenshots.sh 2>&1
 ```
 
-Expected: exits 1 with `Expected 8 PNG files in .../ko, found 1`
+Expected: exits 1 with `Expected between 5 and 10 PNG files in .../ko, found 1`
 
-- [ ] **Step 5: Test — dry-run with 8 files per locale**
+- [ ] **Step 5: Test — dry-run with valid count (6 files per locale)**
 
 ```bash
-for i in 1 2 3 4 5 6 7 8; do
+for i in 1 2 3 4 5 6; do
   touch /tmp/mirae_fixture/fastlane/screenshots/ios/ko/screen_${i}.png
+done
+# Re-create en-US with 6 files to match
+rm /tmp/mirae_fixture/fastlane/screenshots/ios/en-US/*.png
+for i in 1 2 3 4 5 6; do
+  touch /tmp/mirae_fixture/fastlane/screenshots/ios/en-US/screen_${i}.png
 done
 MIRAE_APP_DIR=/tmp/mirae_fixture bash scripts/import_screenshots.sh --dry-run
 ```
 
-Expected: prints `NEW` for all 8 files per locale; no files created in `public/screens/`.
+Expected: prints `NEW` for all 6 files per locale; no files created in `public/screens/`.
 
 - [ ] **Step 6: Test — live copy**
 
@@ -303,7 +311,7 @@ MIRAE_APP_DIR=/tmp/mirae_fixture bash scripts/import_screenshots.sh
 ls public/screens/ko/ public/screens/en/
 ```
 
-Expected: 8 PNG files in each directory (plus `.gitkeep`).
+Expected: 6 PNG files in each directory (plus `.gitkeep`).
 
 - [ ] **Step 7: Clean up fixture and commit only the script**
 
