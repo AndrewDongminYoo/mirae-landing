@@ -15,7 +15,7 @@ pnpm start    # Start production server
 pnpm lint     # Run ESLint
 ```
 
-Package manager: pnpm (v10.28.1)
+Package manager: pnpm (v10.32.1)
 
 ## Architecture
 
