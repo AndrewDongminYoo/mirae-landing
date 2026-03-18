@@ -22,6 +22,9 @@
 | CREATE | `scripts/import_tokens.ts`      | Read tokens JSON, overwrite CSS vars in globals.css |
 | CREATE | `scripts/import_tokens.test.ts` | Node built-in tests for token import logic          |
 | MODIFY | `package.json`                  | Add `tsx` devDep + import pnpm scripts              |
+| MODIFY | `eslint.config.mjs`             | Disable jest rules for `scripts/**/*.test.ts`       |
+| CREATE | `public/screens/ko/.gitkeep`    | Preserve locale directory in git                    |
+| CREATE | `public/screens/en/.gitkeep`    | Preserve locale directory in git                    |
 
 ---
 
@@ -112,11 +115,15 @@ require_mirae_app_dir() {
 
 - [ ] **Step 2: Smoke test**
 
+When sourced via `bash -c`, `$0` resolves to `bash`, so the prefix is `[bash]`:
+
 ```bash
 bash -c 'source scripts/lib/common.sh && log_info "ok"'
 ```
 
-Expected: `[common] ok`
+Expected output: `[bash] ok`
+
+When sourced from a real script file, `BASH_SOURCE[1]` resolves to the calling script's name — that's the correct runtime behavior.
 
 - [ ] **Step 3: Commit**
 
@@ -127,9 +134,36 @@ git commit -m "feat: add common.sh shared helpers for import scripts"
 
 ---
 
-## Task 3: Create `scripts/import_screenshots.sh`
+## Task 3: Add `.gitkeep` for `public/screens/` directories
+
+Git does not track empty directories. Add placeholder files before any screenshot imports so the directory structure is always present in the repo.
+
+**Files:**
+
+- Create: `public/screens/ko/.gitkeep`
+- Create: `public/screens/en/.gitkeep`
+
+- [ ] **Step 1: Create placeholders**
+
+```bash
+mkdir -p public/screens/ko public/screens/en
+touch public/screens/ko/.gitkeep public/screens/en/.gitkeep
+```
+
+- [ ] **Step 2: Commit**
+
+```bash
+git add public/screens/
+git commit -m "chore: add public/screens/ directory structure for locale screenshots"
+```
+
+---
+
+## Task 4: Create `scripts/import_screenshots.sh`
 
 Copies 8 PNG files per locale from `$MIRAE_APP_DIR/fastlane/screenshots/ios/{locale}/` to `public/screens/{locale}/`.
+
+Uses parallel arrays (not associative arrays) so locale processing order is deterministic — `ko` always before `en-US`.
 
 **Files:**
 
@@ -155,11 +189,10 @@ DRY_RUN=0
 
 EXPECTED_COUNT=8
 
-# locale map: source locale dir → target dir name
-declare -A LOCALE_MAP=(
-  ["ko"]="ko"
-  ["en-US"]="en"
-)
+# Parallel arrays: index N of LOCALES_SRC maps to index N of LOCALES_TGT.
+# Order is fixed (no associative array), so ko is always processed before en-US.
+LOCALES_SRC=("ko" "en-US")
+LOCALES_TGT=("ko" "en")
 
 require_mirae_app_dir
 
@@ -215,8 +248,8 @@ copy_locale() {
   log_info "${src_locale} → public/screens/${tgt_locale}: copied ${actual} file(s)"
 }
 
-for src_locale in "${!LOCALE_MAP[@]}"; do
-  copy_locale "${src_locale}" "${LOCALE_MAP[${src_locale}]}"
+for (( i=0; i<${#LOCALES_SRC[@]}; i++ )); do
+  copy_locale "${LOCALES_SRC[$i]}" "${LOCALES_TGT[$i]}"
 done
 
 log_info "done"
@@ -228,37 +261,40 @@ log_info "done"
 chmod +x scripts/import_screenshots.sh
 ```
 
-- [ ] **Step 3: Test — missing MIRAE_APP_DIR**
+- [ ] **Step 3: Test — missing `MIRAE_APP_DIR`**
 
 ```bash
-bash scripts/import_screenshots.sh
+bash scripts/import_screenshots.sh 2>&1
 ```
 
-Expected: exits 1 with `[ERROR] MIRAE_APP_DIR is not set.`
+Expected: exits 1 with `[import_screenshots] [ERROR] MIRAE_APP_DIR is not set.`
 
-- [ ] **Step 4: Test — wrong PNG count**
+- [ ] **Step 4: Test — wrong PNG count (ko has 1 file, en-US has 8)**
 
-```bash
-mkdir -p /tmp/mirae_fixture/fastlane/screenshots/ios/ko
-touch /tmp/mirae_fixture/fastlane/screenshots/ios/ko/a.png
-MIRAE_APP_DIR=/tmp/mirae_fixture bash scripts/import_screenshots.sh
-```
-
-Expected: exits 1 with `Expected 8 PNG files ... found 1`
-
-- [ ] **Step 5: Test — dry-run with 8 files**
+Since LOCALES_SRC processes `ko` first, wrong count on `ko` is detected before `en-US`:
 
 ```bash
 mkdir -p /tmp/mirae_fixture/fastlane/screenshots/ios/ko
 mkdir -p /tmp/mirae_fixture/fastlane/screenshots/ios/en-US
+touch /tmp/mirae_fixture/fastlane/screenshots/ios/ko/a.png
+for i in 1 2 3 4 5 6 7 8; do
+  touch /tmp/mirae_fixture/fastlane/screenshots/ios/en-US/screen_${i}.png
+done
+MIRAE_APP_DIR=/tmp/mirae_fixture bash scripts/import_screenshots.sh 2>&1
+```
+
+Expected: exits 1 with `Expected 8 PNG files in .../ko, found 1`
+
+- [ ] **Step 5: Test — dry-run with 8 files per locale**
+
+```bash
 for i in 1 2 3 4 5 6 7 8; do
   touch /tmp/mirae_fixture/fastlane/screenshots/ios/ko/screen_${i}.png
-  touch /tmp/mirae_fixture/fastlane/screenshots/ios/en-US/screen_${i}.png
 done
 MIRAE_APP_DIR=/tmp/mirae_fixture bash scripts/import_screenshots.sh --dry-run
 ```
 
-Expected: prints `NEW` for all 8 files per locale, no files created in `public/screens/`.
+Expected: prints `NEW` for all 8 files per locale; no files created in `public/screens/`.
 
 - [ ] **Step 6: Test — live copy**
 
@@ -267,21 +303,22 @@ MIRAE_APP_DIR=/tmp/mirae_fixture bash scripts/import_screenshots.sh
 ls public/screens/ko/ public/screens/en/
 ```
 
-Expected: 8 files in each directory.
+Expected: 8 PNG files in each directory (plus `.gitkeep`).
 
-- [ ] **Step 7: Cleanup fixture and commit**
+- [ ] **Step 7: Clean up fixture and commit only the script**
+
+The actual screenshots will be populated when the real mirae screenshots are available. Only the script is committed here.
 
 ```bash
 rm -rf /tmp/mirae_fixture
-git add scripts/import_screenshots.sh public/screens/
+git restore public/screens/   # discard any test-copied PNGs
+git add scripts/import_screenshots.sh
 git commit -m "feat: add import_screenshots.sh for locale-aware iOS screenshot sync"
 ```
 
-> Note: `public/screens/ko/` and `public/screens/en/` directories are committed empty (git tracks directories via `.gitkeep` if needed). The actual PNGs are populated by running the import script and are committed separately when screenshots are updated.
-
 ---
 
-## Task 4: Create `scripts/tokens.config.ts`
+## Task 5: Create `scripts/tokens.config.ts`
 
 Declares the name-bridge mapping from Tailwind CSS variables to `tokens-studio.json` dot-paths.
 
@@ -344,7 +381,7 @@ export const TOKEN_MAP: Record<string, Record<string, string>> = {
 - [ ] **Step 2: Verify TypeScript parses cleanly**
 
 ```bash
-pnpm exec tsx --version && pnpm exec tsx -e "import { TOKEN_MAP } from './scripts/tokens.config.ts'; console.log(Object.keys(TOKEN_MAP))"
+pnpm exec tsx -e "import { TOKEN_MAP } from './scripts/tokens.config.ts'; console.log(Object.keys(TOKEN_MAP))"
 ```
 
 Expected: `[ ':root', '.dark' ]`
@@ -358,9 +395,9 @@ git commit -m "feat: add tokens.config.ts name-bridge mapping"
 
 ---
 
-## Task 5: Create `scripts/import_tokens.ts`
+## Task 6: Create `scripts/import_tokens.ts`
 
-Reads `tokens-studio.json`, resolves each mapped token's `.value`, and overwrites matching CSS variables in `app/globals.css`. Operates only inside `:root { }` and `.dark { }` blocks.
+Reads `tokens-studio.json`, resolves each mapped token's `.value`, and overwrites matching CSS variables in `app/globals.css`. Operates only inside `:root { }` and `.dark { }` blocks using brace-depth counting.
 
 **Files:**
 
@@ -482,7 +519,9 @@ for (const [selector, varMap] of Object.entries(TOKEN_MAP)) {
     }
 
     // Match the variable line inside this block only (hex values only).
-    const regex = new RegExp(`(${cssVar.replace("--", "--")}:\\s*)(#[0-9a-fA-F]{3,8})`);
+    // CSS variable names contain only [-a-zA-Z0-9], no regex-special chars except hyphens
+    // which are only special inside [] character classes — no escaping needed.
+    const regex = new RegExp(`(${cssVar}:\\s*)(#[0-9a-fA-F]{3,8})`);
     const match = block.match(regex);
     if (!match) {
       warn(`CSS variable "${cssVar}" not found in "${selector}" block — skipping`);
@@ -528,17 +567,17 @@ if (DRY_RUN) {
 MIRAE_APP_DIR=/path/to/your/mirae pnpm import:tokens:dry
 ```
 
-Expected: per-variable lines with CHANGED / no change status, no file modified.
+Expected: per-variable lines with `CHANGED` / `no change` status; `app/globals.css` not modified.
 
-- [ ] **Step 3: Verify `@theme inline` block is untouched**
+- [ ] **Step 3: Verify `@theme inline` block contains no hex values**
 
-The `@theme inline` block uses `var(--background)` references, not direct hex values — but confirm the script does not accidentally match these by checking there are no `#` hex values inside `@theme inline`:
+The `@theme inline` block uses only `var(...)` references — confirm no hex values exist inside it, so the script cannot accidentally mutate it:
 
 ```bash
-awk '/@theme inline/,/^}/' app/globals.css | grep '#[0-9a-fA-F]'
+awk '/@theme inline/,/^\}/' app/globals.css | grep -E '#[0-9a-fA-F]{3,8}'
 ```
 
-Expected: no output (the `@theme inline` block contains only `var(...)` references).
+Expected: no output.
 
 - [ ] **Step 4: Commit**
 
@@ -549,15 +588,33 @@ git commit -m "feat: add import_tokens.ts CSS variable sync from tokens-studio.j
 
 ---
 
-## Task 6: Write and run tests for `import_tokens.ts`
+## Task 7: Add ESLint override and write tests for `import_tokens.ts`
 
-Uses Node's built-in `node:test` runner (no extra framework needed).
+The existing `eslint-plugin-jest` config applies to all `*.test.ts` files including scripts. Since `import_tokens.test.ts` uses `node:test` (not jest), the jest rules must be disabled for `scripts/**/*.test.ts`.
 
 **Files:**
 
+- Modify: `eslint.config.mjs`
 - Create: `scripts/import_tokens.test.ts`
 
-- [ ] **Step 1: Write the test file**
+- [ ] **Step 1: Add ESLint override for scripts test files**
+
+Add this block at the end of the `eslintConfig` array in `eslint.config.mjs`, before the closing `];`:
+
+```js
+{
+  files: ["scripts/**/*.test.ts"],
+  rules: {
+    // scripts/import_tokens.test.ts uses node:test (not jest) — disable all jest rules
+    "jest/expect-expect": "off",
+    "jest/no-standalone-expect": "off",
+    "jest/valid-describe-callback": "off",
+    "jest/valid-title": "off",
+  },
+},
+```
+
+- [ ] **Step 2: Write the test file**
 
 ```ts
 /**
@@ -565,12 +622,13 @@ Uses Node's built-in `node:test` runner (no extra framework needed).
  *
  * Tests for token resolution and CSS variable mapping logic.
  * Run: pnpm test:tokens
+ * Run with live token validation: MIRAE_APP_DIR=/path/to/mirae pnpm test:tokens
  */
 
 import assert from "node:assert/strict";
-import { describe, it } from "node:test";
 import fs from "node:fs";
 import path from "node:path";
+import { describe, it } from "node:test";
 
 import { TOKEN_MAP } from "./tokens.config.ts";
 
@@ -640,13 +698,32 @@ describe("globals.css structure", () => {
   });
 
   it("@theme inline block contains no direct hex values (only var() references)", () => {
-    const themeMatch = css.match(/@theme inline \{[\s\S]*?\n\}/);
-    if (!themeMatch) return; // no @theme block = OK
-    const hexInTheme = themeMatch[0].match(/#[0-9a-fA-F]{3,8}/g);
+    // Use brace-depth counting to reliably locate the @theme inline block.
+    // A lazy regex like /@theme inline \{[\s\S]*?\n\}/ would match the first
+    // lone `}` on a new line (e.g. end of :root) rather than the actual closing brace.
+    const marker = "@theme inline {";
+    const markerIdx = css.indexOf(marker);
+    if (markerIdx === -1) return; // no @theme block = OK
+
+    let depth = 0;
+    let blockEnd = -1;
+    for (let i = markerIdx; i < css.length; i++) {
+      if (css[i] === "{") depth++;
+      else if (css[i] === "}") {
+        depth--;
+        if (depth === 0) {
+          blockEnd = i;
+          break;
+        }
+      }
+    }
+
+    const themeBlock = blockEnd !== -1 ? css.slice(markerIdx, blockEnd + 1) : css.slice(markerIdx);
+    const hexInTheme = themeBlock.match(/#[0-9a-fA-F]{3,8}/g);
     assert.equal(
       hexInTheme,
       null,
-      `@theme inline block must not contain hex values: ${hexInTheme}`
+      `@theme inline block must not contain hex values: ${String(hexInTheme)}`
     );
   });
 
@@ -670,15 +747,15 @@ describe("globals.css structure", () => {
 });
 ```
 
-- [ ] **Step 2: Run tests (without MIRAE_APP_DIR — token resolution tests auto-skip)**
+- [ ] **Step 3: Run tests without `MIRAE_APP_DIR` (token resolution tests auto-skip)**
 
 ```bash
 pnpm test:tokens
 ```
 
-Expected: all non-skip tests pass. Token resolution tests show as skipped.
+Expected: all non-skip tests pass; token resolution describe block shows one skipped test.
 
-- [ ] **Step 3: Run tests with MIRAE_APP_DIR to verify all paths resolve**
+- [ ] **Step 4: Run tests with `MIRAE_APP_DIR` to verify all paths resolve**
 
 ```bash
 MIRAE_APP_DIR=/path/to/your/mirae pnpm test:tokens
@@ -686,36 +763,19 @@ MIRAE_APP_DIR=/path/to/your/mirae pnpm test:tokens
 
 Expected: all tests pass including "all TOKEN_MAP paths resolve to a hex string".
 
-- [ ] **Step 4: Commit**
+- [ ] **Step 5: Run linter**
 
 ```bash
-git add scripts/import_tokens.test.ts
-git commit -m "test: add import_tokens tests for token path resolution and CSS structure"
+pnpm lint
 ```
 
----
+Expected: no errors.
 
-## Task 7: Add `.gitkeep` for `public/screens/` directories
-
-Git does not track empty directories. Add placeholder files so the directory structure is preserved in the repo.
-
-**Files:**
-
-- Create: `public/screens/ko/.gitkeep`
-- Create: `public/screens/en/.gitkeep`
-
-- [ ] **Step 1: Create placeholders**
+- [ ] **Step 6: Commit**
 
 ```bash
-mkdir -p public/screens/ko public/screens/en
-touch public/screens/ko/.gitkeep public/screens/en/.gitkeep
-```
-
-- [ ] **Step 2: Commit**
-
-```bash
-git add public/screens/
-git commit -m "chore: add public/screens/ directory structure for locale screenshots"
+git add eslint.config.mjs scripts/import_tokens.test.ts
+git commit -m "test: add import_tokens tests and eslint override for node:test files"
 ```
 
 ---
@@ -730,7 +790,7 @@ End-to-end verification with the real mirae repo.
 MIRAE_APP_DIR=/path/to/your/mirae pnpm import:screenshots:dry
 ```
 
-Expected: file list with NEW/CHANGED/UNCHANGED per locale, no files copied.
+Expected: file list with `NEW`/`CHANGED`/`UNCHANGED` per locale; no files copied.
 
 - [ ] **Step 2: Run token dry-run**
 
@@ -738,16 +798,16 @@ Expected: file list with NEW/CHANGED/UNCHANGED per locale, no files copied.
 MIRAE_APP_DIR=/path/to/your/mirae pnpm import:tokens:dry
 ```
 
-Expected: per-variable diff report, no file written.
+Expected: per-variable diff report; `app/globals.css` not modified.
 
-- [ ] **Step 3: Run full token import and verify CSS**
+- [ ] **Step 3: Run full token import and inspect diff**
 
 ```bash
 MIRAE_APP_DIR=/path/to/your/mirae pnpm import:tokens
 git diff app/globals.css
 ```
 
-Expected: only mapped `:root` and `.dark` hex values changed; `@theme inline` untouched; file structure (comments, ordering) preserved.
+Expected: only mapped `:root` and `.dark` hex values may be changed; `@theme inline` block untouched; file structure (comments, ordering, unmapped variables) preserved.
 
 - [ ] **Step 4: Run linter**
 
@@ -755,11 +815,15 @@ Expected: only mapped `:root` and `.dark` hex values changed; `@theme inline` un
 pnpm lint
 ```
 
-Expected: no new lint errors.
+Expected: no errors.
 
-- [ ] **Step 5: Commit any resulting CSS changes**
+- [ ] **Step 5: Commit CSS changes if any**
+
+If `git diff app/globals.css` showed changes:
 
 ```bash
 git add app/globals.css
 git commit -m "chore: sync design tokens from mirae tokens-studio.json"
 ```
+
+If there are no changes, this step is a no-op — skip it.
