@@ -1,11 +1,13 @@
 # Custom Dictionary Words
 AAID
+Behaviour
 cmdk
 donminzzi
 Embla
 IDFA
 nums
 oklch
+rehype
 subcopy
 vaul
 warmwake
