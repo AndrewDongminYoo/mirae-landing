@@ -43,6 +43,13 @@ for i in "${!LOCALES_SRC[@]}"; do
     n_changed=0
     n_new=0
     n_unchanged=0
+    n_stale=0
+
+    # Collect source filenames for stale detection
+    declare -A src_names=()
+    while IFS= read -r -d '' src_file; do
+      src_names["$(basename "$src_file")"]=1
+    done < <(find "$src_dir" -maxdepth 1 -name '*.png' -print0)
 
     while IFS= read -r -d '' src_file; do
       filename="$(basename "$src_file")"
@@ -62,9 +69,22 @@ for i in "${!LOCALES_SRC[@]}"; do
       printf "  %-40s %s\n" "${filename}" "${status}"
     done < <(find "$src_dir" -maxdepth 1 -name '*.png' -print0 | sort -z)
 
-    log_info "dry-run: ${n_changed} changed, ${n_new} new, ${n_unchanged} unchanged"
+    # Report stale files present in target but absent from source
+    if [[ -d "$tgt_dir" ]]; then
+      while IFS= read -r -d '' tgt_file; do
+        filename="$(basename "$tgt_file")"
+        if [[ -z "${src_names[$filename]:-}" ]]; then
+          printf "  %-40s %s\n" "${filename}" "STALE"
+          (( n_stale++ )) || true
+        fi
+      done < <(find "$tgt_dir" -maxdepth 1 -name '*.png' -print0 | sort -z)
+    fi
+    unset src_names
+
+    log_info "dry-run: ${n_changed} changed, ${n_new} new, ${n_unchanged} unchanged, ${n_stale} stale"
   else
     mkdir -p "$tgt_dir"
+    find "$tgt_dir" -maxdepth 1 -name '*.png' -delete
     copied=0
 
     while IFS= read -r -d '' src_file; do
