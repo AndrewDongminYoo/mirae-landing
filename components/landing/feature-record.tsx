@@ -1,5 +1,7 @@
 import Image from "next/image";
 
+import { getScreenPath } from "@/lib/screens";
+
 export function FeatureRecord() {
   return (
     <section
@@ -16,10 +18,10 @@ export function FeatureRecord() {
                 <div className="absolute inset-0 rounded-3xl bg-foreground/5 shadow-lg" />
                 <div className="relative h-full w-full overflow-hidden rounded-3xl border border-border/50 bg-card">
                   <Image
-                    alt="온음 앱 알람 소리 선택"
+                    alt="온음 앱 알람 소리 선택 화면"
                     className="object-cover"
                     fill
-                    src="/images/warmwake-alarm-sounds.png"
+                    src={getScreenPath("soundPicker")}
                   />
                 </div>
               </div>
@@ -29,10 +31,10 @@ export function FeatureRecord() {
                 <div className="absolute inset-0 rounded-4xl bg-foreground/5 shadow-2xl" />
                 <div className="relative h-full w-full overflow-hidden rounded-4xl border border-border/50 bg-card">
                   <Image
-                    alt="온음 앱 음성 메시지 녹음 화면"
+                    alt="온음 앱 음성 메시지 미리 듣기 화면"
                     className="object-cover"
                     fill
-                    src="/images/warmwake-voice-record.png"
+                    src={getScreenPath("messagePreview")}
                   />
                 </div>
               </div>

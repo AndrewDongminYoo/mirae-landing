@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
+import { getScreenPath } from "@/lib/screens";
 
 export function FinalCTA() {
   return (
@@ -72,10 +73,10 @@ export function FinalCTA() {
               <div className="absolute inset-0 rounded-[2.5rem] bg-background/10 shadow-2xl" />
               <div className="relative h-full w-full overflow-hidden rounded-[2.5rem] border border-background/20 bg-card">
                 <Image
-                  alt="온음 앱 알람 화면"
+                  alt="온음 앱 홈 화면"
                   className="object-cover"
                   fill
-                  src="/images/warmwake-alarm-wake.png"
+                  src={getScreenPath("homeFabs")}
                 />
               </div>
             </div>

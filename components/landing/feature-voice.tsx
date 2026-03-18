@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
+import { getScreenPath } from "@/lib/screens";
 
 export function FeatureVoice() {
   return (
@@ -79,10 +80,10 @@ export function FeatureVoice() {
                 <div className="absolute inset-0 rounded-3xl bg-foreground/5 shadow-lg" />
                 <div className="relative h-full w-full overflow-hidden rounded-3xl border border-border/50 bg-card">
                   <Image
-                    alt="온음 앱 알람 시간 설정"
+                    alt="온음 앱 알람 시간 및 요일 설정 화면"
                     className="object-cover"
                     fill
-                    src="/images/warmwake-time-picker.png"
+                    src={getScreenPath("alarmDetail")}
                   />
                 </div>
               </div>
@@ -92,10 +93,10 @@ export function FeatureVoice() {
                 <div className="absolute inset-0 rounded-4xl bg-foreground/5 shadow-2xl" />
                 <div className="relative h-full w-full overflow-hidden rounded-4xl border border-border/50 bg-card">
                   <Image
-                    alt="온음 앱 알람 화면 - 어제의 당신이 남긴 메시지"
+                    alt="온음 앱 알람 울림 화면 - 어제의 당신이 남긴 메시지"
                     className="object-cover"
                     fill
-                    src="/images/warmwake-alarm-wake.png"
+                    src={getScreenPath("alarmRing")}
                   />
                 </div>
               </div>

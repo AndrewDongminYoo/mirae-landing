@@ -1,5 +1,7 @@
 import Image from "next/image";
 
+import { getScreenPath } from "@/lib/screens";
+
 export function FeatureSettings() {
   return (
     <section
@@ -48,10 +50,10 @@ export function FeatureSettings() {
                 <div className="absolute inset-0 rounded-3xl bg-foreground/5 shadow-lg" />
                 <div className="relative h-full w-full overflow-hidden rounded-3xl border border-border/50 bg-card">
                   <Image
-                    alt="온음 앱 테마 선택 화면"
+                    alt="온음 앱 테마 설정 화면"
                     className="object-cover"
                     fill
-                    src="/images/warmwake-theme-light.png"
+                    src={getScreenPath("settingsTheme")}
                   />
                 </div>
               </div>
@@ -64,7 +66,7 @@ export function FeatureSettings() {
                     alt="온음 앱 설정 화면"
                     className="object-cover"
                     fill
-                    src="/images/warmwake-settings.png"
+                    src={getScreenPath("settings")}
                   />
                 </div>
               </div>

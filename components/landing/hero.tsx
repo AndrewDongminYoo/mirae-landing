@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
+import { getScreenPath } from "@/lib/screens";
 
 export function Hero() {
   return (
@@ -75,10 +76,10 @@ export function Hero() {
             <div className="absolute inset-0 rounded-[1.25rem] bg-foreground/5 shadow-lg sm:rounded-3xl" />
             <div className="relative h-full w-full overflow-hidden rounded-[1.25rem] border border-border/50 bg-card sm:rounded-3xl">
               <Image
-                alt="온음 앱 알람 시간 설정 화면"
+                alt="온음 앱 음성 메시지 목록 화면"
                 className="object-cover"
                 fill
-                src="/images/warmwake-time-picker.png"
+                src={getScreenPath("voiceMessagesList")}
               />
             </div>
           </div>
@@ -88,11 +89,11 @@ export function Hero() {
             <div className="absolute inset-0 rounded-[1.75rem] bg-foreground/5 shadow-2xl sm:rounded-4xl" />
             <div className="relative h-full w-full overflow-hidden rounded-[1.75rem] border border-border/50 bg-card sm:rounded-4xl">
               <Image
-                alt="온음 앱 알람 화면 - 어제의 당신이 남긴 메시지입니다"
+                alt="온음 앱 알람 울림 화면 - 어제의 당신이 남긴 메시지"
                 className="object-cover"
                 fill
                 priority
-                src="/images/warmwake-alarm-wake.png"
+                src={getScreenPath("alarmRing")}
               />
             </div>
           </div>
@@ -102,10 +103,10 @@ export function Hero() {
             <div className="absolute inset-0 rounded-[1.25rem] bg-foreground/5 shadow-lg sm:rounded-3xl" />
             <div className="relative h-full w-full overflow-hidden rounded-[1.25rem] border border-border/50 bg-card sm:rounded-3xl">
               <Image
-                alt="온음 앱 음성 메시지 녹음 화면"
+                alt="온음 앱 홈 화면"
                 className="object-cover"
                 fill
-                src="/images/warmwake-voice-record.png"
+                src={getScreenPath("homeFabs")}
               />
             </div>
           </div>
