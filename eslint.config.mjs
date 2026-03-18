@@ -113,6 +113,15 @@ const eslintConfig = [
     },
   },
   {
+    files: ["lib/**/*.test.ts"],
+    rules: {
+      // lib tests use node:test, not jest
+      ...Object.fromEntries(
+        Object.keys(pluginJest.rules ?? {}).map((rule) => [`jest/${rule}`, "off"])
+      ),
+    },
+  },
+  {
     files: ["jest.config.js"],
     rules: {
       "@typescript-eslint/no-require-imports": "off",
