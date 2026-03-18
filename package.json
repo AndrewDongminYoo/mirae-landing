@@ -3,10 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
     "build": "next build",
+    "dev": "next dev",
+    "import:screenshots": "bash scripts/import_screenshots.sh",
+    "import:screenshots:dry": "bash scripts/import_screenshots.sh --dry-run",
+    "import:tokens": "tsx scripts/import_tokens.ts",
+    "import:tokens:dry": "tsx scripts/import_tokens.ts --dry-run",
+    "lint": "eslint .",
     "start": "next start",
-    "lint": "eslint ."
+    "test:tokens": "tsx --test scripts/import_tokens.test.ts"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.15",
@@ -50,6 +55,7 @@
     "prettier": "^3.8.1",
     "prettier-plugin-tailwindcss": "^0.7.2",
     "tailwindcss": "^4.2.1",
+    "tsx": "^4.21.0",
     "tw-animate-css": "1.4.0",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.57.1"
