@@ -1,13 +1,18 @@
 # Custom Dictionary Words
 AAID
+agentic
 Behaviour
 cmdk
 donminzzi
+elif
 Embla
 IDFA
+nullglob
 nums
 oklch
+pipefail
 rehype
+shopt
 subcopy
 vaul
 warmwake
