@@ -104,18 +104,9 @@ const eslintConfig = [
     ...pluginJest.configs["flat/recommended"],
   },
   {
-    files: ["scripts/**/*.test.ts"],
+    files: ["scripts/**/*.test.ts", "lib/**/*.test.ts"],
     rules: {
-      // Disable all jest/* rules — scripts use node:test, not jest
-      ...Object.fromEntries(
-        Object.keys(pluginJest.rules ?? {}).map((rule) => [`jest/${rule}`, "off"])
-      ),
-    },
-  },
-  {
-    files: ["lib/**/*.test.ts"],
-    rules: {
-      // lib tests use node:test, not jest
+      // These dirs use node:test, not jest
       ...Object.fromEntries(
         Object.keys(pluginJest.rules ?? {}).map((rule) => [`jest/${rule}`, "off"])
       ),
