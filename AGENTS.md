@@ -14,7 +14,7 @@
 ## Where to look
 
 - Landing composition: `app/page.tsx`.
-- Legal copy/data arrays: `app/privacy/page.tsx`, `app/terms/page.tsx`.
+- Legal content (single source of truth): `components/policy/privacy.md`, `components/policy/service.md`.
 - Global tokens/theme variables: `app/globals.css`.
 - CTA and section visuals: `components/landing/*.tsx`.
 - Primitive variants and Radix wrappers: `components/ui/*.tsx`.
@@ -24,6 +24,7 @@
 ## Code map
 
 - `app/layout.tsx` exports `metadata` + `viewport`, imports `./globals.css`, and mounts `<Analytics />`.
+- `components/policy/privacy.md` and `service.md` are the canonical legal documents; pages read and render them via `markdown-sections.tsx`.
 - `components/policy/policy-layout.tsx` centralizes legal page chrome (header/footer, title block, section container).
 - `lib/utils.ts` exports `cn()`; all UI primitives should rely on it for class merging.
 - `hooks/use-toast.ts` contains reducer/store logic; `components/ui/toast.tsx` contains visual primitives.

@@ -6,13 +6,14 @@
 ## Structure
 
 - `landing/` - marketing sections consumed by `app/page.tsx`.
-- `policy/` - legal layout primitives consumed by `app/privacy` and `app/terms`.
+- `policy/` - legal markdown sources (`privacy.md`, `service.md`) and rendering layer consumed by `app/privacy` and `app/terms`.
 - `ui/` - CVA + Radix wrappers (`button`, `toast`, `dialog`, `tabs`, etc.).
 - `theme-provider.tsx` - optional `next-themes` wrapper (currently not mounted by root layout).
 
 ## Where to look
 
 - Navigation/footer behavior: `components/landing/header.tsx`, `components/landing/footer.tsx`.
+- Legal content source of truth: `components/policy/privacy.md`, `components/policy/service.md`.
 - Legal wrapper markup: `components/policy/policy-layout.tsx`.
 - Variant extension points: `components/ui/button.tsx`, `components/ui/badge.tsx`, `components/ui/toast.tsx`.
 
