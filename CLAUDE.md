@@ -17,7 +17,7 @@ pnpm test:tokens                    # Run token import script tests
 pnpm knip                           # Find unused exports/files
 pnpm import:tokens                  # Sync design tokens from tokens-studio.json → globals.css
 pnpm import:tokens:dry              # Dry-run: preview token changes without writing
-pnpm import:screenshots             # Copy app screenshots into public/images/
+pnpm import:screenshots             # Copy app screenshots into public/screens/{ko,en}/
 pnpm import:screenshots:dry         # Dry-run: preview screenshot copy
 ```
 
@@ -32,9 +32,9 @@ Package manager: pnpm (v10.32.1)
 - `components/policy/` - Legal page wrappers (PolicyLayout, PolicySection)
 - `components/ui/` - Design system primitives (CVA + Radix wrappers)
 - `hooks/` - Shared client hooks (`use-toast.ts`, `use-mobile.ts`)
-- `lib/utils.ts` - `cn()` helper for class merging
+- `lib/utils.ts` - `cn()` helper for class merging; `lib/screens.ts` - localized screenshot path resolver
 - `scripts/` - Dev tooling: `import_tokens.ts`, `import_screenshots.sh`, `tokens.config.ts`
-- `styles/globals.css` - Tailwind entry, design tokens, light/dark theme variables
+- `app/globals.css` - Tailwind entry, design tokens, light/dark theme variables
 
 ### Key Patterns
 
@@ -60,14 +60,9 @@ Package manager: pnpm (v10.32.1)
 - Global metadata (title, description, icons) belongs in `app/layout.tsx`
 - Policy pages define their own metadata objects next to the exported component
 
-**Dual Hook Pattern:**
-
-- `hooks/use-toast.ts` and `components/ui/use-toast.ts` share the same reducer logic - keep them in sync when modifying either
-- `hooks/use-mobile.ts` and `components/ui/use-mobile.tsx` both detect the 768px breakpoint - mirror changes across both files
-
 ### Design Tokens
 
-Light/dark theme variables defined in `styles/globals.css` using CSS custom properties with `oklch` color values:
+Light/dark theme variables defined in `app/globals.css` using CSS custom properties with `oklch` color values:
 
 - `--background`, `--foreground`, `--primary`, `--accent`, etc.
 - Radius variants: `--radius-sm` through `--radius-2xl`
@@ -77,8 +72,8 @@ Light/dark theme variables defined in `styles/globals.css` using CSS custom prop
 
 ### next.config.ts Notes
 
-- `typescript.ignoreBuildErrors: true` — TypeScript errors do not fail production builds
-- `images.unoptimized: true` — avoid using optimized `next/image` loader; all mockups live in `public/images/`
+- `typescript.ignoreBuildErrors: false` — TypeScript errors fail the build
+- `images.unoptimized: false` — `next/image` optimization is active; screenshots live in `public/screens/{ko,en}/`
 
 ## AGENTS.md Files
 
@@ -89,6 +84,9 @@ This repo contains `AGENTS.md` files with detailed context for each directory:
 - `components/AGENTS.md` - Component organization overview
 - `components/landing/AGENTS.md` - Landing section structure and patterns
 - `components/ui/AGENTS.md` - Design system conventions and CVA usage
+- `hooks/AGENTS.md` - Shared client hooks (`use-toast`, `use-mobile`)
+- `lib/AGENTS.md` - Utility functions and screenshot path resolver
+- `scripts/AGENTS.md` - Token and screenshot import pipelines
 
 ## Workflow for Large Tasks
 

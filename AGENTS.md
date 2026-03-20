@@ -1,72 +1,68 @@
 ## Overview
 
-- 온음(WarmWake) is a Next 16 App Router marketing site, built with pnpm + Tailwind 4.
-- Landing sections are server components that lean on a shared design system and two legal pages.
+- 온음(WarmWake) is a Next.js 16 App Router marketing site built with pnpm, React 19, and Tailwind CSS 4.
+- The core surface is a landing page (`app/page.tsx`) plus legal pages (`/privacy`, `/terms`) sharing policy wrappers.
 
 ## Structure tree
 
-- `.` (root) contains `AGENTS.md`, `app/AGENTS.md`, `components/AGENTS.md`, `components/landing/AGENTS.md`, and `components/ui/AGENTS.md`.
-- `app/` holds the App Router entry, metadata-aware layout, and legal pages.
-- `components/` nests landing sections, policy shells, a theme provider, and the UI primitives.
-- `public/` keeps the mockup art and icons referenced by the landing sections.
-- `styles/` hosts `globals.css`; `lib/` exposes helpers; `hooks/` holds shared client utilities.
+- `.` holds root config, docs, and AGENTS hierarchy.
+- `app/` owns routes, metadata, and `app/globals.css`.
+- `components/` splits into `landing/`, `policy/`, and `ui/` primitives.
+- `hooks/`, `lib/`, and `scripts/` provide shared logic and import pipelines.
+- `public/screens/{ko,en}` stores localized app screenshots used by landing sections.
 
 ## Where to look
 
-- `app/page.tsx` orchestrates `Header`, `Hero`, `Problem`, `PainPoints`, each feature, CTAs, and `Footer`.
-- `components/landing/` contains every marketing section plus the sticky header/footer used everywhere.
-- `app/privacy` and `app/terms` render policy copy through `components/policy/policy-layout.tsx` and `policy-section.tsx`.
-- `components/ui/` defines the CVA-driven primitives, toast system, and reusable icon/button patterns.
-- `styles/globals.css` wires Tailwind 4, `tw-animate-css`, the oklch tokens, and `@theme inline` alias.
-- `public/images/` stores the `warmwake-*.png` mockups used by `Hero` and the feature sections.
+- Landing composition: `app/page.tsx`.
+- Legal copy/data arrays: `app/privacy/page.tsx`, `app/terms/page.tsx`.
+- Global tokens/theme variables: `app/globals.css`.
+- CTA and section visuals: `components/landing/*.tsx`.
+- Primitive variants and Radix wrappers: `components/ui/*.tsx`.
+- Screenshot path resolver: `lib/screens.ts`.
+- Token/screenshot sync pipeline: `scripts/import_tokens.ts`, `scripts/import_screenshots.sh`.
 
 ## Code map
 
-- `app/layout.tsx` exports metadata, viewport hints, imports `styles/globals.css`, and renders `<Analytics />`.
-- `app/page.tsx` layers `Header`, hero/problem/pain-point sections, three feature calls, CTA, final CTA, and `Footer` inside `<main>`.
-- `app/privacy/page.tsx` and `app/terms/page.tsx` each export `metadata`, `PolicyLayout`, and `PolicySection` content with predefined arrays of copy.
-- `components/policy/policy-layout.tsx` wraps legal copy with the shared header/footer and the `PolicySection` gutter.
-- `components/theme-provider.tsx` re-exports `next-themes` for future client layouts.
-- `components/landing/*` files style every section with gradients, `lucide-react` icons, `next/image` mockups, and CTA buttons.
-- `components/ui/*` files expose wrappers around `@radix-ui` primitives, CVA variants, `Slot`, and focus/animation states.
-- `hooks/use-toast.ts` and `components/ui/use-toast.ts` drive the same reducer-based toast store; keep them aligned before refactors.
-- `hooks/use-mobile.ts` and `components/ui/use-mobile.tsx` provide the same breakpoint detector for client use.
-- `lib/utils.ts` exports the `cn` helper that merges `clsx` + `twMerge`.
-- `styles/globals.css` defines color tokens, radius variables, `@custom-variant dark`, and base layer styling.
+- `app/layout.tsx` exports `metadata` + `viewport`, imports `./globals.css`, and mounts `<Analytics />`.
+- `components/policy/policy-layout.tsx` centralizes legal page chrome (header/footer, title block, section container).
+- `lib/utils.ts` exports `cn()`; all UI primitives should rely on it for class merging.
+- `hooks/use-toast.ts` contains reducer/store logic; `components/ui/toast.tsx` contains visual primitives.
+- `lib/screens.ts` defines canonical screenshot keys and locale-aware URL generation.
 
 ## Conventions
 
-- Default to server components inside `app/`; add `"use client"` only when the component uses state, effects, or context (header, theme provider, toast hooks).
-- Always pass classes through `cn`; put reusable variants inside the CVA configs in `components/ui`.
-- Wrap every App Store/Google Play CTA with `<Button asChild>` + `<Link>` so spacing stays consistent.
-- Favor `lucide-react` icons and `@radix-ui` primitives instead of hand-building interactive behavior.
-- Keep typography balanced via the `text-balance` utility, generous `tracking-tight`, and `bg-linear-to-b` background helpers.
-- Legal copy uses `components/policy/policy-section.tsx` so every section shares the same padding, background, and `detail` styling.
+- Keep `app/` pages server-first; only opt into `"use client"` when state/effects are required.
+- Use `<Button asChild><Link ... /></Button>` for store/download CTAs.
+- Keep tokens and shared visual variables in `app/globals.css`; expose via `@theme inline`.
+- Reuse `getScreenPath()` instead of hardcoding `/screens/...` file names.
+- Extend UI variants in `components/ui` (CVA + Radix), not inside landing sections.
 
 ## Anti-patterns
 
-- Do not convert the server pages in `app/` into client components just to use hooks; extract wrappers instead.
-- Avoid rewriting primitives like `Button` or `Toast` outside `components/ui`; extend variants instead of copying logic.
-- Do not scatter new font or animation imports; keep tokens centralized inside `styles/globals.css`.
-- Avoid linking remote images directly; prefer `next/image` pointed at `public/` assets so `images.unoptimized` stays in sync with `next.config.ts`.
+- Do not reference `styles/globals.css` or `public/images`; this repo uses `app/globals.css` and `public/screens`.
+- Do not import `clsx`/`tailwind-merge` directly in feature components; use `cn()` from `lib/utils.ts`.
+- Do not copy legal layout markup into page files; use `PolicyLayout` + `PolicySection`.
+- Do not bypass import scripts when syncing app screenshots/tokens.
 
 ## Unique styles
 
-- `styles/globals.css` seeds the palette with `oklch` tokens, `--radius`, `--sidebar` palettes, and registers the `.dark` overrides plus `@custom-variant dark` for Tailwind 4.
-- `@theme inline` exposes the token set to utility classes, so `components/landing` sections can use `var(--color-*)` through color helpers.
-- Most sections lean on `tw-animate` helpers, layered `blur` circles, and `text-balance` while stacking `bg-linear-to-b` gradients across `div`s.
-- Phone mockups use `next/image`, `aspect-9/19`, and layered borders/shadows to mimic curved glass with `bg-card` backgrounds.
+- Palette is tokenized in CSS variables (`:root` + `.dark`) with warm accent colors and Tailwind 4 token mapping.
+- Landing visuals layer gradients/blur circles and phone frames around screenshots from `public/screens`.
+- Typography and spacing emphasize `tracking-tight`, rounded card frames, and soft border/shadow treatment.
 
 ## Commands
 
-- `pnpm dev` – start the Next dev server with App Router support.
-- `pnpm build` – build for production; `next.config.ts` currently ignores TypeScript build errors.
-- `pnpm lint` – run ESLint with the Next.js config, `simple-import-sort`, and the `@eslint/js` parser.
+- `pnpm dev` - run local Next.js dev server.
+- `pnpm build` - create production build.
+- `pnpm start` - serve production build.
+- `pnpm lint` - run ESLint flat config checks.
+- `pnpm import:screenshots` / `pnpm import:screenshots:dry` - sync localized screenshots.
+- `pnpm import:tokens` / `pnpm import:tokens:dry` - sync token values into `app/globals.css`.
+- `pnpm test:tokens` - run token import tests (`node:test` via `tsx --test`).
 
 ## Notes
 
-- `pnpm-lock.yaml` shows pnpm is the package manager here; please keep using pnpm.
-- `next.config.ts` flips on `typescript.ignoreBuildErrors` and `images.unoptimized` for this staging site.
-- `hooks/use-toast.ts` and `components/ui/use-toast.ts` share the reducer logic; keep them in sync or consider deduplicating once the UI tree stabilizes.
-- `hooks/use-mobile.ts` mirrors `components/ui/use-mobile.tsx` so both layers can detect the 768px breakpoint consistently.
-- No AGENTS.md existed before this change; this file anchors the new hierarchy.
+- Package manager is pnpm (`pnpm-lock.yaml` committed).
+- `next.config.ts` uses `typescript.ignoreBuildErrors: false` and `images.unoptimized: false`.
+- There is currently no CI workflow under `.github/workflows`.
+- `components/theme-provider.tsx` exists, but root layout currently does not mount it.
