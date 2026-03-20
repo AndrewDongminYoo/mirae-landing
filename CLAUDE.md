@@ -13,6 +13,12 @@ pnpm dev      # Start development server
 pnpm build    # Production build
 pnpm start    # Start production server
 pnpm lint     # Run ESLint
+pnpm test:tokens                    # Run token import script tests
+pnpm knip                           # Find unused exports/files
+pnpm import:tokens                  # Sync design tokens from tokens-studio.json → globals.css
+pnpm import:tokens:dry              # Dry-run: preview token changes without writing
+pnpm import:screenshots             # Copy app screenshots into public/images/
+pnpm import:screenshots:dry         # Dry-run: preview screenshot copy
 ```
 
 Package manager: pnpm (v10.32.1)
@@ -25,8 +31,10 @@ Package manager: pnpm (v10.32.1)
 - `components/landing/` - Marketing sections (Hero, Header, Footer, feature blocks)
 - `components/policy/` - Legal page wrappers (PolicyLayout, PolicySection)
 - `components/ui/` - Design system primitives (CVA + Radix wrappers)
+- `hooks/` - Shared client hooks (`use-toast.ts`, `use-mobile.ts`)
 - `lib/utils.ts` - `cn()` helper for class merging
-- `app/globals.css` - Tailwind entry, design tokens, light/dark theme variables
+- `scripts/` - Dev tooling: `import_tokens.ts`, `import_screenshots.sh`, `tokens.config.ts`
+- `styles/globals.css` - Tailwind entry, design tokens, light/dark theme variables
 
 ### Key Patterns
 
@@ -52,22 +60,46 @@ Package manager: pnpm (v10.32.1)
 - Global metadata (title, description, icons) belongs in `app/layout.tsx`
 - Policy pages define their own metadata objects next to the exported component
 
+**Dual Hook Pattern:**
+
+- `hooks/use-toast.ts` and `components/ui/use-toast.ts` share the same reducer logic - keep them in sync when modifying either
+- `hooks/use-mobile.ts` and `components/ui/use-mobile.tsx` both detect the 768px breakpoint - mirror changes across both files
+
 ### Design Tokens
 
-Light/dark theme variables defined in `app/globals.css` using CSS custom properties:
+Light/dark theme variables defined in `styles/globals.css` using CSS custom properties with `oklch` color values:
 
 - `--background`, `--foreground`, `--primary`, `--accent`, etc.
 - Radius variants: `--radius-sm` through `--radius-2xl`
 - Font stack: Geist Sans and Geist Mono
+- `@theme inline` exposes tokens to Tailwind utility classes
+- Token values are imported from a `tokens-studio.json` file via `pnpm import:tokens`; the mapping is defined in `scripts/tokens.config.ts`. Variables not in `TOKEN_MAP` (e.g. `--accent`, `--ring`, sidebar palette) are web-only and never overwritten by the import script.
+
+### next.config.ts Notes
+
+- `typescript.ignoreBuildErrors: true` — TypeScript errors do not fail production builds
+- `images.unoptimized: true` — avoid using optimized `next/image` loader; all mockups live in `public/images/`
 
 ## AGENTS.md Files
 
 This repo contains `AGENTS.md` files with detailed context for each directory:
 
+- `AGENTS.md` - Root overview and code map
 - `app/AGENTS.md` - App Router pages and metadata conventions
 - `components/AGENTS.md` - Component organization overview
 - `components/landing/AGENTS.md` - Landing section structure and patterns
 - `components/ui/AGENTS.md` - Design system conventions and CVA usage
+
+## Workflow for Large Tasks
+
+For substantial work (new features, refactors, multi-step implementations), follow this sequence:
+
+1. **Plan**: Use the `superpowers:writing-plans` skill to write and align on an implementation plan before touching code.
+2. **Worktree**: Use the `superpowers:using-git-worktrees` skill to work in an isolated git worktree and keep `main` clean.
+3. **Implement**: Execute the plan inside the worktree.
+4. **Finish**: Use the `superpowers:finishing-a-development-branch` skill to decide on merge or PR.
+
+Simple bug fixes and small, self-contained changes can be done directly on `main` without a worktree.
 
 ## Code Conventions
 

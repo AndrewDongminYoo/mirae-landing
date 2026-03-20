@@ -9,6 +9,7 @@ Embla
 fabs
 Fabs
 IDFA
+knip
 lintignore
 nullglob
 nums
@@ -16,7 +17,12 @@ oklch
 pipefail
 Pretendard
 rehype
+SCRIPTDIR
+shellcheck
 shopt
 subcopy
 vaul
 warmwake
+worktree
+Worktree
+worktrees
