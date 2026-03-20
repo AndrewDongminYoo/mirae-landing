@@ -1,0 +1,24 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": [
+          "393JTTV68D.kr.mirae.app",
+          "393JTTV68D.kr.mirae.app.dev",
+          "393JTTV68D.kr.mirae.app.stg"
+        ],
+        "components": [
+          {
+            "/": "/alarm/*",
+            "comment": "Alarm detail and create routes"
+          },
+          {
+            "/": "/",
+            "?": { "action": "quick_alarm" },
+            "comment": "Quick alarm action from root"
+          }
+        ]
+      }
+    ]
+  }
+}
