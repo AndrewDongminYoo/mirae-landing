@@ -19,11 +19,17 @@ runtimes:
 # This is the section where you manage your linters. (https://docs.trunk.io/check/configuration)
 lint:
   disabled:
+    - bandit
     - trivy
   enabled:
-    - eslint@9.39.4
+    - black@26.3.1
+    - isort@8.0.1
+    - ruff@0.15.7
+    - shellcheck@0.11.0
+    - shfmt@3.6.0
+    - eslint@10.0.3
     - oxipng@10.1.0
-    - checkov@3.2.509
+    - checkov@3.2.510
     - git-diff-check
     - markdownlint@0.48.0
     - osv-scanner@2.3.3
