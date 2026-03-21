@@ -121,12 +121,13 @@ export function Hero() {
           {/* Left Phone */}
           <AnimateOnScroll animation="fade-right" delay={600}>
             <div className="hover-scale relative aspect-9/19 w-24 shrink-0 sm:w-32 md:w-40 lg:w-48">
-              <div className="absolute inset-0 rounded-[1.25rem] bg-foreground/5 shadow-lg sm:rounded-3xl" />
-              <div className="relative h-full w-full overflow-hidden rounded-[1.25rem] border border-white/50 bg-card shadow-xl sm:rounded-3xl">
+              <div className="absolute inset-0 rounded-[1.125rem] bg-foreground/5 shadow-lg" />
+              <div className="relative h-full w-full overflow-hidden rounded-[1.125rem] border border-white/50 bg-card shadow-xl">
                 <Image
                   alt="온음 앱 음성 메시지 목록 화면"
                   className="object-cover"
                   fill
+                  sizes="(max-width: 640px) 96px, (max-width: 768px) 128px, (max-width: 1024px) 160px, 192px"
                   src={getScreenPath("voiceMessagesList")}
                 />
               </div>
@@ -136,13 +137,14 @@ export function Hero() {
           {/* Center Phone (Main) - Float animation */}
           <AnimateOnScroll animation="scale-up" delay={400}>
             <div className="animate-float-slow hover-scale relative -mb-4 aspect-9/19 w-36 shrink-0 sm:-mb-6 sm:w-44 md:w-52 lg:w-60">
-              <div className="absolute inset-0 rounded-[1.75rem] bg-foreground/5 shadow-2xl sm:rounded-4xl" />
-              <div className="relative h-full w-full overflow-hidden rounded-[1.75rem] border border-white/50 bg-card shadow-2xl sm:rounded-4xl">
+              <div className="absolute inset-0 rounded-[1.25rem] bg-foreground/5 shadow-2xl" />
+              <div className="relative h-full w-full overflow-hidden rounded-[1.25rem] border border-white/50 bg-card shadow-2xl">
                 <Image
                   alt="온음 앱 알람 울림 화면 - 어제의 당신이 남긴 메시지"
                   className="object-cover"
                   fill
                   priority
+                  sizes="(max-width: 640px) 144px, (max-width: 768px) 176px, (max-width: 1024px) 208px, 240px"
                   src={getScreenPath("alarmRing")}
                 />
               </div>
@@ -152,12 +154,13 @@ export function Hero() {
           {/* Right Phone */}
           <AnimateOnScroll animation="fade-left" delay={600}>
             <div className="hover-scale relative aspect-9/19 w-24 shrink-0 sm:w-32 md:w-40 lg:w-48">
-              <div className="absolute inset-0 rounded-[1.25rem] bg-foreground/5 shadow-lg sm:rounded-3xl" />
-              <div className="relative h-full w-full overflow-hidden rounded-[1.25rem] border border-white/50 bg-card shadow-xl sm:rounded-3xl">
+              <div className="absolute inset-0 rounded-[1.125rem] bg-foreground/5 shadow-lg" />
+              <div className="relative h-full w-full overflow-hidden rounded-[1.125rem] border border-white/50 bg-card shadow-xl">
                 <Image
                   alt="온음 앱 홈 화면"
                   className="object-cover"
                   fill
+                  sizes="(max-width: 640px) 96px, (max-width: 768px) 128px, (max-width: 1024px) 160px, 192px"
                   src={getScreenPath("homeFabs")}
                 />
               </div>

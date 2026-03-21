@@ -26,12 +26,13 @@ export function FeatureRecord() {
               {/* Left Phone */}
               <AnimateOnScroll animation="fade-right" delay={300}>
                 <div className="hover-scale relative aspect-9/19 w-32 -translate-y-6 transition-transform duration-300 sm:w-40 md:w-44">
-                  <div className="absolute inset-0 rounded-3xl bg-foreground/5 shadow-lg" />
-                  <div className="relative h-full w-full overflow-hidden rounded-3xl border border-border/50 bg-card shadow-xl">
+                  <div className="absolute inset-0 rounded-[1.125rem] bg-foreground/5 shadow-lg" />
+                  <div className="relative h-full w-full overflow-hidden rounded-[1.125rem] border border-border/50 bg-card shadow-xl">
                     <Image
                       alt="온음 앱 알람 소리 선택 화면"
                       className="object-cover"
                       fill
+                      sizes="(max-width: 640px) 128px, (max-width: 768px) 160px, 176px"
                       src={getScreenPath("soundPicker")}
                     />
                   </div>
@@ -41,12 +42,13 @@ export function FeatureRecord() {
               {/* Main Phone */}
               <AnimateOnScroll animation="fade-right" delay={100}>
                 <div className="animate-float-slow hover-scale relative aspect-9/19 w-40 transition-transform duration-300 sm:w-52 md:w-56">
-                  <div className="absolute inset-0 rounded-4xl bg-foreground/5 shadow-2xl" />
-                  <div className="relative h-full w-full overflow-hidden rounded-4xl border border-border/50 bg-card shadow-2xl">
+                  <div className="absolute inset-0 rounded-[1.25rem] bg-foreground/5 shadow-2xl" />
+                  <div className="relative h-full w-full overflow-hidden rounded-[1.25rem] border border-border/50 bg-card shadow-2xl">
                     <Image
                       alt="온음 앱 음성 메시지 미리 듣기 화면"
                       className="object-cover"
                       fill
+                      sizes="(max-width: 640px) 160px, (max-width: 768px) 208px, 224px"
                       src={getScreenPath("messagePreview")}
                     />
                   </div>
