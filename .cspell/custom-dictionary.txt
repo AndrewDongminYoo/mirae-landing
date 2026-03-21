@@ -1,8 +1,10 @@
 # Custom Dictionary Words
 AAID
 agentic
+assetlinks
 Behaviour
 cmdk
+creds
 donminzzi
 elif
 Embla

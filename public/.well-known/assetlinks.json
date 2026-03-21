@@ -1,11 +1,15 @@
 [
   {
-    "relation": ["delegate_permission/common.handle_all_urls"],
+    "relation": [
+      "delegate_permission/common.handle_all_urls",
+      "delegate_permission/common.get_login_creds"
+    ],
     "target": {
       "namespace": "android_app",
       "package_name": "kr.mirae.app",
       "sha256_cert_fingerprints": [
-        "26:67:9C:90:1C:BD:13:E7:5F:C8:68:63:0F:81:64:71:9D:50:54:48:16:26:64:AF:34:36:84:C2:B5:72:66:DD"
+        "26:67:9C:90:1C:BD:13:E7:5F:C8:68:63:0F:81:64:71:9D:50:54:48:16:26:64:AF:34:36:84:C2:B5:72:66:DD",
+        "13:87:8F:07:31:C9:6B:09:D3:F3:12:C4:E9:0A:9D:70:AD:99:48:2B:88:16:6D:AD:56:42:AA:6C:3B:56:FB:32"
       ]
     }
   }
