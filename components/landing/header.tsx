@@ -16,9 +16,9 @@ export function Header() {
           className="flex items-center gap-2 text-base font-bold tracking-tight text-foreground transition-colors hover:text-primary sm:text-lg"
           href="/"
         >
-          <span className="text-primary">온</span>
-          <span>:</span>
-          <span className="text-primary">음</span>
+          <span>
+            <span className="text-primary">온</span>:<span className="text-primary">음</span>
+          </span>
         </Link>
 
         {/* Desktop CTA */}
