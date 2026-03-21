@@ -4,6 +4,8 @@ import { Analytics } from "@vercel/analytics/next";
 import type { Metadata, Viewport } from "next";
 import React from "react";
 
+import { GoogleAdsTag } from "@/components/google-ads-tag";
+
 export const metadata: Metadata = {
   title: "온음(WarmWake) - 어제의 나에게서 온 아침 메시지",
   description:
@@ -66,6 +68,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
+      <GoogleAdsTag />
       <body className="font-sans antialiased">
         {children}
         <Analytics />
