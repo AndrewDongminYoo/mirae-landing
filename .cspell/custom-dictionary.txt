@@ -4,7 +4,9 @@ agentic
 assetlinks
 Behaviour
 cmdk
+Crect
 creds
+Csvg
 donminzzi
 elif
 Embla
@@ -19,6 +21,7 @@ oklch
 pipefail
 Pretendard
 rehype
+rgba
 SCRIPTDIR
 shellcheck
 shopt
