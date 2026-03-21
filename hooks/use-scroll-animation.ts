@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 
 interface UseScrollAnimationOptions {
   threshold?: number;
@@ -19,6 +19,21 @@ export function useScrollAnimation<T extends HTMLElement = HTMLDivElement>(
     if (!("IntersectionObserver" in window)) return true;
     return false;
   });
+  useLayoutEffect(() => {
+    // Enable CSS hiding only after JS has initialized (idempotent, set by the first instance)
+    document.documentElement.dataset.jsAnimations = "";
+
+    const element = ref.current;
+    if (!element) return;
+
+    // Reveal elements already in the viewport before the first paint — no animation flash
+    const { top, bottom } = element.getBoundingClientRect();
+    if (top < window.innerHeight && bottom > 0) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- useLayoutEffect is designed for synchronous DOM reads + state updates before paint
+      setIsInView(true);
+    }
+  }, []);
+
   useEffect(() => {
     const element = ref.current;
     if (!element) return;

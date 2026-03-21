@@ -2,7 +2,6 @@ import "./globals.css";
 
 import { Analytics } from "@vercel/analytics/next";
 import type { Metadata, Viewport } from "next";
-import Script from "next/script";
 import React from "react";
 
 import { GoogleAdsTag } from "@/components/google-ads-tag";
@@ -69,9 +68,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <Script id="js-animations" strategy="beforeInteractive">
-        {`document.documentElement.dataset.jsAnimations=''`}
-      </Script>
       <GoogleAdsTag />
       <body className="font-sans antialiased">
         {children}
