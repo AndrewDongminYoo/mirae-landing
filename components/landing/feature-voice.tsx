@@ -4,20 +4,20 @@ import { Apple, Play, Shield, Sparkles, Volume2 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
-import { Button } from "@/components/ui/button";
 import { AnimateOnScroll } from "@/components/ui/animate-on-scroll";
+import { Button } from "@/components/ui/button";
 import { getScreenPath } from "@/lib/screens";
 
 export function FeatureVoice() {
   return (
     <section
       aria-labelledby="feature-voice-heading"
-      className="relative overflow-hidden bg-warm-gradient-subtle px-4 py-20 sm:px-6 sm:py-28 lg:px-8 lg:py-32"
+      className="bg-warm-gradient-subtle relative overflow-hidden px-4 py-20 sm:px-6 sm:py-28 lg:px-8 lg:py-32"
     >
       {/* Decorative elements */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute top-1/4 right-0 h-[400px] w-[400px] translate-x-1/2 rounded-full bg-primary/5 blur-3xl animate-pulse-scale" />
-        <div className="absolute bottom-1/4 left-0 h-[300px] w-[300px] -translate-x-1/2 rounded-full bg-accent/10 blur-3xl animate-pulse-scale delay-500" />
+        <div className="animate-pulse-scale absolute top-1/4 right-0 h-100 w-100 translate-x-1/2 rounded-full bg-primary/5 blur-3xl" />
+        <div className="animate-pulse-scale absolute bottom-1/4 left-0 h-75 w-75 -translate-x-1/2 rounded-full bg-accent/10 blur-3xl delay-500" />
       </div>
 
       <div className="mx-auto max-w-6xl">
@@ -60,15 +60,15 @@ export function FeatureVoice() {
             {/* Key benefits */}
             <AnimateOnScroll animation="fade-right" delay={400}>
               <div className="mt-6 flex flex-wrap justify-center gap-4 text-sm text-foreground/70 lg:justify-start">
-                <div className="flex items-center gap-1.5 hover-lift px-3 py-1.5 rounded-full transition-colors hover:bg-white/60">
+                <div className="hover-lift flex items-center gap-1.5 rounded-full px-3 py-1.5 transition-colors hover:bg-white/60">
                   <Shield className="h-4 w-4 text-primary" />
                   <span>안정적인 알람</span>
                 </div>
-                <div className="flex items-center gap-1.5 hover-lift px-3 py-1.5 rounded-full transition-colors hover:bg-white/60">
+                <div className="hover-lift flex items-center gap-1.5 rounded-full px-3 py-1.5 transition-colors hover:bg-white/60">
                   <Volume2 className="h-4 w-4 text-primary" />
                   <span>고품질 음성 재생</span>
                 </div>
-                <div className="flex items-center gap-1.5 hover-lift px-3 py-1.5 rounded-full transition-colors hover:bg-white/60">
+                <div className="hover-lift flex items-center gap-1.5 rounded-full px-3 py-1.5 transition-colors hover:bg-white/60">
                   <Sparkles className="h-4 w-4 text-primary" />
                   <span>실시간 파형</span>
                 </div>
@@ -80,7 +80,7 @@ export function FeatureVoice() {
               <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row lg:justify-start">
                 <Button
                   asChild
-                  className="h-12 gap-2 rounded-xl bg-primary px-6 font-semibold text-primary-foreground shadow-lg shadow-primary/20 transition-all duration-300 hover:bg-primary/90 hover:scale-[1.02]"
+                  className="h-12 gap-2 rounded-xl bg-primary px-6 font-semibold text-primary-foreground shadow-lg shadow-primary/20 transition-all duration-300 hover:scale-[1.02] hover:bg-primary/90"
                   size="lg"
                 >
                   <Link
@@ -94,7 +94,7 @@ export function FeatureVoice() {
                 </Button>
                 <Button
                   asChild
-                  className="h-12 gap-2 rounded-xl border-foreground/20 bg-white/60 px-6 font-semibold backdrop-blur-sm transition-all duration-300 hover:bg-white/80 hover:scale-[1.02]"
+                  className="h-12 gap-2 rounded-xl border-foreground/20 bg-white/60 px-6 font-semibold backdrop-blur-sm transition-all duration-300 hover:scale-[1.02] hover:bg-white/80"
                   size="lg"
                   variant="outline"
                 >
@@ -116,7 +116,7 @@ export function FeatureVoice() {
             <div className="relative flex items-end gap-4">
               {/* Background Phone */}
               <AnimateOnScroll animation="fade-left" delay={300}>
-                <div className="relative aspect-9/19 w-32 translate-y-8 sm:w-40 md:w-44 hover-scale transition-transform duration-300">
+                <div className="hover-scale relative aspect-9/19 w-32 translate-y-8 transition-transform duration-300 sm:w-40 md:w-44">
                   <div className="absolute inset-0 rounded-3xl bg-foreground/5 shadow-lg" />
                   <div className="relative h-full w-full overflow-hidden rounded-3xl border border-white/50 bg-card shadow-xl">
                     <Image
@@ -131,7 +131,7 @@ export function FeatureVoice() {
 
               {/* Main Phone */}
               <AnimateOnScroll animation="fade-left" delay={100}>
-                <div className="relative aspect-9/19 w-40 sm:w-52 md:w-56 animate-float-slow hover-scale transition-transform duration-300">
+                <div className="animate-float-slow hover-scale relative aspect-9/19 w-40 transition-transform duration-300 sm:w-52 md:w-56">
                   <div className="absolute inset-0 rounded-4xl bg-foreground/5 shadow-2xl" />
                   <div className="relative h-full w-full overflow-hidden rounded-4xl border border-white/50 bg-card shadow-2xl">
                     <Image

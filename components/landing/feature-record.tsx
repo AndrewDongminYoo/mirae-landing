@@ -14,8 +14,8 @@ export function FeatureRecord() {
     >
       {/* Decorative elements */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute top-0 left-1/4 h-[300px] w-[300px] rounded-full bg-accent/5 blur-3xl animate-pulse-scale" />
-        <div className="absolute bottom-0 right-1/4 h-[250px] w-[250px] rounded-full bg-primary/5 blur-3xl animate-pulse-scale delay-300" />
+        <div className="animate-pulse-scale absolute top-0 left-1/4 h-75 w-75 rounded-full bg-accent/5 blur-3xl" />
+        <div className="animate-pulse-scale absolute right-1/4 bottom-0 h-62.5 w-62.5 rounded-full bg-primary/5 blur-3xl delay-300" />
       </div>
 
       <div className="mx-auto max-w-6xl">
@@ -25,7 +25,7 @@ export function FeatureRecord() {
             <div className="relative flex items-center gap-4">
               {/* Left Phone */}
               <AnimateOnScroll animation="fade-right" delay={300}>
-                <div className="relative aspect-9/19 w-32 -translate-y-6 sm:w-40 md:w-44 hover-scale transition-transform duration-300">
+                <div className="hover-scale relative aspect-9/19 w-32 -translate-y-6 transition-transform duration-300 sm:w-40 md:w-44">
                   <div className="absolute inset-0 rounded-3xl bg-foreground/5 shadow-lg" />
                   <div className="relative h-full w-full overflow-hidden rounded-3xl border border-border/50 bg-card shadow-xl">
                     <Image
@@ -40,7 +40,7 @@ export function FeatureRecord() {
 
               {/* Main Phone */}
               <AnimateOnScroll animation="fade-right" delay={100}>
-                <div className="relative aspect-9/19 w-40 sm:w-52 md:w-56 animate-float-slow hover-scale transition-transform duration-300">
+                <div className="animate-float-slow hover-scale relative aspect-9/19 w-40 transition-transform duration-300 sm:w-52 md:w-56">
                   <div className="absolute inset-0 rounded-4xl bg-foreground/5 shadow-2xl" />
                   <div className="relative h-full w-full overflow-hidden rounded-4xl border border-border/50 bg-card shadow-2xl">
                     <Image
@@ -85,15 +85,15 @@ export function FeatureRecord() {
             {/* Features */}
             <AnimateOnScroll animation="fade-left" delay={300}>
               <ul className="mt-8 flex flex-wrap justify-center gap-3 lg:justify-start">
-                <li className="flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2.5 text-sm font-medium text-foreground hover-lift transition-all duration-200">
+                <li className="hover-lift flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2.5 text-sm font-medium text-foreground transition-all duration-200">
                   <Mic className="h-4 w-4 text-primary" />
                   간편한 녹음
                 </li>
-                <li className="flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2.5 text-sm font-medium text-foreground hover-lift transition-all duration-200">
+                <li className="hover-lift flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2.5 text-sm font-medium text-foreground transition-all duration-200">
                   <Music className="h-4 w-4 text-primary" />
                   다양한 알람 소리
                 </li>
-                <li className="flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2.5 text-sm font-medium text-foreground hover-lift transition-all duration-200">
+                <li className="hover-lift flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2.5 text-sm font-medium text-foreground transition-all duration-200">
                   <AudioWaveform className="h-4 w-4 text-primary" />
                   재생 모드 선택
                 </li>
@@ -102,7 +102,7 @@ export function FeatureRecord() {
 
             {/* Enhanced messaging */}
             <AnimateOnScroll animation="fade-up" delay={400}>
-              <div className="mt-8 rounded-2xl border border-primary/20 bg-primary/5 p-4 lg:max-w-md hover-lift transition-all duration-200 hover:border-primary/30">
+              <div className="hover-lift mt-8 rounded-2xl border border-primary/20 bg-primary/5 p-4 transition-all duration-200 hover:border-primary/30 lg:max-w-md">
                 <p className="text-sm text-foreground/70">
                   <span className="font-semibold text-primary">v1.5.0 업데이트</span> - 실시간 파형
                   시각화로 녹음 품질을 바로 확인하고, 더욱 정확한 음성 메시지를 녹음할 수 있어요.

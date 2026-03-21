@@ -4,8 +4,8 @@ import { Apple, Play } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
-import { Button } from "@/components/ui/button";
 import { AnimateOnScroll } from "@/components/ui/animate-on-scroll";
+import { Button } from "@/components/ui/button";
 import { getScreenPath } from "@/lib/screens";
 
 export function FinalCTA() {
@@ -17,13 +17,13 @@ export function FinalCTA() {
       {/* Decorative warm gradient overlay */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-accent/10"
+        className="pointer-events-none absolute inset-0 bg-linear-to-br from-primary/20 via-transparent to-accent/10"
       />
 
       {/* Decorative circles with animation */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="absolute -top-20 -right-20 h-80 w-80 rounded-full bg-primary/20 blur-3xl animate-pulse-scale" />
-        <div className="absolute -bottom-20 -left-20 h-64 w-64 rounded-full bg-accent/15 blur-3xl animate-pulse-scale delay-500" />
+        <div className="animate-pulse-scale absolute -top-20 -right-20 h-80 w-80 rounded-full bg-primary/20 blur-3xl" />
+        <div className="animate-pulse-scale absolute -bottom-20 -left-20 h-64 w-64 rounded-full bg-accent/15 blur-3xl delay-500" />
       </div>
 
       <div className="relative mx-auto max-w-6xl">
@@ -41,7 +41,7 @@ export function FinalCTA() {
               >
                 온:음과 함께
                 <br />
-                <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
+                <span className="bg-linear-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
                   기분 좋은 아침
                 </span>
                 을 시작해보세요
@@ -50,8 +50,8 @@ export function FinalCTA() {
 
             <AnimateOnScroll animation="fade-right" delay={200}>
               <p className="mt-6 max-w-md text-base leading-relaxed text-background/70 lg:mx-0">
-                8번의 업데이트로 더욱 안정적이고 정교해진 음성 알람. 지금 바로 다운로드하고 내일 아침
-                새로운 시작을 경험하세요.
+                8번의 업데이트로 더욱 안정적이고 정교해진 음성 알람. 지금 바로 다운로드하고 내일
+                아침 새로운 시작을 경험하세요.
               </p>
             </AnimateOnScroll>
 
@@ -60,7 +60,7 @@ export function FinalCTA() {
               <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row lg:justify-start">
                 <Button
                   asChild
-                  className="h-14 w-full max-w-xs gap-2.5 rounded-2xl bg-primary px-8 text-base font-semibold text-primary-foreground shadow-lg shadow-primary/30 transition-all duration-300 hover:bg-primary/90 hover:shadow-xl hover:shadow-primary/40 hover:scale-[1.02] sm:w-auto"
+                  className="h-14 w-full max-w-xs gap-2.5 rounded-2xl bg-primary px-8 text-base font-semibold text-primary-foreground shadow-lg shadow-primary/30 transition-all duration-300 hover:scale-[1.02] hover:bg-primary/90 hover:shadow-xl hover:shadow-primary/40 sm:w-auto"
                   size="lg"
                 >
                   <Link
@@ -75,7 +75,7 @@ export function FinalCTA() {
 
                 <Button
                   asChild
-                  className="h-14 w-full max-w-xs gap-2.5 rounded-2xl border-2 border-background/30 bg-transparent px-8 text-base font-semibold text-background transition-all duration-300 hover:border-background/50 hover:bg-background/10 hover:scale-[1.02] sm:w-auto"
+                  className="h-14 w-full max-w-xs gap-2.5 rounded-2xl border-2 border-background/30 bg-transparent px-8 text-base font-semibold text-background transition-all duration-300 hover:scale-[1.02] hover:border-background/50 hover:bg-background/10 sm:w-auto"
                   size="lg"
                   variant="outline"
                 >
@@ -95,7 +95,7 @@ export function FinalCTA() {
           {/* Phone Mockup */}
           <AnimateOnScroll animation="fade-left" delay={200}>
             <div className="flex justify-center lg:justify-end">
-              <div className="relative aspect-9/19 w-48 sm:w-56 md:w-64 animate-float hover-scale transition-transform duration-300">
+              <div className="animate-float hover-scale relative aspect-9/19 w-48 transition-transform duration-300 sm:w-56 md:w-64">
                 <div className="absolute inset-0 rounded-[2.5rem] bg-primary/20 shadow-2xl" />
                 <div className="relative h-full w-full overflow-hidden rounded-[2.5rem] border border-primary/30 bg-card shadow-2xl">
                   <Image

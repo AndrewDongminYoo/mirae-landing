@@ -1,6 +1,7 @@
 "use client";
 
 import { CheckCircle, RefreshCw, Shield, Sparkles } from "lucide-react";
+
 import { AnimateOnScroll } from "@/components/ui/animate-on-scroll";
 
 const updates = [
@@ -34,7 +35,7 @@ export function CTA() {
     >
       {/* Decorative elements */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute top-1/2 left-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/3 blur-3xl animate-pulse-scale" />
+        <div className="animate-pulse-scale absolute top-1/2 left-1/2 h-125 w-125 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/3 blur-3xl" />
       </div>
 
       <div className="mx-auto max-w-4xl text-center">
@@ -63,14 +64,8 @@ export function CTA() {
         {/* Updates Grid */}
         <div className="mx-auto mt-12 grid max-w-3xl grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-4">
           {updates.map((update, index) => (
-            <AnimateOnScroll 
-              key={update.title} 
-              animation="scale-up" 
-              delay={300 + index * 100}
-            >
-              <div
-                className="flex flex-col items-center rounded-2xl border border-primary/10 bg-primary/5 p-4 text-center hover-lift transition-all duration-200 hover:border-primary/20 hover:bg-primary/10 cursor-default"
-              >
+            <AnimateOnScroll animation="scale-up" delay={300 + index * 100} key={update.title}>
+              <div className="hover-lift flex cursor-default flex-col items-center rounded-2xl border border-primary/10 bg-primary/5 p-4 text-center transition-all duration-200 hover:border-primary/20 hover:bg-primary/10">
                 <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10">
                   <update.icon className="h-5 w-5 text-primary" />
                 </div>
@@ -83,7 +78,7 @@ export function CTA() {
 
         {/* Version info */}
         <AnimateOnScroll animation="scale-up" delay={700}>
-          <div className="mt-10 inline-flex items-center gap-2 rounded-full bg-muted px-4 py-2 text-sm text-muted-foreground animate-pulse-glow">
+          <div className="animate-pulse-glow mt-10 inline-flex items-center gap-2 rounded-full bg-muted px-4 py-2 text-sm text-muted-foreground">
             <span className="font-semibold text-primary">v1.8.0</span>
             <span>최신 버전</span>
           </div>

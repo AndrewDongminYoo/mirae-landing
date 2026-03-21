@@ -1,6 +1,7 @@
 "use client";
 
 import { AlarmClock, Frown, Volume2 } from "lucide-react";
+
 import { AnimateOnScroll } from "@/components/ui/animate-on-scroll";
 
 const painPoints = [
@@ -27,7 +28,7 @@ export function PainPoints() {
       {/* Decorative warm overlay */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/5"
+        className="pointer-events-none absolute inset-0 bg-linear-to-br from-primary/10 via-transparent to-accent/5"
       />
 
       <div className="relative mx-auto max-w-4xl">
@@ -39,7 +40,7 @@ export function PainPoints() {
             >
               매번 반복되고 지겨운 알람,
               <br />
-              <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
+              <span className="bg-linear-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
                 기상에 대한 동기부여
               </span>
               가 필요합니다
@@ -49,14 +50,8 @@ export function PainPoints() {
 
         <div className="mt-12 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
           {painPoints.map((point, index) => (
-            <AnimateOnScroll 
-              key={point.label} 
-              animation="scale-up" 
-              delay={150 + index * 100}
-            >
-              <div
-                className="flex items-center gap-2.5 rounded-full border border-primary/30 bg-primary/10 px-4 py-2.5 backdrop-blur-sm sm:px-5 sm:py-3 hover-lift transition-all duration-200 cursor-default"
-              >
+            <AnimateOnScroll animation="scale-up" delay={150 + index * 100} key={point.label}>
+              <div className="hover-lift flex cursor-default items-center gap-2.5 rounded-full border border-primary/30 bg-primary/10 px-4 py-2.5 backdrop-blur-sm transition-all duration-200 sm:px-5 sm:py-3">
                 <point.icon
                   aria-hidden="true"
                   className="h-4 w-4 shrink-0 text-primary sm:h-5 sm:w-5"
@@ -71,7 +66,7 @@ export function PainPoints() {
 
         <AnimateOnScroll animation="scale-up" delay={500}>
           <div className="mt-10 text-center">
-            <div className="inline-flex items-center rounded-full bg-gradient-to-r from-primary to-accent px-6 py-3 shadow-lg shadow-primary/20 sm:px-8 hover-glow transition-all duration-300 cursor-default">
+            <div className="hover-glow inline-flex cursor-default items-center rounded-full bg-linear-to-r from-primary to-accent px-6 py-3 shadow-lg shadow-primary/20 transition-all duration-300 sm:px-8">
               <span className="text-sm font-semibold text-white sm:text-base">
                 기분좋게 일어나고 싶다면, 온음이 도와드릴게요!
               </span>
