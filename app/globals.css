@@ -130,3 +130,53 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* WarmWake Brand Gradients */
+@layer utilities {
+  .bg-warm-gradient {
+    background: linear-gradient(135deg, #fff8ef 0%, #ffe8d9 30%, #ffd4b8 70%, #ffba87 100%);
+  }
+  
+  .bg-warm-gradient-subtle {
+    background: linear-gradient(180deg, #fffbfe 0%, #fff8ef 50%, #ffe8d9 100%);
+  }
+  
+  .bg-warm-gradient-hero {
+    background: linear-gradient(180deg, #fffbfe 0%, #fff4e6 25%, #ffe8d9 50%, #ffd8c0 75%, #ffba87 100%);
+  }
+  
+  .bg-warm-gradient-radial {
+    background: radial-gradient(ellipse at center, #fff8ef 0%, #ffe8d9 40%, #ffd4b8 70%, #ffba87 100%);
+  }
+  
+  .bg-warm-gradient-cta {
+    background: linear-gradient(135deg, #ff953f 0%, #f99c50 50%, #ffba87 100%);
+  }
+  
+  /* Concentric circle decoration matching app aesthetic */
+  .warm-circles::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 186, 135, 0.3) 0%, rgba(255, 186, 135, 0.1) 50%, transparent 70%);
+    pointer-events: none;
+  }
+  
+  .warm-circles-lg::before {
+    width: 500px;
+    height: 500px;
+  }
+  
+  /* Waveform decoration */
+  .waveform-bg {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 20'%3E%3Crect x='0' y='8' width='2' height='4' rx='1' fill='%23ffba87' opacity='0.3'/%3E%3Crect x='5' y='6' width='2' height='8' rx='1' fill='%23ffba87' opacity='0.4'/%3E%3Crect x='10' y='4' width='2' height='12' rx='1' fill='%23ffba87' opacity='0.5'/%3E%3Crect x='15' y='2' width='2' height='16' rx='1' fill='%23ffba87' opacity='0.6'/%3E%3Crect x='20' y='5' width='2' height='10' rx='1' fill='%23ffba87' opacity='0.5'/%3E%3Crect x='25' y='7' width='2' height='6' rx='1' fill='%23ffba87' opacity='0.4'/%3E%3Crect x='30' y='4' width='2' height='12' rx='1' fill='%23ffba87' opacity='0.5'/%3E%3Crect x='35' y='2' width='2' height='16' rx='1' fill='%23ffba87' opacity='0.6'/%3E%3Crect x='40' y='6' width='2' height='8' rx='1' fill='%23ffba87' opacity='0.4'/%3E%3Crect x='45' y='8' width='2' height='4' rx='1' fill='%23ffba87' opacity='0.3'/%3E%3Crect x='50' y='5' width='2' height='10' rx='1' fill='%23ffba87' opacity='0.5'/%3E%3Crect x='55' y='3' width='2' height='14' rx='1' fill='%23ffba87' opacity='0.55'/%3E%3Crect x='60' y='6' width='2' height='8' rx='1' fill='%23ffba87' opacity='0.4'/%3E%3Crect x='65' y='7' width='2' height='6' rx='1' fill='%23ffba87' opacity='0.35'/%3E%3Crect x='70' y='4' width='2' height='12' rx='1' fill='%23ffba87' opacity='0.5'/%3E%3Crect x='75' y='2' width='2' height='16' rx='1' fill='%23ffba87' opacity='0.6'/%3E%3Crect x='80' y='5' width='2' height='10' rx='1' fill='%23ffba87' opacity='0.5'/%3E%3Crect x='85' y='7' width='2' height='6' rx='1' fill='%23ffba87' opacity='0.4'/%3E%3Crect x='90' y='8' width='2' height='4' rx='1' fill='%23ffba87' opacity='0.3'/%3E%3Crect x='95' y='6' width='2' height='8' rx='1' fill='%23ffba87' opacity='0.4'/%3E%3C/svg%3E");
+    background-repeat: repeat-x;
+    background-position: center;
+    background-size: 200px 40px;
+  }
+}
