@@ -96,8 +96,8 @@ export function FinalCTA() {
           <AnimateOnScroll animation="fade-left" delay={200}>
             <div className="flex justify-center lg:justify-end">
               <div className="animate-float hover-scale relative aspect-9/19 w-48 transition-transform duration-300 sm:w-56 md:w-64">
-                <div className="absolute inset-0 rounded-[2.5rem] bg-primary/20 shadow-2xl" />
-                <div className="relative h-full w-full overflow-hidden rounded-[2.5rem] border border-primary/30 bg-card shadow-2xl">
+                <div className="absolute inset-0 rounded-[1.125rem] bg-primary/20 shadow-2xl" />
+                <div className="relative h-full w-full overflow-hidden rounded-[1.125rem] border border-primary/30 bg-card shadow-2xl">
                   <Image
                     alt="온음 앱 홈 화면"
                     className="object-cover"
