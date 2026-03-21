@@ -1,6 +1,7 @@
 "use client";
 
-import { ReactNode, CSSProperties } from "react";
+import type { CSSProperties, ReactNode } from "react";
+
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { cn } from "@/lib/utils";
 
@@ -21,7 +22,6 @@ interface AnimateOnScrollProps {
   threshold?: number;
   className?: string;
   once?: boolean;
-  as?: keyof JSX.IntrinsicElements;
 }
 
 const animationClasses: Record<AnimationVariant, string> = {
@@ -31,7 +31,7 @@ const animationClasses: Record<AnimationVariant, string> = {
   "fade-right": "animate-fade-right",
   "scale-up": "animate-scale-up",
   "blur-in": "animate-blur-in",
-  none: "",
+  "none": "",
 };
 
 export function AnimateOnScroll({
@@ -42,7 +42,6 @@ export function AnimateOnScroll({
   threshold = 0.1,
   className,
   once = true,
-  as: Component = "div",
 }: AnimateOnScrollProps) {
   const { ref, isInView } = useScrollAnimation<HTMLDivElement>({
     threshold,
@@ -55,18 +54,18 @@ export function AnimateOnScroll({
   };
 
   return (
-    <Component
-      ref={ref as React.RefObject<HTMLDivElement>}
+    <div
       className={cn(
         "scroll-animate",
         isInView && animation !== "none" && animationClasses[animation],
         isInView && "in-view",
         className
       )}
+      ref={ref}
       style={style}
     >
       {children}
-    </Component>
+    </div>
   );
 }
 
@@ -92,16 +91,16 @@ export function StaggerContainer({
   });
 
   return (
-    <div ref={ref} className={className}>
+    <div className={className} ref={ref}>
       {Array.isArray(children)
         ? children.map((child, index) => (
             <div
-              key={index}
               className={cn(
                 "scroll-animate",
                 isInView && animationClasses[animation],
                 isInView && "in-view"
               )}
+              key={index}
               style={{
                 animationDelay: `${index * staggerDelay}ms`,
               }}
