@@ -1,4 +1,7 @@
+"use client";
+
 import { AlarmClock, Frown, Volume2 } from "lucide-react";
+import { AnimateOnScroll } from "@/components/ui/animate-on-scroll";
 
 const painPoints = [
   {
@@ -29,43 +32,52 @@ export function PainPoints() {
 
       <div className="relative mx-auto max-w-4xl">
         <div className="text-center">
-          <h2
-            className="text-xl font-bold tracking-tight text-balance text-background sm:text-2xl md:text-3xl"
-            id="pain-points-heading"
-          >
-            매번 반복되고 지겨운 알람,
-            <br />
-            <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
-              기상에 대한 동기부여
-            </span>
-            가 필요합니다
-          </h2>
+          <AnimateOnScroll animation="blur-in">
+            <h2
+              className="text-xl font-bold tracking-tight text-balance text-background sm:text-2xl md:text-3xl"
+              id="pain-points-heading"
+            >
+              매번 반복되고 지겨운 알람,
+              <br />
+              <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
+                기상에 대한 동기부여
+              </span>
+              가 필요합니다
+            </h2>
+          </AnimateOnScroll>
         </div>
 
         <div className="mt-12 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
-          {painPoints.map((point) => (
-            <div
-              className="flex items-center gap-2.5 rounded-full border border-primary/30 bg-primary/10 px-4 py-2.5 backdrop-blur-sm sm:px-5 sm:py-3"
-              key={point.label}
+          {painPoints.map((point, index) => (
+            <AnimateOnScroll 
+              key={point.label} 
+              animation="scale-up" 
+              delay={150 + index * 100}
             >
-              <point.icon
-                aria-hidden="true"
-                className="h-4 w-4 shrink-0 text-primary sm:h-5 sm:w-5"
-              />
-              <span className="text-sm font-medium text-background sm:text-base">
-                {point.label}
-              </span>
-            </div>
+              <div
+                className="flex items-center gap-2.5 rounded-full border border-primary/30 bg-primary/10 px-4 py-2.5 backdrop-blur-sm sm:px-5 sm:py-3 hover-lift transition-all duration-200 cursor-default"
+              >
+                <point.icon
+                  aria-hidden="true"
+                  className="h-4 w-4 shrink-0 text-primary sm:h-5 sm:w-5"
+                />
+                <span className="text-sm font-medium text-background sm:text-base">
+                  {point.label}
+                </span>
+              </div>
+            </AnimateOnScroll>
           ))}
         </div>
 
-        <div className="mt-10 text-center">
-          <div className="inline-flex items-center rounded-full bg-gradient-to-r from-primary to-accent px-6 py-3 shadow-lg shadow-primary/20 sm:px-8">
-            <span className="text-sm font-semibold text-white sm:text-base">
-              기분좋게 일어나고 싶다면, 온음이 도와드릴게요!
-            </span>
+        <AnimateOnScroll animation="scale-up" delay={500}>
+          <div className="mt-10 text-center">
+            <div className="inline-flex items-center rounded-full bg-gradient-to-r from-primary to-accent px-6 py-3 shadow-lg shadow-primary/20 sm:px-8 hover-glow transition-all duration-300 cursor-default">
+              <span className="text-sm font-semibold text-white sm:text-base">
+                기분좋게 일어나고 싶다면, 온음이 도와드릴게요!
+              </span>
+            </div>
           </div>
-        </div>
+        </AnimateOnScroll>
       </div>
     </section>
   );

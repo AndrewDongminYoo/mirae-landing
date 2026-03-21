@@ -1,8 +1,11 @@
+"use client";
+
 import Link from "next/link";
 import React from "react";
 
 import { Footer } from "@/components/landing/footer";
 import { Header } from "@/components/landing/header";
+import { AnimateOnScroll } from "@/components/ui/animate-on-scroll";
 
 type PolicyLayoutProps = {
   title: string;
@@ -22,36 +25,57 @@ export function PolicyLayout({
   return (
     <div className="bg-background text-foreground">
       <Header />
-      <main className="min-h-screen pt-22.5 pb-20">
+      <main className="relative min-h-screen pt-22.5 pb-20">
+        {/* Decorative background elements */}
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+          <div className="absolute top-0 left-1/2 h-[600px] w-[600px] -translate-x-1/2 rounded-full bg-primary/5 blur-3xl" />
+          <div className="absolute top-1/3 right-0 h-[400px] w-[400px] translate-x-1/2 rounded-full bg-accent/5 blur-3xl" />
+        </div>
+
         <div className="mx-auto flex max-w-5xl flex-col gap-6 px-4">
-          <section className="rounded-4xl border border-border/60 bg-card/70 p-6 shadow-[0_20px_60px_rgba(248,226,224,0.6)] ring-1 ring-border/40 sm:p-10">
-            <p className="text-xs font-semibold tracking-[0.3em] text-muted-foreground uppercase">
-              Legal
-            </p>
-            <h1 className="mt-2 text-3xl font-semibold text-foreground sm:text-4xl">{title}</h1>
-            <p className="mt-2 max-w-3xl text-base text-muted-foreground">{description}</p>
-            {highlight && (
-              <p className="mt-3 text-sm font-semibold text-foreground">
-                <span className="text-muted-foreground">핵심:</span> {highlight}
+          {/* Header Card */}
+          <AnimateOnScroll animation="fade-down">
+            <section className="relative overflow-hidden rounded-4xl border border-primary/20 bg-gradient-to-br from-white/80 via-background/90 to-primary/5 p-6 shadow-lg shadow-primary/10 ring-1 ring-primary/10 backdrop-blur-sm sm:p-10">
+              {/* Decorative circles */}
+              <div aria-hidden="true" className="pointer-events-none absolute -top-20 -right-20 h-40 w-40 rounded-full bg-primary/10 blur-2xl" />
+              <div aria-hidden="true" className="pointer-events-none absolute -bottom-10 -left-10 h-32 w-32 rounded-full bg-accent/10 blur-2xl" />
+              
+              {/* Legal badge */}
+              <div className="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold tracking-wider text-primary uppercase">
+                Legal
+              </div>
+              
+              <h1 className="mt-4 text-3xl font-bold text-foreground sm:text-4xl">{title}</h1>
+              <p className="mt-3 max-w-3xl text-base leading-relaxed text-muted-foreground">{description}</p>
+              
+              {highlight && (
+                <div className="mt-4 inline-flex items-start gap-2 rounded-xl border border-primary/20 bg-primary/5 px-4 py-3">
+                  <span className="text-sm font-medium text-primary">핵심:</span>
+                  <span className="text-sm text-foreground/80">{highlight}</span>
+                </div>
+              )}
+              
+              {updatedAt && (
+                <p className="mt-4 text-sm text-muted-foreground">
+                  최종 업데이트: <span className="font-semibold text-primary">{updatedAt}</span>
+                </p>
+              )}
+              
+              <p className="mt-6 text-sm text-muted-foreground">
+                추가 문의는{" "}
+                <Link
+                  className="font-semibold text-primary transition-colors hover:text-primary/80 hover:underline"
+                  href="mailto:donminzzi@gmail.com"
+                >
+                  donminzzi@gmail.com
+                </Link>
+                로 부탁드립니다.
               </p>
-            )}
-            {updatedAt && (
-              <p className="mt-1 text-sm text-muted-foreground">
-                최종 업데이트: <span className="font-medium text-foreground">{updatedAt}</span>
-              </p>
-            )}
-            <p className="mt-6 text-sm text-muted-foreground">
-              추가 문의는{" "}
-              <Link
-                className="font-semibold text-foreground transition-colors hover:text-foreground/80"
-                href="mailto:donminzzi@gmail.com"
-              >
-                donminzzi@gmail.com
-              </Link>
-              로 부탁드립니다.
-            </p>
-          </section>
-          <div className="space-y-10">{children}</div>
+            </section>
+          </AnimateOnScroll>
+          
+          {/* Content sections */}
+          <div className="space-y-6">{children}</div>
         </div>
       </main>
       <Footer />
