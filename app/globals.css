@@ -288,11 +288,11 @@
     animation: shimmer 2s infinite;
   }
 
-  /* Initial hidden state for scroll animations */
-  .scroll-animate {
+  /* Initial hidden state for scroll animations — only when JS is active */
+  html[data-js-animations] .scroll-animate {
     opacity: 0;
   }
-  .scroll-animate.in-view {
+  html[data-js-animations] .scroll-animate.in-view {
     opacity: 1;
   }
 
@@ -361,10 +361,6 @@
       opacity: 1;
       transform: none;
       filter: none;
-    }
-
-    .scroll-animate {
-      opacity: 1;
     }
 
     .hover-lift:hover,
