@@ -13,16 +13,21 @@ export function useScrollAnimation<T extends HTMLElement = HTMLDivElement>(
 ) {
   const { threshold = 0.1, rootMargin = "0px", triggerOnce = true } = options;
   const ref = useRef<T>(null);
-  const [isInView, setIsInView] = useState(
-    () =>
-      typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches
-  );
+  const [isInView, setIsInView] = useState(() => {
+    if (typeof window === "undefined") return false;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return true;
+    if (!("IntersectionObserver" in window)) return true;
+    return false;
+  });
   useEffect(() => {
     const element = ref.current;
     if (!element) return;
 
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      // State already initialized to true via useState lazy initializer — no setState needed
+    // Both conditions already handled by the useState lazy initializer above — no setState needed
+    if (
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+      !("IntersectionObserver" in window)
+    ) {
       return;
     }
 
