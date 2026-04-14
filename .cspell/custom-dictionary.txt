@@ -25,6 +25,7 @@ rgba
 SCRIPTDIR
 shellcheck
 shopt
+solidlsp
 subcopy
 vaul
 warmwake
