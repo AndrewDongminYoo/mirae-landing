@@ -13,18 +13,22 @@ export function useScrollAnimation<T extends HTMLElement = HTMLDivElement>(
 ) {
   const { threshold = 0.1, rootMargin = "0px", triggerOnce = true } = options;
   const ref = useRef<T>(null);
-  const [isInView, setIsInView] = useState(() => {
-    if (typeof window === "undefined") return false;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return true;
-    if (!("IntersectionObserver" in window)) return true;
-    return false;
-  });
+  const [isInView, setIsInView] = useState(false);
   useLayoutEffect(() => {
     // Enable CSS hiding only after JS has initialized (idempotent, set by the first instance)
     document.documentElement.dataset.jsAnimations = "";
 
     const element = ref.current;
     if (!element) return;
+
+    if (
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+      !("IntersectionObserver" in window)
+    ) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- reveal fallbacks after hydration without changing initial markup
+      setIsInView(true);
+      return;
+    }
 
     // Reveal elements already in the viewport before the first paint — no animation flash
     const { top, bottom } = element.getBoundingClientRect();
@@ -38,7 +42,7 @@ export function useScrollAnimation<T extends HTMLElement = HTMLDivElement>(
     const element = ref.current;
     if (!element) return;
 
-    // Both conditions already handled by the useState lazy initializer above — no setState needed
+    // Fallback reveal is handled in the layout effect above.
     if (
       window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
       !("IntersectionObserver" in window)
