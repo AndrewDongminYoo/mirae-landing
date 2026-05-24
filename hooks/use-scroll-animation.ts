@@ -33,7 +33,6 @@ export function useScrollAnimation<T extends HTMLElement = HTMLDivElement>(
     // Reveal elements already in the viewport before the first paint — no animation flash
     const { top, bottom } = element.getBoundingClientRect();
     if (top < window.innerHeight && bottom > 0) {
-      // eslint-disable-next-line react-hooks/set-state-in-effect -- useLayoutEffect is designed for synchronous DOM reads + state updates before paint
       setIsInView(true);
     }
   }, []);
