@@ -1,6 +1,6 @@
 import Script from "next/script";
 
-export const GOOGLE_ADS_TAG_ID = "AW-18030938015";
+const GOOGLE_ADS_TAG_ID = "AW-18030938015";
 
 export function GoogleAdsTag() {
   return (
