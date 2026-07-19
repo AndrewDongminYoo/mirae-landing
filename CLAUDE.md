@@ -21,7 +21,9 @@ pnpm import:screenshots             # Copy app screenshots into public/screens/{
 pnpm import:screenshots:dry         # Dry-run: preview screenshot copy
 ```
 
-Package manager: pnpm (v10.32.1)
+Package manager: pnpm (v11+)
+
+Dependency overrides live in `pnpm-workspace.yaml` under `overrides:`, not in `package.json` — pnpm v11 ignores the `package.json` `pnpm` field.
 
 ## Architecture
 
