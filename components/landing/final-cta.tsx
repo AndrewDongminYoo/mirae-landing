@@ -7,6 +7,7 @@ import Link from "next/link";
 import { AnimateOnScroll } from "@/components/ui/animate-on-scroll";
 import { Button } from "@/components/ui/button";
 import { getScreenPath } from "@/lib/screens";
+import { ANDROID_STORE_URL, IOS_STORE_URL } from "@/lib/site";
 
 export function FinalCTA() {
   return (
@@ -64,7 +65,7 @@ export function FinalCTA() {
                   size="lg"
                 >
                   <Link
-                    href="https://apps.apple.com/app/id6758120543"
+                    href={IOS_STORE_URL}
                     rel="noopener noreferrer"
                     target="_blank"
                   >
@@ -80,7 +81,7 @@ export function FinalCTA() {
                   variant="outline"
                 >
                   <Link
-                    href="https://play.google.com/store/apps/details?id=kr.mirae.app"
+                    href={ANDROID_STORE_URL}
                     rel="noopener noreferrer"
                     target="_blank"
                   >

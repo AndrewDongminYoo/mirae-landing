@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useState } from "react";
 
 import { Button } from "@/components/ui/button";
+import { ANDROID_STORE_URL, IOS_STORE_URL } from "@/lib/site";
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -29,7 +30,7 @@ export function Header() {
             size="sm"
           >
             <Link
-              href="https://apps.apple.com/app/id6758120543"
+              href={IOS_STORE_URL}
               rel="noopener noreferrer"
               target="_blank"
             >
@@ -44,7 +45,7 @@ export function Header() {
             variant="outline"
           >
             <Link
-              href="https://play.google.com/store/apps/details?id=kr.mirae.app"
+              href={ANDROID_STORE_URL}
               rel="noopener noreferrer"
               target="_blank"
             >
@@ -76,7 +77,7 @@ export function Header() {
               className="h-12 gap-2 rounded-xl bg-primary font-semibold text-primary-foreground shadow-md shadow-primary/20"
             >
               <Link
-                href="https://apps.apple.com/app/id6758120543"
+                href={IOS_STORE_URL}
                 onClick={() => setMobileMenuOpen(false)}
                 rel="noopener noreferrer"
                 target="_blank"
@@ -91,7 +92,7 @@ export function Header() {
               variant="outline"
             >
               <Link
-                href="https://play.google.com/store/apps/details?id=kr.mirae.app"
+                href={ANDROID_STORE_URL}
                 onClick={() => setMobileMenuOpen(false)}
                 rel="noopener noreferrer"
                 target="_blank"

@@ -1,8 +1,7 @@
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 
-const IOS_STORE_URL = "https://apps.apple.com/app/id6758120543";
-const ANDROID_STORE_URL = "https://play.google.com/store/apps/details?id=kr.mirae.app";
+import { ANDROID_STORE_URL, IOS_STORE_URL } from "@/lib/site";
 
 export default async function AlarmDetailPage() {
   const headersList = await headers();
