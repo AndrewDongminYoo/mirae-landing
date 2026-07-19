@@ -108,3 +108,4 @@ Simple bug fixes and small, self-contained changes can be done directly on `main
 - Prettier with `prettier-plugin-tailwindcss` for class ordering
 - TypeScript strict mode enabled
 - Use `@/*` path alias for imports
+- Global styles live in `app/globals.css` and images in `public/screens` — do not introduce `styles/globals.css` or `public/images`
