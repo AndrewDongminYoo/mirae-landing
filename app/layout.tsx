@@ -42,6 +42,20 @@ export const metadata: Metadata = {
     description: "미래의 자신에게 남기는 긍정적인 메시지와 함께 아침을 맞이하게 해주는 알람앱",
     type: "website",
     locale: "ko_KR",
+    siteName: "온음(WarmWake)",
+    images: [
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: "온음(WarmWake) - 어제의 나에게서 온 아침 메시지",
+      },
+    ],
+  },
+  twitter: {
+    // Without an explicit card type the preview falls back to the small
+    // square card, which ignores the 1.91:1 image.
+    card: "summary_large_image",
   },
   appleWebApp: {
     title: "온음",
