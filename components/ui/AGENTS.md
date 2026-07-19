@@ -1,19 +1,17 @@
 ## Overview
 
 - `components/ui/` is the reusable primitive layer.
-- It contains CVA-driven components and Radix wrappers used by landing/legal surfaces.
+- It contains CVA-driven components used by landing/legal surfaces.
 
 ## Structure
 
-- Form primitives: `input.tsx`, `textarea.tsx`, `label.tsx`.
-- Action/display primitives: `button.tsx`, `badge.tsx`, `card.tsx`.
-- Interaction wrappers: `dialog.tsx`, `select.tsx`, `switch.tsx`, `tabs.tsx`, `radio-group.tsx`, `toast.tsx`.
+- Action primitives: `button.tsx`.
+- Presentation wrappers: `animate-on-scroll.tsx`.
 
 ## Where to look
 
 - Variant model and CTA behavior: `components/ui/button.tsx`.
-- Toast rendering primitives: `components/ui/toast.tsx`.
-- Generic card/surface framing: `components/ui/card.tsx`.
+- Scroll-reveal wrapper and its `AnimationVariant` union: `components/ui/animate-on-scroll.tsx`.
 
 ## Conventions
 
@@ -23,8 +21,9 @@
 
 ## Notes
 
-- This folder does not contain `use-toast`/`use-mobile` hooks; behavioral hooks live in `hooks/`.
-- For toast behavior wiring, pair `components/ui/toast.tsx` with state logic from `hooks/use-toast.ts`.
+- This layer is deliberately small; the shadcn preset components that shipped with the scaffold were removed once nothing imported them.
+- Behavioral hooks live in `hooks/`, not here.
+- `Button` is commonly used with `asChild` wrapping a `next/link` for store CTAs.
 
 ## Anti-patterns
 

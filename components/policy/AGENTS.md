@@ -8,7 +8,6 @@
 - `privacy.md` - canonical privacy policy document (Korean).
 - `service.md` - canonical terms of service document (Korean).
 - `policy-layout.tsx` - page chrome shared by both legal routes (Header, Footer, title card).
-- `policy-section.tsx` - card wrapper for individual policy sections (currently unused; see Notes).
 - `markdown-sections.tsx` - splits a markdown document on `---` and renders each section as a styled card.
 
 ## Where to look

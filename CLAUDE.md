@@ -31,9 +31,9 @@ Dependency overrides live in `pnpm-workspace.yaml` under `overrides:`, not in `p
 
 - `app/` - App Router pages (landing, privacy, terms)
 - `components/landing/` - Marketing sections (Hero, Header, Footer, feature blocks)
-- `components/policy/` - Legal page wrappers (PolicyLayout, PolicySection)
+- `components/policy/` - Legal page wrappers (PolicyLayout, MarkdownSections) and the canonical `privacy.md` / `service.md` sources
 - `components/ui/` - Design system primitives (CVA + Radix wrappers)
-- `hooks/` - Shared client hooks (`use-toast.ts`, `use-mobile.ts`)
+- `hooks/` - Shared client hooks (`use-scroll-animation.ts`)
 - `lib/utils.ts` - `cn()` helper for class merging; `lib/screens.ts` - localized screenshot path resolver
 - `scripts/` - Dev tooling: `import_tokens.ts`, `import_screenshots.sh`, `tokens.config.ts`
 - `app/globals.css` - Tailwind entry, design tokens, light/dark theme variables
@@ -49,7 +49,7 @@ Dependency overrides live in `pnpm-workspace.yaml` under `overrides:`, not in `p
 **Server/Client Split:**
 
 - Pages in `app/` remain server components
-- Only Header, theme provider, and toast hooks use `"use client"`
+- Only Header and the scroll-animation components use `"use client"`
 - Wrap interactive behavior in isolated client components when needed
 
 **Button/Link Pattern:**
@@ -81,12 +81,13 @@ Light/dark theme variables defined in `app/globals.css` using CSS custom propert
 
 This repo contains `AGENTS.md` files with detailed context for each directory:
 
-- `AGENTS.md` - Root overview and code map
+- `AGENTS.md` - Root stub pointing back to this file
 - `app/AGENTS.md` - App Router pages and metadata conventions
 - `components/AGENTS.md` - Component organization overview
 - `components/landing/AGENTS.md` - Landing section structure and patterns
+- `components/policy/AGENTS.md` - Legal page rendering and markdown sources
 - `components/ui/AGENTS.md` - Design system conventions and CVA usage
-- `hooks/AGENTS.md` - Shared client hooks (`use-toast`, `use-mobile`)
+- `hooks/AGENTS.md` - Shared client hooks (`use-scroll-animation`)
 - `lib/AGENTS.md` - Utility functions and screenshot path resolver
 - `scripts/AGENTS.md` - Token and screenshot import pipelines
 

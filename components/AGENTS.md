@@ -7,26 +7,25 @@
 
 - `landing/` - marketing sections consumed by `app/page.tsx`.
 - `policy/` - legal markdown sources (`privacy.md`, `service.md`) and rendering layer consumed by `app/privacy` and `app/terms`.
-- `ui/` - CVA + Radix wrappers (`button`, `toast`, `dialog`, `tabs`, etc.).
-- `theme-provider.tsx` - optional `next-themes` wrapper (currently not mounted by root layout).
+- `ui/` - CVA-driven primitives (`button`, `animate-on-scroll`).
 
 ## Where to look
 
 - Navigation/footer behavior: `components/landing/header.tsx`, `components/landing/footer.tsx`.
 - Legal content source of truth: `components/policy/privacy.md`, `components/policy/service.md`.
 - Legal wrapper markup: `components/policy/policy-layout.tsx`.
-- Variant extension points: `components/ui/button.tsx`, `components/ui/badge.tsx`, `components/ui/toast.tsx`.
+- Variant extension points: `components/ui/button.tsx`.
 
 ## Conventions
 
 - Keep landing sections presentational; push reusable controls into `components/ui`.
 - Use `cn()` and CVA for variant logic in primitives.
-- Reuse `PolicyLayout`/`PolicySection` instead of duplicating legal page chrome.
+- Reuse `PolicyLayout`/`MarkdownSections` instead of duplicating legal page chrome.
 
 ## Notes
 
-- `theme-provider.tsx` is available but optional; root layout currently renders without it.
 - Route pages import section components directly from this tree (`landing/` and `policy/`).
+- `ui/` is intentionally minimal; the shadcn preset primitives were removed once nothing imported them, so add a primitive back only when a real consumer exists.
 
 ## Anti-patterns
 

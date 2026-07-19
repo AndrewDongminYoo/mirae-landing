@@ -1,33 +1,31 @@
 ## Overview
 
 - `hooks/` contains shared client-side behavior hooks.
-- Current hooks: `use-mobile.ts` and `use-toast.ts`.
+- Current hooks: `use-scroll-animation.ts`.
 
 ## Structure
 
-- `use-mobile.ts` - viewport breakpoint utility returning a normalized boolean.
-- `use-toast.ts` - reducer-based toast queue/store and public helper APIs.
+- `use-scroll-animation.ts` - IntersectionObserver wrapper returning a ref and an `isInView` flag.
 
 ## Where to look
 
-- Breakpoint detection logic: `hooks/use-mobile.ts`.
-- Toast reducer/store actions: `hooks/use-toast.ts`.
+- Scroll-reveal trigger logic: `hooks/use-scroll-animation.ts`.
+- The component that consumes it: `components/ui/animate-on-scroll.tsx`.
 
 ## Code map
 
-- `use-toast.ts` exports `toast` and `useToast`, with state transition actions for add/update/dismiss/remove.
-- `use-mobile.ts` uses `window.matchMedia` with a shared breakpoint constant.
+- `useScrollAnimation<T>()` is generic over the observed element type and defaults to `HTMLDivElement`.
+- It accepts a threshold and a `triggerOnce` flag, and returns `{ ref, isInView }`.
 
 ## Conventions
 
 - Keep hooks framework-agnostic to page/section structure.
-- Export stable typed APIs (`useToast`, `toast`, `useIsMobile`) instead of leaking internals.
+- Export stable typed APIs instead of leaking internals.
 - Keep browser-only code inside effects so SSR boundaries stay safe.
 
 ## Notes
 
-- `use-mobile.ts` currently has limited direct usage; verify callers before changing breakpoint behavior.
-- `use-toast.ts` is designed to pair with `components/ui/toast.tsx` rather than owning UI rendering.
+- `AnimateOnScroll` is the only direct consumer; landing and policy sections use the component rather than the hook.
 
 ## Anti-patterns
 
