@@ -71,10 +71,11 @@ export const viewport: Viewport = {
   userScalable: false,
   viewportFit: "cover",
   colorScheme: "light",
-  themeColor: [
-    { media: "(prefers-color-scheme: dark)", color: "#fffbfe" },
-    { media: "(prefers-color-scheme: light)", color: "#1c1b1f" },
-  ],
+  // The `.dark` block in globals.css is never applied — no ThemeProvider is
+  // mounted — so the page always renders light. A single theme color matching
+  // `--background` in `:root` keeps the browser chrome in step. Restore the
+  // per-scheme array if dark mode is ever actually wired up.
+  themeColor: "#fffbfe",
 };
 
 export default function RootLayout({
