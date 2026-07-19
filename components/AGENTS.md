@@ -8,6 +8,7 @@
 - `landing/` - marketing sections consumed by `app/page.tsx`.
 - `policy/` - legal markdown sources (`privacy.md`, `service.md`) and rendering layer consumed by `app/privacy` and `app/terms`.
 - `ui/` - CVA-driven primitives (`button`, `animate-on-scroll`).
+- `google-ads-tag.tsx` - server component rendering the Google Ads `next/script` tag; mounted by `app/layout.tsx`.
 
 ## Where to look
 

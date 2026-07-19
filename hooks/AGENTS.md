@@ -15,7 +15,8 @@
 ## Code map
 
 - `useScrollAnimation<T>()` is generic over the observed element type and defaults to `HTMLDivElement`.
-- It accepts a threshold and a `triggerOnce` flag, and returns `{ ref, isInView }`.
+- It accepts `threshold`, `rootMargin`, and `triggerOnce` options, and returns `{ ref, isInView }`.
+- It reveals immediately (skipping the observer) under `prefers-reduced-motion` or when `IntersectionObserver` is missing.
 
 ## Conventions
 

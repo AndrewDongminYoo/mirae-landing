@@ -49,7 +49,7 @@ Dependency overrides live in `pnpm-workspace.yaml` under `overrides:`, not in `p
 **Server/Client Split:**
 
 - Pages in `app/` remain server components
-- Only Header and the scroll-animation components use `"use client"`
+- `"use client"` lives on the interactive/scroll-animated leaves: most `components/landing/*` sections, both `components/policy/*` renderers, and `components/ui/animate-on-scroll.tsx`
 - Wrap interactive behavior in isolated client components when needed
 
 **Button/Link Pattern:**
