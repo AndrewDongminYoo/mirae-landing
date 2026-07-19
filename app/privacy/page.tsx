@@ -7,6 +7,7 @@ import { MarkdownSections } from "@/components/policy/markdown-sections";
 import { PolicyLayout } from "@/components/policy/policy-layout";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/privacy" },
   title: "개인정보처리방침 | 온음(WarmWake)",
   description:
     "온음(돈민찌랩)이 수집, 처리, 보관하는 개인정보 항목과 이용자 권리, 안전조치, 제3자 제공 현황, 변경 고지 방식을 안내합니다.",

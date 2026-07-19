@@ -7,6 +7,7 @@ import { MarkdownSections } from "@/components/policy/markdown-sections";
 import { PolicyLayout } from "@/components/policy/policy-layout";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/terms" },
   title: "이용약관 | 온음(WarmWake)",
   description:
     "donminzzi lab이 제공하는 온음(WarmWake) 서비스 이용자와 운영자의 권리·의무, 책임, 콘텐츠 처리 기준, 분쟁 해결 방식을 정리한 이용약관.",

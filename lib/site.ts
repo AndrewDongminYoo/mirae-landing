@@ -7,3 +7,6 @@
  * substituted here.
  */
 export const SITE_URL = "https://warmwake.donminzzi.kr";
+
+export const IOS_STORE_URL = "https://apps.apple.com/app/id6758120543";
+export const ANDROID_STORE_URL = "https://play.google.com/store/apps/details?id=kr.mirae.app";
