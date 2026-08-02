@@ -126,6 +126,16 @@ const eslintConfig = [
       "@typescript-eslint/triple-slash-reference": "off",
     },
   },
+  {
+    // Keep LAST so it wins the settings merge over eslint-config-next.
+    settings: {
+      react: {
+        // Pin the React version so eslint-plugin-react skips auto-detection.
+        // detectReactVersion() calls context.getFilename(), removed in ESLint 10.
+        version: "19.2",
+      },
+    },
+  },
 ];
 
 export default eslintConfig;
