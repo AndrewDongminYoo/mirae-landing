@@ -89,11 +89,7 @@ export function Hero() {
               className="h-14 w-full max-w-xs gap-2.5 rounded-2xl bg-primary px-8 text-base font-semibold text-primary-foreground shadow-lg shadow-primary/25 transition-all duration-300 hover:scale-[1.02] hover:bg-primary/90 hover:shadow-xl hover:shadow-primary/30 sm:w-auto"
               size="lg"
             >
-              <Link
-                href={IOS_STORE_URL}
-                rel="noopener noreferrer"
-                target="_blank"
-              >
+              <Link href={IOS_STORE_URL} rel="noopener noreferrer" target="_blank">
                 <Apple className="h-5 w-5" />
                 App Store
               </Link>
@@ -105,11 +101,7 @@ export function Hero() {
               size="lg"
               variant="outline"
             >
-              <Link
-                href={ANDROID_STORE_URL}
-                rel="noopener noreferrer"
-                target="_blank"
-              >
+              <Link href={ANDROID_STORE_URL} rel="noopener noreferrer" target="_blank">
                 <Play className="h-5 w-5" />
                 Google Play
               </Link>

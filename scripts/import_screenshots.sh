@@ -29,6 +29,7 @@ for i in "${!LOCALES_SRC[@]}"; do
 
 	# Count PNG files
 	png_count=0
+	# shellcheck disable=SC2312 # find's exit status isn't checked; only its stdout enumeration matters
 	while IFS= read -r -d '' _; do
 		((png_count++)) || true
 	done < <(find "${src_dir}" -maxdepth 1 -name '*.png' -print0)
@@ -47,10 +48,12 @@ for i in "${!LOCALES_SRC[@]}"; do
 
 		# Collect source filenames for stale detection
 		declare -A src_names=()
+		# shellcheck disable=SC2312 # find's exit status isn't checked; only its stdout enumeration matters
 		while IFS= read -r -d '' src_file; do
 			src_names["$(basename "${src_file}")"]=1
 		done < <(find "${src_dir}" -maxdepth 1 -name '*.png' -print0)
 
+		# shellcheck disable=SC2312 # find's/sort's exit status isn't checked; only stdout enumeration matters
 		while IFS= read -r -d '' src_file; do
 			filename="$(basename "${src_file}")"
 			tgt_file="${tgt_dir}/${filename}"
@@ -71,6 +74,7 @@ for i in "${!LOCALES_SRC[@]}"; do
 
 		# Report stale files present in target but absent from source
 		if [[ -d ${tgt_dir} ]]; then
+			# shellcheck disable=SC2312 # find's/sort's exit status isn't checked; only stdout enumeration matters
 			while IFS= read -r -d '' tgt_file; do
 				filename="$(basename "${tgt_file}")"
 				if [[ -z ${src_names[${filename}]-} ]]; then
@@ -87,6 +91,7 @@ for i in "${!LOCALES_SRC[@]}"; do
 		find "${tgt_dir}" -maxdepth 1 -name '*.png' -delete
 		copied=0
 
+		# shellcheck disable=SC2312 # find's/sort's exit status isn't checked; only stdout enumeration matters
 		while IFS= read -r -d '' src_file; do
 			filename="$(basename "${src_file}")"
 			cp "${src_file}" "${tgt_dir}/${filename}"

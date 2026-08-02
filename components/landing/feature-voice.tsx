@@ -84,11 +84,7 @@ export function FeatureVoice() {
                   className="h-12 gap-2 rounded-xl bg-primary px-6 font-semibold text-primary-foreground shadow-lg shadow-primary/20 transition-all duration-300 hover:scale-[1.02] hover:bg-primary/90"
                   size="lg"
                 >
-                  <Link
-                    href={IOS_STORE_URL}
-                    rel="noopener noreferrer"
-                    target="_blank"
-                  >
+                  <Link href={IOS_STORE_URL} rel="noopener noreferrer" target="_blank">
                     <Apple className="h-4 w-4" />
                     App Store
                   </Link>
@@ -99,11 +95,7 @@ export function FeatureVoice() {
                   size="lg"
                   variant="outline"
                 >
-                  <Link
-                    href={ANDROID_STORE_URL}
-                    rel="noopener noreferrer"
-                    target="_blank"
-                  >
+                  <Link href={ANDROID_STORE_URL} rel="noopener noreferrer" target="_blank">
                     <Play className="h-4 w-4" />
                     Google Play
                   </Link>

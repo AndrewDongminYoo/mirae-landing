@@ -45,7 +45,7 @@ Components using Tailwind utilities (`from-accent/10`, `bg-accent/20`, `text-acc
 
 ### Directory layout (existing in `public/`)
 
-```
+```plaintext
 public/
   screens/
     ko/   # 01_alarm-ring_ko.png … 10_voice-messages-list_ko.png

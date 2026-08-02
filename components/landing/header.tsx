@@ -29,11 +29,7 @@ export function Header() {
             className="h-10 gap-2 rounded-xl bg-primary px-5 font-semibold text-primary-foreground shadow-md shadow-primary/20 transition-all hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/25"
             size="sm"
           >
-            <Link
-              href={IOS_STORE_URL}
-              rel="noopener noreferrer"
-              target="_blank"
-            >
+            <Link href={IOS_STORE_URL} rel="noopener noreferrer" target="_blank">
               <Apple className="h-4 w-4" />
               App Store
             </Link>
@@ -44,11 +40,7 @@ export function Header() {
             size="sm"
             variant="outline"
           >
-            <Link
-              href={ANDROID_STORE_URL}
-              rel="noopener noreferrer"
-              target="_blank"
-            >
+            <Link href={ANDROID_STORE_URL} rel="noopener noreferrer" target="_blank">
               <Play className="h-4 w-4" />
               Google Play
             </Link>
