@@ -9,9 +9,10 @@ overrides:
   "@babel/core": ^7.29.6 # GHSA-4x5r-pxfx-6jf8
   # GHSA-3jxr spans three major lines and both lines in this tree are affected.
   # Keep them scoped: minimatch@3 declares ^1.1.7 and would break on 5.x.
-  "brace-expansion@<1.1.17": ^1.1.17 # GHSA-3jxr-9vmj-r5cp, GHSA-mh99-v99m-4gvg
-  "brace-expansion@>=3.0.0 <5.0.8": ^5.0.8 # GHSA-3jxr-9vmj-r5cp, GHSA-mh99-v99m-4gvg
+  "brace-expansion@<1.1.18": ^1.1.18 # GHSA-3jxr-9vmj-r5cp, GHSA-mh99-v99m-4gvg, GHSA-rgw5-rvv9-x895
+  "brace-expansion@>=3.0.0 <5.0.9": ^5.0.9 # GHSA-3jxr-9vmj-r5cp, GHSA-mh99-v99m-4gvg, GHSA-rgw5-rvv9-x895
   esbuild: ^0.28.1 # GHSA-g7r4-m6w7-qqqr
   js-yaml: ^4.2.0 # GHSA-h67p-54hq-rp68
+  "nanoid@<3.3.18": ^3.3.18 # GHSA-2v37-7h3g-55p8
   postcss: ^8.5.18 # GHSA-qx2v-qp2m-jg93, GHSA-r28c-9q8g-f849
   sharp: ^0.35.0 # GHSA-f88m-g3jw-g9cj (next pins ^0.34.5; override until it bumps)
