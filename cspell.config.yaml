@@ -1,22 +1,20 @@
 version: "0.2"
 ignorePaths:
-  - node_modules/**
-  - dist/**
-  - build/**
-  - .git/**
-  - .vscode/**
-  - coverage/**
-  - "*.min.js"
-  - yarn.lock
-  - package-lock.json
   - pnpm-lock.yaml
+  - pnpm-workspace.yaml
+useGitignore: true
 dictionaryDefinitions:
   - name: custom-dictionary
     path: ./.cspell/custom-dictionary.txt
     addWords: true
 dictionaries:
+  - bash
+  - cpp-compound-words
+  - css
   - custom-dictionary
+  - en-gb
+  - npm
+  - softwareTerms
 words:
   - mirae
 ignoreWords: []
-import: []
