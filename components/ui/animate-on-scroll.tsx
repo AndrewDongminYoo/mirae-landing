@@ -6,13 +6,7 @@ import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { cn } from "@/lib/utils";
 
 export type AnimationVariant =
-  | "fade-up"
-  | "fade-down"
-  | "fade-left"
-  | "fade-right"
-  | "scale-up"
-  | "blur-in"
-  | "none";
+  "fade-up" | "fade-down" | "fade-left" | "fade-right" | "scale-up" | "blur-in" | "none";
 
 interface AnimateOnScrollProps {
   children: ReactNode;
