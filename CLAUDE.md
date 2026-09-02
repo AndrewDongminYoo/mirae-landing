@@ -13,6 +13,7 @@ pnpm dev      # Start development server
 pnpm build    # Production build
 pnpm start    # Start production server
 pnpm lint     # Run ESLint
+pnpm test:production-readiness      # Verify production headers and agent discovery files
 pnpm test:tokens                    # Run token import script tests
 pnpm knip                           # Find unused exports/files
 pnpm import:tokens                  # Sync design tokens from tokens-studio.json → globals.css
@@ -21,9 +22,9 @@ pnpm import:screenshots             # Copy app screenshots into public/screens/{
 pnpm import:screenshots:dry         # Dry-run: preview screenshot copy
 ```
 
-Package manager: pnpm (v11+)
+Package manager: pnpm 10.28.0, pinned by the `packageManager` field in `package.json`.
 
-Dependency overrides live in `pnpm-workspace.yaml` under `overrides:`, not in `package.json` — pnpm v11 ignores the `package.json` `pnpm` field.
+Dependency overrides live in `pnpm-workspace.yaml` under `overrides:`, not in `package.json`.
 
 ## Architecture
 

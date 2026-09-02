@@ -2,6 +2,7 @@
   "name": "mirae-web",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "pnpm@10.28.0",
   "scripts": {
     "build": "next build",
     "dev": "next dev",
@@ -11,10 +12,12 @@
     "import:tokens:dry": "tsx scripts/import_tokens.ts --dry-run",
     "lint": "eslint .",
     "start": "next start",
+    "test:production-readiness": "tsx --test scripts/production_readiness.test.ts",
     "test:tokens": "tsx --test scripts/import_tokens.test.ts"
   },
   "dependencies": {
     "@vercel/analytics": "2.0.1",
+    "@vercel/speed-insights": "2.0.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^1.33.0",

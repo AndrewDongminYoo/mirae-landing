@@ -1,0 +1,21 @@
+# WarmWake
+
+> WarmWake is a mobile alarm app that starts the day with a voice message that the user recorded earlier.
+
+## Public pages
+
+- [Home](https://warmwake.donminzzi.kr/): Product overview and app download links.
+- [Privacy](https://warmwake.donminzzi.kr/privacy): Privacy policy.
+- [Terms](https://warmwake.donminzzi.kr/terms): Service terms.
+- [Sitemap](https://warmwake.donminzzi.kr/sitemap.xml): Index of public pages.
+
+## App downloads
+
+- [App Store](https://apps.apple.com/app/id6758120543)
+- [Google Play](https://play.google.com/store/apps/details?id=kr.mirae.app)
+
+## Agent guidance
+
+- Public marketing and policy content is available without authentication.
+- `/alarm/*` routes redirect users to an app store and do not contain indexable content.
+- This site does not publish a public API, authentication service, MCP server, or payment endpoint.
