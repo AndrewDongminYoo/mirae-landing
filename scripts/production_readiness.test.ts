@@ -60,3 +60,16 @@ test("robots.txt publishes the approved Content Signal", async () => {
     /^User-Agent: \*\nAllow: \/\nDisallow: \/alarm\/\nContent-Signal: ai-train=no, search=yes, ai-input=yes\n\nSitemap: https:\/\/warmwake\.donminzzi\.kr\/sitemap\.xml\n$/
   );
 });
+
+test("Apple App Site Association exposes only the production app identity", async () => {
+  const association = JSON.parse(
+    await readFile(
+      new URL("../public/.well-known/apple-app-site-association", import.meta.url),
+      "utf8"
+    )
+  ) as {
+    applinks: { details: Array<{ appIDs: string[] }> };
+  };
+
+  assert.deepEqual(association.applinks.details[0]?.appIDs, ["393JTTV68D.kr.mirae.app"]);
+});
