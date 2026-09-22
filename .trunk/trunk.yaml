@@ -19,11 +19,11 @@ runtimes:
 # This is the section where you manage your linters. (https://docs.trunk.io/check/configuration)
 lint:
   disabled:
+    - grype
     - bandit
     - trivy
     - svgo
   enabled:
-    - grype@0.110.0
     - taplo@0.10.0
     - black@26.5.1
     - isort@8.0.1
@@ -39,11 +39,6 @@ lint:
     - prettier@3.9.6
     - trufflehog@3.94.3
     - yamllint@1.38.0
-  ignore:
-    - linters: [osv-scanner]
-      # https://google.github.io/osv-scanner/supported-languages-and-lockfiles/#supported-lockfilesmanifests
-      paths:
-        - pnpm-lock.yaml
 actions:
   enabled:
     - trunk-announce
