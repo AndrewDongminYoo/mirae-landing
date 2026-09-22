@@ -21,6 +21,7 @@ lint:
   disabled:
     - bandit
     - trivy
+    - svgo
   enabled:
     - grype@0.110.0
     - taplo@0.10.0
