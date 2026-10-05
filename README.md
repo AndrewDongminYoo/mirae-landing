@@ -53,3 +53,9 @@ pnpm lint
 - 대표자 링크: https://andrewdongminyoo.vercel.app
 
 필요한 정보는 위경로/컴포넌트를 참고하거나, `pnpm dev` 후 `http://localhost:3000`에서 실시간 확인할 수 있습니다.
+
+## 라이선스
+
+Copyright (c) 2026 Dongmin Yu. All rights reserved.
+소스 코드는 참고용으로만 공개되어 있으며, 오픈 소스가 아닙니다.
+저작권자의 서면 허락 없이 사용, 복제, 수정, 재배포할 수 없으며, 자세한 내용은 [`LICENSE`](LICENSE)에 있습니다.
