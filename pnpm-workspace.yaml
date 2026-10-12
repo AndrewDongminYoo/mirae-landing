@@ -9,11 +9,13 @@ overrides:
   "@babel/core": ^7.29.6 # GHSA-4x5r-pxfx-6jf8
   # GHSA-3jxr spans three major lines and both lines in this tree are affected.
   # Keep them scoped: minimatch@3 declares ^1.1.7 and would break on 5.x.
-  "brace-expansion@<1.1.18": ^1.1.18 # GHSA-3jxr-9vmj-r5cp, GHSA-mh99-v99m-4gvg, GHSA-rgw5-rvv9-x895
-  "brace-expansion@>=3.0.0 <5.0.9": ^5.0.9 # GHSA-3jxr-9vmj-r5cp, GHSA-mh99-v99m-4gvg, GHSA-rgw5-rvv9-x895
+  "brace-expansion@<1.1.21": ^1.1.21 # GHSA-3jxr-9vmj-r5cp, GHSA-mh99-v99m-4gvg, GHSA-rgw5-rvv9-x895, GHSA-6j4f-fj2g-mc7p, GHSA-qhr7-859c-m2p7, GHSA-q2hr-2g5m-vwhr
+  "brace-expansion@>=3.0.0 <5.0.12": ^5.0.12 # GHSA-3jxr-9vmj-r5cp, GHSA-mh99-v99m-4gvg, GHSA-rgw5-rvv9-x895, GHSA-6j4f-fj2g-mc7p, GHSA-qhr7-859c-m2p7, GHSA-q2hr-2g5m-vwhr
   browserslist: ^4.28.7 # GHSA-c83g-rgw3-j3cx, GHSA-73wf-gq98-2v4g
   esbuild: ^0.28.1 # GHSA-g7r4-m6w7-qqqr
   "js-yaml@>=4.0.0 <4.3.2": ^4.3.2 # GHSA-h67p-54hq-rp68, GHSA-2883-xcg3-v3hh
   "nanoid@<3.3.18": ^3.3.18 # GHSA-2v37-7h3g-55p8
   postcss: ^8.5.18 # GHSA-qx2v-qp2m-jg93, GHSA-r28c-9q8g-f849
   "sharp@<0.35.4": ^0.35.4 # GHSA-f88m-g3jw-g9cj, GHSA-rgj7-g3m4-5g8c
+  "smol-toml@<1.9.0": ^1.9.0 # GHSA-r4xh-jqrq-34v2
+  "source-map-js@<1.2.2": ^1.2.2 # GHSA-68fv-2mgg-jv7q
