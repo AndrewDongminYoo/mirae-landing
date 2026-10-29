@@ -22,9 +22,15 @@ pnpm import:screenshots             # Copy app screenshots into public/screens/{
 pnpm import:screenshots:dry         # Dry-run: preview screenshot copy
 ```
 
-Package manager: pnpm 10.28.0, pinned by the `packageManager` field in `package.json`.
+Package manager: pnpm 10.34.9, pinned by the `packageManager` field in `package.json`; CI uses Node.js 22.23.4.
+Use `corepack pnpm` when no standalone pnpm shim is installed.
 
 Dependency overrides live in `pnpm-workspace.yaml` under `overrides:`, not in `package.json`.
+Keep TypeScript 6.0.3 within the installed parser's `<6.1` peer range.
+Run token tests sequentially with `MIRAE_APP_DIR=` for repository-only verification; they temporarily replace and restore CSS.
+Run `python3 -B .trunk/configs/tests/test_trufflehog_to_sarif.py` for the separate offline tooling regressions.
+The configured scanner disables provider verification and updates, and its local SARIF adapter retains decoded findings.
+Use `trunk check --all --no-fix` for the approved full maintenance gate and explicit file paths for formatting.
 
 ## Architecture
 
@@ -110,3 +116,11 @@ Simple bug fixes and small, self-contained changes can be done directly on `main
 - TypeScript strict mode enabled
 - Use `@/*` path alias for imports
 - Global styles live in `app/globals.css` and images in `public/screens` — do not introduce `styles/globals.css` or `public/images`
+
+## Scanner Consumer Boundary
+
+Trunk 1.25.0 treats the SARIF artifact URI field as a native filesystem path.
+Keep that path literal: percent-escaped and file-scheme URIs silently drop findings in the tested consumer.
+This adapter targets Trunk and does not promise portable SARIF URI handling.
+The reader declares Unicode code-point columns; the scanner also fails on scan errors through `--fail-on-scan-errors`.
+Retain the native unusual-path, corrupted-path, scanner-error and clean controls when changing this boundary.

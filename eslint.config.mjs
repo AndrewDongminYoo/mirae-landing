@@ -12,7 +12,7 @@ import tseslint from "typescript-eslint";
 
 /**
  * Flat ESLint config for a Next.js 16 + TypeScript + Tailwind stack.
- * - Uses type-aware rules (`project` set to tsconfig.json).
+ * - Uses recommended TypeScript syntax rules without project type services.
  * - Enforces Next.js Core Web Vitals rules.
  * - Adds React Hooks safety and import/JSX sorting.
  */
@@ -132,7 +132,7 @@ const eslintConfig = [
       react: {
         // Pin the React version so eslint-plugin-react skips auto-detection.
         // detectReactVersion() calls context.getFilename(), removed in ESLint 10.
-        version: "19.2",
+        version: "19.3",
       },
     },
   },
