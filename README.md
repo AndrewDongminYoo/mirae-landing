@@ -64,6 +64,11 @@ corepack pnpm lint
 오프라인 비밀 검사 어댑터는 `python3 -B .trunk/configs/tests/test_trufflehog_to_sarif.py`, 전체 품질 검사는 `trunk check --all --no-fix`로 실행합니다.
 TypeScript는 현재 parser의 `<6.1` 호환 범위에 맞춰 6.0.3을 유지합니다.
 
+Trunk 1.25.0은 SARIF의 경로 필드를 파일 경로로 읽으므로, 특수문자가 있는 경로도 인코딩하지 않고 전달합니다.
+URI 인코딩이 탐지 결과를 누락시키는 것을 실제 Trunk 대조군으로 확인했습니다.
+이 어댑터는 Trunk용이며 범용 SARIF URI 호환성을 보장하지 않습니다.
+스캔 오류도 실패로 처리하며, 열 위치는 Unicode 코드 포인트 단위로 명시합니다.
+
 ## 라이선스
 
 Copyright (c) 2026 Dongmin Yu. All rights reserved.

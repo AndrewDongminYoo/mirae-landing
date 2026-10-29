@@ -55,6 +55,24 @@ class TruffleHogReaderTest(unittest.TestCase):
     def location(self, result):
         return result["locations"][0]["physicalLocation"]
 
+    def test_unicode_code_point_columns_are_declared(self):
+        filename = self.fixture("unicode-columns.txt", "😀 synthetic-secret\n")
+        completed = self.invoke(json.dumps(self.finding(filename)) + "\n")
+        self.assertEqual(completed.returncode, 0, completed.stderr)
+        run = json.loads(completed.stdout)["runs"][0]
+        self.assertEqual(run.get("columnKind"), "unicodeCodePoints")
+        self.assertEqual(
+            self.location(run["results"][0])["region"],
+            {"startLine": 1, "startColumn": 3},
+        )
+
+    def test_reserved_filename_remains_a_native_trunk_path(self):
+        filename = self.fixture("space #50% 한글.txt", "synthetic-secret\n")
+        result = self.convert([self.finding(filename)])[0]
+        emitted = self.location(result)["artifactLocation"]["uri"]
+        self.assertEqual(emitted, filename)
+        self.assertTrue(Path(emitted).samefile(filename))
+
     def test_encoded_finding_survives_without_literal_location(self):
         raw = "synthetic-secret"
         filename = self.fixture("encoded.txt", base64.b64encode(raw.encode()).decode())

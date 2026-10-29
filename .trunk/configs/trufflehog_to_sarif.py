@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Convert offline TruffleHog filesystem JSONL without discarding findings."""
+"""Convert offline TruffleHog filesystem JSONL for Trunk's SARIF consumer."""
 
 import json
 import sys
@@ -7,6 +7,7 @@ from pathlib import Path
 
 
 def physical_location(filename, secret, line_hint, files, offsets):
+    # Trunk 1.25.0 resolves this as a native path and drops URI-escaped paths.
     location = {"artifactLocation": {"uri": filename}}
     if filename not in files:
         try:
@@ -96,7 +97,11 @@ def main():
                 "$schema": "https://json.schemastore.org/sarif-2.1.0.json",
                 "version": "2.1.0",
                 "runs": [
-                    {"tool": {"driver": {"name": "TruffleHog"}}, "results": results}
+                    {
+                        "tool": {"driver": {"name": "TruffleHog"}},
+                        "columnKind": "unicodeCodePoints",
+                        "results": results,
+                    }
                 ],
             }
         )

@@ -32,3 +32,11 @@ Do not run real screenshot or token synchronization.
 
 Global Trunk and hook precedent from `wiki/concepts/trunk-quality-gate-agent.md` and `raw/sources/.claude/rules/no-verify-discipline.md` confirmed the bounded no-fix direction.
 The source commit was `9670d54de3076c5239713f54900c7a855bd18478`; freshness and the returned window remain UNVERIFIED/PARTIAL.
+
+## Hosted Scanner Boundary Repair
+
+Declare the reader column unit as Unicode code points and cover an astral-character prefix.
+Keep native artifact paths for Trunk 1.25.0; URI escaping causes the tested consumer to drop findings, so this adapter does not claim portable SARIF URI handling.
+The reserved-path control must surface the exact file and range, and a corrupted-path mutant must be rejected by that association check.
+Enable `--fail-on-scan-errors` and require controlled missing/unreadable input to fail without a finding, in both ordinary and CI Trunk modes.
+Retain the inherited SARIF/stdout/finding-exit-code settings, which are already proven by actual encoded and literal controls.

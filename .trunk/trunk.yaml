@@ -50,7 +50,7 @@ lint:
     - name: trufflehog
       commands:
         - name: lint
-          run: trufflehog filesystem --json --fail --no-verification --no-update ${target}
+          run: trufflehog filesystem --json --fail --fail-on-scan-errors --no-verification --no-update ${target}
           direct_configs:
             - .trunk/configs/trufflehog_to_sarif.py
           parser:

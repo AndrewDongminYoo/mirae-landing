@@ -116,3 +116,11 @@ Simple bug fixes and small, self-contained changes can be done directly on `main
 - TypeScript strict mode enabled
 - Use `@/*` path alias for imports
 - Global styles live in `app/globals.css` and images in `public/screens` — do not introduce `styles/globals.css` or `public/images`
+
+## Scanner Consumer Boundary
+
+Trunk 1.25.0 treats the SARIF artifact URI field as a native filesystem path.
+Keep that path literal: percent-escaped and file-scheme URIs silently drop findings in the tested consumer.
+This adapter targets Trunk and does not promise portable SARIF URI handling.
+The reader declares Unicode code-point columns; the scanner also fails on scan errors through `--fail-on-scan-errors`.
+Retain the native unusual-path, corrupted-path, scanner-error and clean controls when changing this boundary.
