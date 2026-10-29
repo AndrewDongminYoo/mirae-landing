@@ -22,9 +22,15 @@ pnpm import:screenshots             # Copy app screenshots into public/screens/{
 pnpm import:screenshots:dry         # Dry-run: preview screenshot copy
 ```
 
-Package manager: pnpm 10.28.0, pinned by the `packageManager` field in `package.json`.
+Package manager: pnpm 10.34.9, pinned by the `packageManager` field in `package.json`; CI uses Node.js 22.23.4.
+Use `corepack pnpm` when no standalone pnpm shim is installed.
 
 Dependency overrides live in `pnpm-workspace.yaml` under `overrides:`, not in `package.json`.
+Keep TypeScript 6.0.3 within the installed parser's `<6.1` peer range.
+Run token tests sequentially with `MIRAE_APP_DIR=` for repository-only verification; they temporarily replace and restore CSS.
+Run `python3 -B .trunk/configs/tests/test_trufflehog_to_sarif.py` for the separate offline tooling regressions.
+The configured scanner disables provider verification and updates, and its local SARIF adapter retains decoded findings.
+Use `trunk check --all --no-fix` for the approved full maintenance gate and explicit file paths for formatting.
 
 ## Architecture
 
