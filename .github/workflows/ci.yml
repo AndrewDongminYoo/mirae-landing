@@ -31,5 +31,7 @@ jobs:
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - run: pnpm lint
+      - run: pnpm exec knip
       - run: pnpm test:production-readiness
       - run: pnpm test:tokens
+      - run: pnpm build
