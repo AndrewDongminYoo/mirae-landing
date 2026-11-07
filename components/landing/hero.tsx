@@ -7,7 +7,7 @@ import Link from "next/link";
 import { AnimateOnScroll } from "@/components/ui/animate-on-scroll";
 import { Button } from "@/components/ui/button";
 import { getScreenPath } from "@/lib/screens";
-import { ANDROID_STORE_URL, IOS_STORE_URL } from "@/lib/site";
+import { ANDROID_STORE_URL, APP_VERSION, IOS_STORE_URL } from "@/lib/site";
 
 export function Hero() {
   return (
@@ -28,7 +28,7 @@ export function Hero() {
         <AnimateOnScroll animation="scale-up" duration={500}>
           <div className="hover-lift mb-6 inline-flex cursor-default items-center gap-2 rounded-full bg-white/60 px-4 py-2 text-sm font-medium text-foreground/80 shadow-sm backdrop-blur-sm">
             <Sparkles className="h-4 w-4 text-primary" />
-            <span>v1.8.0 - 더욱 정교해진 음성 알람</span>
+            <span>v{APP_VERSION} - 더욱 정교해진 음성 알람</span>
           </div>
         </AnimateOnScroll>
 
@@ -58,7 +58,7 @@ export function Hero() {
             시끄러운 알람 대신, 내가 남긴 따뜻한 음성 메시지로 하루를 시작하세요.
             <br className="hidden sm:block" />
             <span className="text-foreground/60">
-              8번의 업데이트로 더욱 안정적이고 정교해진 음성 알람 경험을 만나보세요.
+              꾸준한 업데이트로 더욱 안정적이고 정교해진 음성 알람 경험을 만나보세요.
             </span>
           </p>
         </AnimateOnScroll>

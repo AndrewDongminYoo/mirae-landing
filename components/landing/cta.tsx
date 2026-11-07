@@ -3,12 +3,13 @@
 import { CheckCircle, RefreshCw, Shield, Sparkles } from "lucide-react";
 
 import { AnimateOnScroll } from "@/components/ui/animate-on-scroll";
+import { APP_VERSION } from "@/lib/site";
 
 const updates = [
   {
     icon: Shield,
     title: "안정적인 알람 실행",
-    description: "8번의 업데이트로 검증된 신뢰성",
+    description: "꾸준히 개선해 온 알람 경험",
   },
   {
     icon: Sparkles,
@@ -79,7 +80,7 @@ export function CTA() {
         {/* Version info */}
         <AnimateOnScroll animation="scale-up" delay={700}>
           <div className="animate-pulse-glow mt-10 inline-flex items-center gap-2 rounded-full bg-muted px-4 py-2 text-sm text-muted-foreground">
-            <span className="font-semibold text-primary">v1.8.0</span>
+            <span className="font-semibold text-primary">v{APP_VERSION}</span>
             <span>최신 버전</span>
           </div>
         </AnimateOnScroll>
