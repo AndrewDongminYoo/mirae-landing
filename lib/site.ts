@@ -11,5 +11,7 @@ export const SITE_URL = "https://warmwake.donminzzi.kr";
 export const IOS_STORE_URL = "https://apps.apple.com/app/id6758120543";
 export const ANDROID_STORE_URL = "https://play.google.com/store/apps/details?id=kr.mirae.app";
 
-// Public App Store and Google Play release, verified on 2026-11-07.
-export const APP_VERSION = "2.1.4";
+// Google Play is public; App Store 2.2.0 is awaiting review as of 2026-11-07.
+export const APP_VERSION = "2.2.0";
+export const APP_RELEASE_STATUS =
+  "Android는 2.2.0을 이용할 수 있어요. iOS는 업데이트 심사 중이에요.";

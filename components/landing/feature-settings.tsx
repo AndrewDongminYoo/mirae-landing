@@ -1,6 +1,6 @@
 "use client";
 
-import { Clock, Moon, Palette, Volume2 } from "lucide-react";
+import { CheckCircle, Clock, Palette, Volume2 } from "lucide-react";
 import Image from "next/image";
 
 import { AnimateOnScroll } from "@/components/ui/animate-on-scroll";
@@ -38,9 +38,9 @@ export function FeatureSettings() {
 
             <AnimateOnScroll animation="fade-right" delay={200}>
               <p className="mt-6 max-w-lg text-base leading-relaxed text-pretty text-muted-foreground lg:mx-0">
-                볼륨, 스누즈 간격, 반복 요일 등 다양한 설정을 조절할 수 있어요.{" "}
+                다시 울림 간격과 기상 확인 여부, 확인까지의 대기 시간을 알람마다 설정할 수 있어요.{" "}
                 <span className="text-foreground/70">
-                  라이트/다크 모드는 물론, 시간대별 자동 전환 기능도 제공합니다.
+                  따로 바꾸지 않은 알람은 공통 설정을 따라요.
                 </span>
               </p>
             </AnimateOnScroll>
@@ -54,15 +54,15 @@ export function FeatureSettings() {
                 </li>
                 <li className="hover-lift flex items-center gap-2 rounded-full bg-white/60 px-4 py-2.5 text-sm font-medium text-foreground shadow-sm backdrop-blur-sm transition-all duration-200">
                   <Clock className="h-4 w-4 text-primary" />
-                  스누즈 설정
+                  알람별 다시 울림
                 </li>
                 <li className="hover-lift flex items-center gap-2 rounded-full bg-white/60 px-4 py-2.5 text-sm font-medium text-foreground shadow-sm backdrop-blur-sm transition-all duration-200">
                   <Palette className="h-4 w-4 text-primary" />
                   테마 변경
                 </li>
                 <li className="hover-lift flex items-center gap-2 rounded-full bg-white/60 px-4 py-2.5 text-sm font-medium text-foreground shadow-sm backdrop-blur-sm transition-all duration-200">
-                  <Moon className="h-4 w-4 text-primary" />
-                  자동 다크 모드
+                  <CheckCircle className="h-4 w-4 text-primary" />
+                  알람별 기상 확인
                 </li>
               </ul>
             </AnimateOnScroll>
