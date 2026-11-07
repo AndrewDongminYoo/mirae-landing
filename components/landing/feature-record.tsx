@@ -106,8 +106,8 @@ export function FeatureRecord() {
             <AnimateOnScroll animation="fade-up" delay={400}>
               <div className="hover-lift mt-8 rounded-2xl border border-primary/20 bg-primary/5 p-4 transition-all duration-200 hover:border-primary/30 lg:max-w-md">
                 <p className="text-sm text-foreground/70">
-                  <span className="font-semibold text-primary">v1.5.0 업데이트</span> - 실시간 파형
-                  시각화로 녹음 품질을 바로 확인하고, 더욱 정확한 음성 메시지를 녹음할 수 있어요.
+                  <span className="font-semibold text-primary">녹음 상태를 한눈에</span> - 실시간
+                  파형으로 녹음 상태를 확인하며 음성 메시지를 남길 수 있어요.
                 </p>
               </div>
             </AnimateOnScroll>

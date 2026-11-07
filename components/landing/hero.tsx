@@ -7,7 +7,7 @@ import Link from "next/link";
 import { AnimateOnScroll } from "@/components/ui/animate-on-scroll";
 import { Button } from "@/components/ui/button";
 import { getScreenPath } from "@/lib/screens";
-import { ANDROID_STORE_URL, APP_VERSION, IOS_STORE_URL } from "@/lib/site";
+import { ANDROID_STORE_URL, APP_RELEASE_STATUS, APP_VERSION, IOS_STORE_URL } from "@/lib/site";
 
 export function Hero() {
   return (
@@ -28,7 +28,7 @@ export function Hero() {
         <AnimateOnScroll animation="scale-up" duration={500}>
           <div className="hover-lift mb-6 inline-flex cursor-default items-center gap-2 rounded-full bg-white/60 px-4 py-2 text-sm font-medium text-foreground/80 shadow-sm backdrop-blur-sm">
             <Sparkles className="h-4 w-4 text-primary" />
-            <span>v{APP_VERSION} - 더욱 정교해진 음성 알람</span>
+            <span>v{APP_VERSION} - 알람마다 나에게 맞게</span>
           </div>
         </AnimateOnScroll>
 
@@ -55,10 +55,10 @@ export function Hero() {
 
         <AnimateOnScroll animation="fade-up" delay={300}>
           <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-pretty text-foreground/70 sm:text-lg md:text-xl">
-            시끄러운 알람 대신, 내가 남긴 따뜻한 음성 메시지로 하루를 시작하세요.
+            시끄러운 알람 대신, 내가 남긴 따뜻한 음성 메시지로 하루를 시작하세요.{" "}
             <br className="hidden sm:block" />
             <span className="text-foreground/60">
-              꾸준한 업데이트로 더욱 안정적이고 정교해진 음성 알람 경험을 만나보세요.
+              알람마다 다시 울림과 기상 확인을 설정해 나에게 맞는 아침을 준비해 보세요.
             </span>
           </p>
         </AnimateOnScroll>
@@ -107,6 +107,7 @@ export function Hero() {
               </Link>
             </Button>
           </div>
+          <p className="mx-auto mt-4 max-w-md text-sm text-foreground/60">{APP_RELEASE_STATUS}</p>
         </AnimateOnScroll>
 
         {/* Phone Mockups */}

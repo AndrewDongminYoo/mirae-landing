@@ -1,30 +1,30 @@
 "use client";
 
-import { CheckCircle, RefreshCw, Shield, Sparkles } from "lucide-react";
+import { CheckCircle, Clock, Shield, Sparkles } from "lucide-react";
 
 import { AnimateOnScroll } from "@/components/ui/animate-on-scroll";
-import { APP_VERSION } from "@/lib/site";
+import { APP_RELEASE_STATUS, APP_VERSION } from "@/lib/site";
 
 const updates = [
   {
-    icon: Shield,
-    title: "안정적인 알람 실행",
-    description: "꾸준히 개선해 온 알람 경험",
+    icon: Clock,
+    title: "알람별 다시 울림",
+    description: "알람마다 간격을 정할 수 있어요.",
   },
   {
     icon: Sparkles,
-    title: "실시간 파형 시각화",
-    description: "녹음 품질을 바로 확인",
+    title: "시간대에 맞는 인사",
+    description: "음성 메시지가 없을 때도 인사를 전해요.",
   },
   {
-    icon: RefreshCw,
-    title: "지속적인 개선",
-    description: "사용자 피드백 반영 업데이트",
+    icon: Shield,
+    title: "알람별 기상 확인",
+    description: "사용 여부와 대기 시간을 정해요.",
   },
   {
     icon: CheckCircle,
     title: "100% 무료 핵심 기능",
-    description: "광고 없는 순수한 경험",
+    description: "광고 없이 하루를 시작해요.",
   },
 ];
 
@@ -81,8 +81,11 @@ export function CTA() {
         <AnimateOnScroll animation="scale-up" delay={700}>
           <div className="animate-pulse-glow mt-10 inline-flex items-center gap-2 rounded-full bg-muted px-4 py-2 text-sm text-muted-foreground">
             <span className="font-semibold text-primary">v{APP_VERSION}</span>
-            <span>최신 버전</span>
+            <span>업데이트</span>
           </div>
+          <p className="mx-auto mt-4 max-w-md text-sm text-muted-foreground">
+            {APP_RELEASE_STATUS}
+          </p>
         </AnimateOnScroll>
       </div>
     </section>
