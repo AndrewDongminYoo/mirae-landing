@@ -51,7 +51,7 @@ export function FinalCTA() {
 
             <AnimateOnScroll animation="fade-right" delay={200}>
               <p className="mt-6 max-w-md text-base leading-relaxed text-background/70 lg:mx-0">
-                8번의 업데이트로 더욱 안정적이고 정교해진 음성 알람. 지금 바로 다운로드하고 내일
+                꾸준한 업데이트로 더욱 안정적이고 정교해진 음성 알람. 지금 바로 다운로드하고 내일
                 아침 새로운 시작을 경험하세요.
               </p>
             </AnimateOnScroll>
