@@ -50,6 +50,16 @@ export function Footer() {
                   문의하기
                 </Link>
               </li>
+              <li>
+                <Link
+                  className="text-sm text-muted-foreground transition-colors hover:text-primary"
+                  href="https://donminzzi.kr"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  만든 사람: 유동민
+                </Link>
+              </li>
             </ul>
           </nav>
         </div>
