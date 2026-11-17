@@ -5,6 +5,21 @@ allowBuilds:
 
 # Security patches for transitive deps (Dependabot GHSA alerts).
 # Drop an entry once the parent package ships the patched version itself.
+minimumReleaseAgeExclude:
+  - "@typescript-eslint/eslint-plugin@8.73.0"
+  - "@typescript-eslint/parser@8.73.0"
+  - "@typescript-eslint/project-service@8.73.0"
+  - "@typescript-eslint/tsconfig-utils@8.73.0"
+  - "@typescript-eslint/type-utils@8.73.0"
+  - "@typescript-eslint/typescript-estree@8.73.0"
+  - "@typescript-eslint/utils@8.73.0"
+  - browserslist@4.29.6
+  - typescript-eslint@8.73.0
+  - update-browserslist-db@1.4.0
+  - "@typescript-eslint/scope-manager@8.73.0"
+  - "@typescript-eslint/types@8.73.0"
+  - "@typescript-eslint/visitor-keys@8.73.0"
+
 overrides:
   "@babel/core": ^7.29.7 # GHSA-4x5r-pxfx-6jf8
   # GHSA-3jxr spans three major lines and both lines in this tree are affected.
