@@ -63,6 +63,11 @@ export const metadata: Metadata = {
     statusBarStyle: "black",
     capable: true,
   },
+  verification: {
+    other: {
+      "naver-site-verification": "f01ba27722e3ec6f4d8bc83f7a1065ecb2717e70",
+    },
+  },
 };
 
 export const viewport: Viewport = {
